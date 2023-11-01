@@ -57,9 +57,6 @@ const cursorChar = ref('|')
 setInterval(() => {
 	cursorChar.value = cursorChar.value === '|' ? '\u00A0' : '|'
 }, 250)
-
-let toggle = document.querySelector('#toggle')
-let menu = document.querySelector('#menu')
 </script>
 
 <template>

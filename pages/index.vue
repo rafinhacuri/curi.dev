@@ -2,18 +2,22 @@
 const { x, y } = useMouse()
 const { width, height } = useWindowSize()
 
-const dx = computed(() => Math.abs(x.value - width.value / 2))
-const dy = computed(() => Math.abs(y.value - height.value / 2))
-const distance = computed(() => Math.sqrt(dx.value * dx.value + dy.value * dy.value))
-const size = computed(() => Math.max(300 - distance.value / 3, 150))
-const opacity = computed(() => Math.min(Math.max(size.value / 300, 0.7), 1))
-const brightness = computed(() => Math.max(100 - distance.value / 5, 50))
+const isLargeScreen = useMediaQuery('(min-width: 781px)')
+
+const dx = computed(() => isLargeScreen.value ? Math.abs(x.value - width.value / 2) : 0)
+const dy = computed(() => isLargeScreen.value ? Math.abs(y.value - height.value / 2) : 0)
+const distance = computed(() => isLargeScreen.value ? Math.sqrt(dx.value * dx.value + dy.value * dy.value) : 0)
+const size = computed(() => isLargeScreen.value ? Math.max(300 - distance.value / 3, 150) : 0)
+const opacity = computed(() => isLargeScreen.value ? Math.min(Math.max(size.value / 300, 0.7), 1) : 0)
+const brightness = computed(() => isLargeScreen.value ? Math.max(100 - distance.value / 5, 50) : 0)
 const logo = ref<HTMLElement>()
 const logoGradient = computed(() => {
-	const rect = logo.value?.getBoundingClientRect()
-	const xPos = x.value - (rect?.left ?? 0)
-	const yPos = y.value - (rect?.top ?? 0)
-	return `radial-gradient(circle at ${xPos}px ${yPos}px, black 30%, transparent 100%)`
+	if (isLargeScreen.value) {
+		const rect = logo.value?.getBoundingClientRect()
+		const xPos = x.value - (rect?.left ?? 0)
+		const yPos = y.value - (rect?.top ?? 0)
+		return `radial-gradient(circle at ${xPos}px ${yPos}px, black 30%, transparent 100%)`
+	}
 })
 
 const typeValue = ref('')
@@ -78,7 +82,7 @@ watchEffect(() => {
 		<h2
 			ref="logo"
 			class="font-bold text-center text-5xl dark:text-white transition-500 absolute inset-0 flex items-center justify-center"
-			:style="{ maskImage: logoGradient, filter: `brightness(${brightness}%)` }"
+			:style="{ maskImage: logoGradient, filter: isLargeScreen ? `brightness(${brightness}%)` : 'brightness(100%)' }"
 		>
 			<div>
 				<p class="text-white">

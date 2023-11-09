@@ -58,7 +58,7 @@ const menuItems = [
 				trailing-icon="false"
 				@click="showMenu = true"
 			/>
-			<UModal v-model="showMenu" prevent-close class="fixed inset-0 flex items-center justify-center">
+			<UModal v-model="showMenu" prevent-close>
 				<UCard :ui="{ ring: '', divide: 'divide-y divide-gray-100 dark:divide-gray-800' }">
 					<template #header>
 						<div class="flex items-center justify-between">

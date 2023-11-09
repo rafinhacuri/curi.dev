@@ -2,17 +2,17 @@
 const { x, y } = useMouse()
 const { width, height } = useWindowSize()
 
-const isMobile = useMediaQuery('(min-width: 781px)')
+const isMobile = useMediaQuery('(max-width: 780px)')
 
-const dx = computed(() => isMobile.value ? Math.abs(x.value - width.value / 2) : 0)
-const dy = computed(() => isMobile.value ? Math.abs(y.value - height.value / 2) : 0)
-const distance = computed(() => isMobile.value ? Math.sqrt(dx.value * dx.value + dy.value * dy.value) : 0)
-const size = computed(() => isMobile.value ? Math.max(300 - distance.value / 3, 150) : 0)
-const opacity = computed(() => isMobile.value ? Math.min(Math.max(size.value / 300, 0.7), 1) : 0)
-const brightness = computed(() => isMobile.value ? Math.max(100 - distance.value / 5, 50) : 0)
+const dx = computed(() => isMobile.value ? 0 : Math.abs(x.value - width.value / 2))
+const dy = computed(() => isMobile.value ? 0 : Math.abs(y.value - height.value / 2))
+const distance = computed(() => isMobile.value ? 0 : Math.sqrt(dx.value * dx.value + dy.value * dy.value))
+const size = computed(() => isMobile.value ? 0 : Math.max(300 - distance.value / 3, 150))
+const opacity = computed(() => isMobile.value ? 0 : Math.min(Math.max(size.value / 300, 0.7), 1))
+const brightness = computed(() => isMobile.value ? 0 : Math.max(100 - distance.value / 5, 50))
 const logo = ref<HTMLElement>()
 const logoGradient = computed(() => {
-	if (isMobile.value) {
+	if (!isMobile.value) {
 		const rect = logo.value?.getBoundingClientRect()
 		const xPos = x.value - (rect?.left ?? 0)
 		const yPos = y.value - (rect?.top ?? 0)
@@ -22,14 +22,15 @@ const logoGradient = computed(() => {
 
 const typeValue = ref('')
 const typeStatus = ref(false)
-const typeArrayDesktop = ref(['desenvolvedor web', 'full-stack', 'cursando ciencia da computaçao'])
-const typeArrayCel = ref(['desenvolvedor', 'full-stack'])
-const typeArray = isMobile ? typeArrayCel : typeArrayDesktop
+const typeArrayDesktop = ref(['Desenvolvedor Web', 'Full-Stack', 'Cursando Ciências da Computação'])
+const typeArrayCel = ref(['Desenvolvedor', 'Full-stack'])
+const typeArray = computed(() => (isMobile.value ? typeArrayCel.value : typeArrayDesktop.value))
 const typingSpeed = 100
 const erasingSpeed = 100
 const newTextDelay = 500
 let typeArrayIndex = 0
 let charIndex = 0
+
 function typeText() {
 	if (charIndex < typeArray.value[typeArrayIndex].length) {
 		if (!typeStatus.value)
@@ -43,6 +44,7 @@ function typeText() {
 		setTimeout(eraseText, newTextDelay)
 	}
 }
+
 function eraseText() {
 	if (charIndex > 0) {
 		if (!typeStatus.value)
@@ -67,10 +69,6 @@ onMounted(() => {
 		typeText()
 	}, newTextDelay + 200)
 })
-
-watchEffect(() => {
-	typeArray.value = isMobile ? ['desenvolvedor', 'full-stack'] : ['desenvolvedor web', 'full-stack', 'cursando ciencia da computaçao']
-})
 </script>
 
 <template>
@@ -84,7 +82,7 @@ watchEffect(() => {
 		<h2
 			ref="logo"
 			class="font-bold text-center text-5xl dark:text-white transition-500 absolute inset-0 flex items-center justify-center"
-			:style="{ maskImage: logoGradient, filter: isMobile ? `brightness(${brightness}%)` : 'brightness(100%)' }"
+			:style="{ maskImage: logoGradient, filter: isMobile ? 'brightness(1)' : `brightness(${brightness}%)` }"
 		>
 			<div>
 				<p class="text-white">

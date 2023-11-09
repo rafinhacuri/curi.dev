@@ -4,8 +4,8 @@ const isDark = computed({
 	get() {
 		return colorMode.value === 'dark'
 	},
-	set() {
-		colorMode.preference = colorMode.value === 'dark' ? 'light' : 'dark'
+	set(value) {
+		colorMode.preference = value ? 'dark' : 'light'
 	},
 })
 const showMenu = ref(false)

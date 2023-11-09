@@ -18,8 +18,8 @@ if (process.client) {
 
 <template>
 	<Navbar />
-	<!-- @contextmenu.prevent="nope" -->
-	<main class="min-h-full ">
+
+	<main class="min-h-full " @contextmenu.prevent="nope">
 		<slot />
 		<img src="/nao.gif" alt="nope emoji gif" class="absolute -translate-x-[75%] -translate-y-1/2 h-32 cursor-none z-50 rounded-md" :class="{ hidden }" :style="{ left: `${x}px`, top: `${y}px` }" @contextmenu.prevent>
 	</main>

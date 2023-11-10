@@ -11,5 +11,5 @@ export default defineNuxtConfig({
 	},
 	app: {
 		pageTransition: { name: 'slide-right', mode: 'out-in' },
-	},
+	}
 })

@@ -1,4 +1,11 @@
 export default defineNuxtConfig({
+	site: {
+		url: 'https://curi.dev.br/',
+		name: 'Rafael Curi',
+		description: 'Full Stack Developer | IT Technician | Persona Fan',
+		defaultLocale: 'pt-br',
+
+	},
 	devtools: { enabled: true },
 	devServer: {
 		port: 3000,

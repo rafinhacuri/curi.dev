@@ -1,14 +1,18 @@
-.slide-left-enter-active, .slide-left-leave-active, .slide-right-enter-active, .slide-right-leave-active
+.fade-down-enter-active, .fade-down-leave-active, .fade-up-enter-active, .fade-up-leave-active
     transition: all 0.2s
-.slide-left-enter-from
+
+.fade-down-enter-from
     opacity: 0
-    transform: translate(50px, 0)
-.slide-left-leave-to
+    transform: translate(0, -50px)
+
+.fade-down-leave-to
     opacity: 0
-    transform: translate(-50px, 0)
-.slide-right-enter-from
+    transform: translate(0, 50px)
+
+.fade-up-enter-from
     opacity: 0
-    transform: translate(-50px, 0)
-.slide-right-leave-to
+    transform: translate(0, 50px)
+
+.fade-up-leave-to
     opacity: 0
-    transform: translate(50px, 0)
+    transform: translate(0, -50px)

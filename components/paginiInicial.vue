@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import 'animate.css'
+
 const { x, y } = useMouse()
 const { width, height } = useWindowSize()
 
@@ -69,11 +71,17 @@ onMounted(() => {
 		typeText()
 	}, newTextDelay + 200)
 })
+function tada() {
+	if (logo.value) {
+		logo.value.classList.add('animate__animated', 'animate__tada')
+		setTimeout(() => logo.value?.classList.remove('animate__animated', 'animate__tada'), 1000)
+	}
+}
 </script>
 
 <template>
-	<Section class="cursor-none overflow-hidden">
-		<div class="h-[calc(100vh-64px)] bg-[url('/fundo.gif')] blur-sm" />
+	<Section class="cursor-none overflow-hidden relative">
+		<div class="h-[calc(100vh-64px)] bg-[url('/fundo.gif')] blur-sm  " />
 		<div
 			class="absolute bg-blue-400/50 dark:bg-sky-200/30 rounded-full -translate-x-[75%] -translate-y-1/2 blur-2xl dark:blur-3xl"
 			:style="{ left: `${x}px`, top: `${y}px`, width: `${size}px`, height: `${size}px`, opacity }"
@@ -82,7 +90,7 @@ onMounted(() => {
 		<h2
 			ref="logo"
 			class="font-bold text-center text-5xl dark:text-white transition-500 absolute inset-0 flex items-center justify-center"
-			:style="{ maskImage: logoGradient, filter: isMobile ? 'brightness(1)' : `brightness(${brightness}%)` }"
+			:style="{ maskImage: logoGradient, filter: isMobile ? 'brightness(1)' : `brightness(${brightness}%)` }" @click="tada"
 		>
 			<div>
 				<p class="text-white">

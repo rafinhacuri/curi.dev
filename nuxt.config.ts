@@ -10,6 +10,7 @@ export default defineNuxtConfig({
 		icons: ['skill-icons', 'logos', 'fa6-brands'],
 	},
 	app: {
-		pageTransition: { name: 'slide-right', mode: 'out-in' },
-	}
+		pageTransition: { name: 'fade-down', mode: 'out-in' },
+	},
+
 })

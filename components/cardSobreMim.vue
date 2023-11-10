@@ -6,7 +6,7 @@ const isMobile = useMediaQuery('(max-width: 780px)')
 	<div class="  bg-[url('/sobreMim.gif')]  flex justify-center items-center p-10 h-full">
 		<div class="bg-slate-200 dark:bg-slate-950 rounded-lg p-9 space-y-7 " :class="isMobile ? 'w-full' : 'w-[calc(100%-300px)]'">
 			<div class="flex justify-center items-center ">
-				<img src="fotopessoal.png" alt="minha foto" class=" w-36 rounded-full">
+				<img src="/fotopessoal.png" alt="minha-foto" class=" w-36 rounded-full">
 			</div>
 			<span class=" flex justify-center items-center space-x-4">
 				<p>🧑‍💻Desenvolvedor Web Full-Stack</p>

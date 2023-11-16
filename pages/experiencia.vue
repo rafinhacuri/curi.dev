@@ -7,7 +7,7 @@ const isMobile = useMediaQuery('(max-width: 780px)')
 <template>
 	<Section class=" h-[calc(100vh-64px)] dark:bg-slate-800 flex items-center justify-center">
 		<Card>
-			<div class="space-y-20">
+			<div class="space-y-20 m-3">
 				<div class=" dark:bg-slate-700 bg-slate-300 p-10 rounded-xl cursor-wait " @mouseover="!isMobile ? estudo = false : ''" @mouseleave="estudo = true">
 					<Progress
 						title="Academico"

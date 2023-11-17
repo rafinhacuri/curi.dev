@@ -1,5 +1,19 @@
 <script setup lang="ts">
 const isMobile = useMediaQuery('(max-width: 780px)')
+if (process.client) {
+	window.addEventListener('scroll', () => {
+		const btnScrollTop = document.getElementById('scrollTop')
+		if (btnScrollTop) {
+			if (window.pageYOffset === 0)
+				btnScrollTop.style.opacity = '0'
+			else btnScrollTop.style.opacity = '100%'
+		}
+	})
+}
+
+function ScrollTopDiv() {
+	scrollTo({ top: 0 - 65, behavior: 'smooth' })
+}
 </script>
 
 <template>
@@ -31,5 +45,13 @@ const isMobile = useMediaQuery('(max-width: 780px)')
 				Como um desenvolvedor web full-stack, eu sou apaixonado por codificação e jogos. Tenho experiência em Node.js, Vue.js, Nuxt.js, TypeScript e Tailwind CSS. Estou no início da minha carreira de desenvolvedor e adoro jogos como Valorant e Mobile Legends. Estou me esforçando para me tornar um excelente desenvolvedor back-end e atualmente estou aprendendo sobre Git, GitHub e GitLab
 			</p>
 		</div>
+		<UButton
+			id="scrollTop"
+			color="blue"
+			class="fixed z-50 transition-opacity ease-in-out rounded-full opacity-0 animate-bounce bottom-5 right-5"
+			variant="solid"
+			icon="i-heroicons-arrow-small-up-solid"
+			@click="ScrollTopDiv"
+		/>
 	</div>
 </template>

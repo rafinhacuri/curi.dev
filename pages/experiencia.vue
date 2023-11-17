@@ -2,20 +2,6 @@
 const estudo = ref(true)
 const trabalho = ref(true)
 const isMobile = useMediaQuery('(max-width: 780px)')
-if (process.client) {
-	window.addEventListener('scroll', () => {
-		const btnScrollTop = document.getElementById('scrollTop')
-		if (btnScrollTop) {
-			if (window.pageYOffset === 0)
-				btnScrollTop.style.opacity = '0'
-			else btnScrollTop.style.opacity = '100%'
-		}
-	})
-}
-
-function ScrollTopDiv() {
-	scrollTo({ top: 0 - 65, behavior: 'smooth' })
-}
 </script>
 
 <template>
@@ -42,13 +28,5 @@ function ScrollTopDiv() {
 		</Card>
 		<img src="/image/estudo.gif" alt="gif de estudo" class="absolute w-64 right-1 bottom-1 transform -scale-x-100" :class="{ hidden: estudo }">
 		<img src="/image/trabalho.gif" alt="gif de trabalho" class="absolute w-64 left-1 top-20 transform -scale-x-100" :class="{ hidden: trabalho }">
-		<UButton
-			id="scrollTop"
-			color="blue"
-			class="fixed z-50 transition-opacity ease-in-out rounded-full opacity-0 animate-bounce bottom-5 right-5"
-			variant="solid"
-			icon="i-heroicons-arrow-small-up-solid"
-			@click="ScrollTopDiv"
-		/>
 	</div>
 </template>

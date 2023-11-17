@@ -12,7 +12,7 @@ export default defineNuxtConfig({
 		host: 'http://localhost',
 	},
 	css: ['~/assets/global.sass'],
-	modules: ['@nuxt/ui', '@vueuse/nuxt'],
+	modules: ['@nuxt/ui', '@vueuse/nuxt', 'nuxt-icon'],
 	ui: {
 		icons: ['skill-icons', 'logos', 'fa6-brands'],
 	},

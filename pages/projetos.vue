@@ -1,7 +1,11 @@
+<script setup lang="ts">
+const projetos = [
+	{ titulo: 'Mesonpi CBPF', img: '/image/mesonpi.png', descricao: 'Site do centro brazileiro de pesquisas fisicas', url: 'https://mesonpi.cbpf.br/' },
+]
+</script>
+
 <template>
-	<div class="h-[calc(100vh-64px)] bg-[url('/desenvolvimento.gif')] flex items-center justify-center">
-		<div class="bg-slate-700 p-10 text-3xl font-semibold rounded-2xl cursor-help">
-			<p>Pagina em desenvolvimento volte mais tarde.</p>
-		</div>
-	</div>
+	<section class="bg-white dark:bg-slate-800 h-screen">
+		<projetoCard :items="projetos" />
+	</section>
 </template>

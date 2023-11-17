@@ -81,7 +81,7 @@ function tada() {
 
 <template>
 	<Section class="cursor-none overflow-hidden relative">
-		<div class="h-[calc(100vh-64px)] bg-[url('/fundo.gif')] blur-sm  " />
+		<div class="h-[calc(100vh-64px)] bg-[url('/image/fundo.gif')] blur-sm  " />
 		<div
 			class="absolute bg-blue-400/50 dark:bg-sky-200/30 rounded-full -translate-x-[75%] -translate-y-1/2 blur-2xl dark:blur-3xl"
 			:style="{ left: `${x}px`, top: `${y}px`, width: `${size}px`, height: `${size}px`, opacity }"

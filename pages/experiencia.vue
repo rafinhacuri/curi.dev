@@ -5,9 +5,9 @@ const isMobile = useMediaQuery('(max-width: 780px)')
 </script>
 
 <template>
-	<div class=" h-screen dark:bg-slate-800 flex items-center justify-center">
+	<div class="h-screen dark:bg-gray-800 bg-white flex items-center justify-center">
 		<div class="space-y-20 p-3">
-			<div class=" dark:bg-slate-700 bg-slate-300 p-10 rounded-xl cursor-wait " @mouseover="!isMobile ? estudo = false : ''" @mouseleave="estudo = true">
+			<div class="bg-gray-900 p-10 rounded-xl cursor-wait transition duration-500 ease-in-out transform hover:-translate-y-1 hover:scale-110" @mouseover="!isMobile ? estudo = false : ''" @mouseleave="estudo = true">
 				<Progress
 					title="Academico"
 					location="Universidade Veiga de Almeida"
@@ -15,7 +15,7 @@ const isMobile = useMediaQuery('(max-width: 780px)')
 					subtitle="Ciência da Computação"
 				/>
 			</div>
-			<div class=" dark:bg-slate-700 bg-slate-300 p-10 rounded-xl cursor-wait " @mouseover="!isMobile ? trabalho = false : ''" @mouseleave="trabalho = true">
+			<div class="bg-gray-900 p-10 rounded-xl cursor-wait transition duration-500 ease-in-out transform hover:-translate-y-1 hover:scale-110" @mouseover="!isMobile ? trabalho = false : ''" @mouseleave="trabalho = true">
 				<Progress
 					title="Profissional"
 					location="Centro Brazileiro de Pesquisas Fisicas"

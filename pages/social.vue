@@ -1,7 +1,24 @@
+<script setup lang="ts">
+const midias = ref([
+	{ href: 'mailto:rafael@curi.dev.br', icon: 'line-md:email-opened', text: 'E-mail' },
+	{ href: 'https://github.com/rafinhacuri', icon: 'line-md:github', text: 'Github' },
+	{
+		href: 'https://www.linkedin.com/in/rafael-curi-a4a837292/',
+		icon: 'line-md:linkedin',
+		text: 'LinkedIn',
+	},
+	{
+		href: 'https://www.instagram.com/rafinha_curi/',
+		icon: 'line-md:instagram',
+		text: 'Instagram',
+	},
+])
+</script>
+
 <template>
-	<div class="h-[calc(100vh-64px)] bg-[url('/image/desenvolvimento.gif')] flex items-center justify-center">
-		<div class="bg-slate-700 p-10 text-3xl font-semibold rounded-2xl cursor-help">
-			<p>Pagina em desenvolvimento volte mais tarde.</p>
+	<div class="h-screen dark:bg-slate-800 bg-white flex justify-center items-center">
+		<div class="bg-gray-400 dark:bg-slate-900 w-[300px] space-y-4 rounded-xl m-5 lg:mx-60 p-4">
+			<CardCtt v-for="midia in midias" :key="midia.href" :href="midia.href" :icon="midia.icon" :text="midia.text" />
 		</div>
 	</div>
 </template>

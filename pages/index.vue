@@ -80,27 +80,29 @@ function tada() {
 </script>
 
 <template>
-	<Section class="cursor-none overflow-hidden relative">
-		<div class="h-[calc(100vh-64px)] bg-[url('/image/fundo.gif')] blur-sm  " />
-		<div
-			class="absolute bg-blue-400/50 dark:bg-sky-200/30 rounded-full -translate-x-[75%] -translate-y-1/2 blur-2xl dark:blur-3xl"
-			:style="{ left: `${x}px`, top: `${y}px`, width: `${size}px`, height: `${size}px`, opacity }"
-		/>
+	<section>
+		<div class="cursor-none overflow-hidden relative">
+			<div class="h-[calc(100vh-64px)] bg-[url('/image/fundo.gif')] blur-sm  " />
+			<div
+				class="absolute bg-blue-400/50 dark:bg-sky-200/30 rounded-full -translate-x-[75%] -translate-y-1/2 blur-2xl dark:blur-3xl"
+				:style="{ left: `${x}px`, top: `${y}px`, width: `${size}px`, height: `${size}px`, opacity }"
+			/>
 
-		<h2
-			ref="logo"
-			class="font-bold text-center text-5xl dark:text-white transition-500 absolute inset-0 flex items-center justify-center"
-			:style="{ maskImage: logoGradient, filter: isMobile ? 'brightness(1)' : `brightness(${brightness}%)` }" @click="tada"
-		>
-			<div>
-				<p class="text-white">
-					Rafael Curi
-				</p>
-				<span class="inline-block mr-[-15px] text-white pr-4">{{ typeValue }}</span>
-				<span class="cursor inline-block text-white">|</span>
-			</div>
-		</h2>
-	</Section>
+			<h2
+				ref="logo"
+				class="font-bold text-center text-5xl dark:text-white transition-500 absolute inset-0 flex items-center justify-center"
+				:style="{ maskImage: logoGradient, filter: isMobile ? 'brightness(1)' : `brightness(${brightness}%)` }" @click="tada"
+			>
+				<div>
+					<p class="text-white">
+						Rafael Curi
+					</p>
+					<span class="inline-block mr-[-15px] text-white pr-4">{{ typeValue }}</span>
+					<span class="cursor inline-block text-white">|</span>
+				</div>
+			</h2>
+		</div>
+	</section>
 </template>
 
 <style scoped lang="sass">

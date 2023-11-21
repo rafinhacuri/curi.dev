@@ -5,7 +5,7 @@ const projetos = [
 </script>
 
 <template>
-	<section class="bg-white dark:bg-slate-800 h-screen">
+	<div class="bg-white dark:bg-slate-800 h-screen">
 		<projetoCard :items="projetos" />
-	</section>
+	</div>
 </template>

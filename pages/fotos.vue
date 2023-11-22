@@ -19,10 +19,10 @@ const categories = ref([
 
 <template>
 	<section>
-		<div class="bg-slate-900 lg:h-screen sm:h-full p-8">
+		<div class="dark:bg-slate-900 bg-white lg:h-screen sm:h-full p-8">
 			<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-				<div v-for="(category, index) in categories" :key="index" class="rounded-lg overflow-hidden shadow-lg p-3 bg-slate-800">
-					<h2 class="text-xl font-bold text-white mb-4 italic">
+				<div v-for="(category, index) in categories" :key="index" class="rounded-lg overflow-hidden shadow-lg p-3 dark:bg-slate-800 bg-slate-300">
+					<h2 class="text-xl font-bold text-black dark:text-white mb-4 italic">
 						{{ category.title }} <Icon class="text-2xl" :name="category.icon" />
 					</h2>
 					<SwiperCard :items="category.items" />

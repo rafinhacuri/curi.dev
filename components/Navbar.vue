@@ -36,8 +36,8 @@ const menuItems = [
 		<div class="transition-all duration-500 ease-in-out rounded-md hover:bg-slate-300 dark:hover:bg-slate-500 mr-4 md:block flex items-center justify-center">
 			<ClientOnly>
 				<span class="bg group navbar-link text-2xl  cursor-pointer" @click="isDark = !isDark">
-					<Icon v-if="!isDark" name="line-md:moon-to-sunny-outline-transition" class="m-2 hover:none" />
-					<Icon v-else name="line-md:sunny-outline-to-moon-transition" class="m-2 hover:none" />
+					<Icon v-if="!isDark" name="line-md:moon-alt-to-sunny-outline-loop-transition" class="m-2 hover:none" />
+					<Icon v-else name="line-md:sunny-outline-to-moon-loop-transition" class="m-2 hover:none" />
 				</span>
 				<template #fallback>
 					<USkeleton
@@ -49,14 +49,7 @@ const menuItems = [
 		</div>
 
 		<div class="md:hidden flex items-center text-black dark:text-white ">
-			<UButton
-				icon="i-heroicons-bars-3-20-solid"
-				size="xl"
-				color="white"
-				variant="ghost"
-				trailing-icon="false"
-				@click="showMenu = true"
-			/>
+			<Icon name="line-md:menu" class="text-2xl mr-4 cursor-pointer" @click="showMenu = true" />
 			<UModal v-model="showMenu" prevent-close>
 				<UCard :ui="{ ring: '', divide: 'divide-y divide-gray-100 dark:divide-gray-800' }">
 					<template #header>

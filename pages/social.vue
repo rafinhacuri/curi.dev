@@ -1,7 +1,7 @@
 <script setup lang="ts">
 const midias = ref([
 	{ href: 'mailto:rafael@curi.dev.br', icon: 'line-md:email-opened', text: 'E-mail' },
-	{ href: 'https://github.com/rafinhacuri', icon: 'line-md:github', text: 'Github' },
+	{ href: 'https://github.com/rafinhacuri', icon: 'line-md:github-loop', text: 'Github' },
 	{
 		href: 'https://www.linkedin.com/in/rafael-curi-a4a837292/',
 		icon: 'line-md:linkedin',

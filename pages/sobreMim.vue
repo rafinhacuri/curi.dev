@@ -1,4 +1,6 @@
 <script setup lang="ts">
+const { t } = useI18n()
+
 const isMobile = useMediaQuery('(max-width: 780px)')
 </script>
 
@@ -11,27 +13,27 @@ const isMobile = useMediaQuery('(max-width: 780px)')
 						<img src="/image/fotopessoal.png" alt="minha-foto" class=" w-36 rounded-full">
 					</div>
 					<span class=" flex justify-center items-center space-x-4">
-						<p>🧑‍💻Desenvolvedor Web Full-Stack</p>
-						<p>🎮Amante de jogos</p>
-						<p>🧑Adoro Codar</p>
+						<p>{{ t('sobre.titulo1') }}</p>
+						<p>{{ t('sobre.titulo2') }}</p>
+						<p>{{ t('sobre.titulo3') }}</p>
 					</span>
 
 					<h2 class="font-bold text-center">
-						💼 Competencias:
+						{{ t('sobre.titulo4') }}
 					</h2>
 					<ol class="space-y-4">
-						<li>🚀 Media experiência em Node.js, Vue.js e Nuxt.js</li>
-						<li>💡 Mediano em TypeScript e proficiente Tailwind CSS</li>
-						<li>🌐 Começando minha carreira de dev</li>
-						<li>🎮 Adoro jogos como valorant e mobile legends</li>
-						<li>📊 Em busca de me desenvolver como um bom dev back-end</li>
-						<li>📂 Aprendendo sobre Git, GitHub e GitLab</li>
+						<li>{{ t('sobre.subtitulo1') }}</li>
+						<li>{{ t('sobre.subtitulo2') }}</li>
+						<li>{{ t('sobre.subtitulo3') }}</li>
+						<li>{{ t('sobre.subtitulo4') }}</li>
+						<li>{{ t('sobre.subtitulo5') }}</li>
+						<li>{{ t('sobre.subtitulo6') }}</li>
 					</ol>
 					<h2 class="font-bold ">
-						📜 Resumo:
+						{{ t('sobre.titulo5') }}
 					</h2>
 					<p>
-						Como um desenvolvedor web full-stack, eu sou apaixonado por codificação e jogos. Tenho experiência em Node.js, Vue.js, Nuxt.js, TypeScript e Tailwind CSS. Estou no início da minha carreira de desenvolvedor e adoro jogos como Valorant e Mobile Legends. Estou me esforçando para me tornar um excelente desenvolvedor back-end e atualmente estou aprendendo sobre Git, GitHub e GitLab
+						{{ t('sobre.descricao') }}
 					</p>
 				</div>
 			</div>

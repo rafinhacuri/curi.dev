@@ -1,7 +1,9 @@
 <script setup lang="ts">
-const projetos = [
-	{ titulo: 'Mesonpi CBPF', img: '/image/mesonpi.png', descricao: 'Site do centro brazileiro de pesquisas fisicas', url: 'https://mesonpi.cbpf.br/' },
-]
+const { t } = useI18n()
+
+const projetos = computed(() => [
+	{ titulo: t('projetos.titulo1'), img: '/image/mesonpi.png', descricao: t('projetos.subtitulo1'), url: 'https://mesonpi.cbpf.br/' },
+])
 </script>
 
 <template>

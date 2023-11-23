@@ -1,4 +1,6 @@
 <script setup lang="ts">
+const { t } = useI18n()
+
 const imagensPessoal = ref([
 	{ img: '/fotosPessoal/1.jpg' },
 	{ img: '/fotosPessoal/2.jpg' },
@@ -8,12 +10,16 @@ const imagensPessoal = ref([
 	{ img: '/fotosPessoal/6.jpg' },
 	{ img: '/fotosPessoal/7.jpg' },
 ])
+const title1 = computed(() => t('foto.titulo1'))
+const title2 = computed(() => t('foto.titulo2'))
+const title3 = computed(() => t('foto.titulo3'))
+const title4 = computed(() => t('foto.titulo4'))
 
 const categories = ref([
-	{ title: 'Foto gerais', icon: 'line-md:image-twotone', items: imagensPessoal },
-	{ title: 'Amores', icon: 'line-md:heart-filled', items: imagensPessoal },
-	{ title: 'Família', icon: 'line-md:person', items: imagensPessoal },
-	{ title: 'Viagens', icon: 'line-md:map-marker', items: imagensPessoal },
+	{ title: title1, icon: 'line-md:image-twotone', items: imagensPessoal },
+	{ title: title2, icon: 'line-md:heart-filled', items: imagensPessoal },
+	{ title: title3, icon: 'line-md:person', items: imagensPessoal },
+	{ title: title4, icon: 'line-md:map-marker', items: imagensPessoal },
 ])
 </script>
 

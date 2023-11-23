@@ -1,6 +1,8 @@
 <script setup lang="ts">
 import 'animate.css'
 
+const { t } = useI18n()
+
 const { x, y } = useMouse()
 const { width, height } = useWindowSize()
 
@@ -24,8 +26,8 @@ const logoGradient = computed(() => {
 
 const typeValue = ref('')
 const typeStatus = ref(false)
-const typeArrayDesktop = ref(['Desenvolvedor Web', 'Full-Stack', 'Cursando Ciência da Computação'])
-const typeArrayCel = ref(['Desenvolvedor', 'Full-stack'])
+const typeArrayDesktop = ref([t('index.subtitulo1'), t('index.subtitulo2'), t('index.subtitulo3')])
+const typeArrayCel = ref([t('index.subtitulo4'), t('index.subtitulo5')])
 const typeArray = computed(() => (isMobile.value ? typeArrayCel.value : typeArrayDesktop.value))
 const typingSpeed = 100
 const erasingSpeed = 100
@@ -71,12 +73,22 @@ onMounted(() => {
 		typeText()
 	}, newTextDelay + 200)
 })
+
 function tada() {
 	if (logo.value) {
 		logo.value.classList.add('animate__animated', 'animate__tada')
-		setTimeout(() => logo.value?.classList.remove('animate__animated', 'animate__tada'), 1000)
+		setTimeout(() => {
+			logo.value?.classList.remove('animate__animated')
+		}, 3000)
 	}
 }
+
+onMounted(() => {
+	if (logo.value) {
+		logo.value.classList.add('animate__animated', 'animate__jackInTheBox')
+		setTimeout(() => logo.value?.classList.remove('animate__animated', 'animate__jackInTheBox'), 1000)
+	}
+})
 </script>
 
 <template>

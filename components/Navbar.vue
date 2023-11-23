@@ -1,4 +1,25 @@
 <script setup lang="ts">
+const { t, locale } = useI18n()
+const language = useCookie('language')
+const computedLanguage = computed({
+	get() {
+		return locale.value
+	},
+	set(val) {
+		locale.value = val
+		language.value = val
+	},
+})
+
+if (language.value === 'pt')
+	computedLanguage.value = 'pt'
+
+function changeLanguage() {
+	if (computedLanguage.value === 'en')
+		return computedLanguage.value = 'pt'
+	computedLanguage.value = 'en'
+}
+
 const colorMode = useColorMode()
 const isDark = computed({
 	get() {
@@ -10,15 +31,15 @@ const isDark = computed({
 })
 
 const showMenu = ref(false)
-const menuItems = [
-	{ name: 'Início', route: '/' },
-	{ name: 'Sobre mim', route: '/sobreMim' },
-	{ name: 'Experiência', route: '/experiencia' },
-	{ name: 'Certificados', route: '/certificados' },
-	{ name: 'Projetos', route: '/projetos' },
-	{ name: 'Fotos', route: '/fotos' },
-	{ name: 'Social', route: '/social' },
-]
+const menuItems = computed(() => [
+	{ name: t('navbar.inicio'), route: '/' },
+	{ name: t('navbar.sobre'), route: '/sobreMim' },
+	{ name: t('navbar.experiencia'), route: '/experiencia' },
+	{ name: t('navbar.certificado'), route: '/certificados' },
+	{ name: t('navbar.projetos'), route: '/projetos' },
+	{ name: t('navbar.fotos'), route: '/fotos' },
+	{ name: t('navbar.social'), route: '/social' },
+])
 </script>
 
 <template>
@@ -33,6 +54,19 @@ const menuItems = [
 				</li>
 			</ul>
 		</nav>
+		<ClientOnly>
+			<span class="hidden md:flex group navbar-link cursor-pointer text-lg transition-all duration-500 ease-in-out rounded-md " @click="changeLanguage">
+
+				<Icon :name="computedLanguage === 'pt' ? 'flag:br-4x3' : 'flag:lr-4x3'" class="mr-2" />
+
+			</span>
+			<template #fallback>
+				<USkeleton
+					class="w-8 h-8 mr-3"
+					:ui="{ rounded: 'rounded-full', background: 'bg-gray-300 dark:bg-gray-600' }"
+				/>
+			</template>
+		</ClientOnly>
 		<div class="transition-all duration-500 ease-in-out rounded-md hover:bg-slate-300 dark:hover:bg-slate-500 mr-4 md:block flex items-center justify-center">
 			<ClientOnly>
 				<span class="bg group navbar-link text-2xl  cursor-pointer" @click="isDark = !isDark">
@@ -66,6 +100,13 @@ const menuItems = [
 								<NuxtLink :to="item.route" @click="showMenu = false">
 									{{ item.name }}
 								</NuxtLink>
+							</li>
+							<li>
+								<span class="group navbar-link cursor-pointer text-lg transition-all duration-500 ease-in-out rounded-md mb-1" @click="changeLanguage">
+
+									<Icon :name="computedLanguage === 'pt' ? 'flag:br-4x3' : 'flag:lr-4x3'" class="mr-2 text-xl" />
+
+								</span>
 							</li>
 						</ul>
 					</nav>

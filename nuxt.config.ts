@@ -3,7 +3,10 @@ export default defineNuxtConfig({
 		url: 'https://curi.dev.br/',
 		name: 'Rafael Curi',
 		description: 'Full Stack Developer | IT Technician | Persona Fan',
-		defaultLocale: 'pt-br',
+		defaultLocale: 'en',
+		identity: {
+			type: 'Person',
+		},
 	},
 	devtools: { enabled: true },
 	devServer: {
@@ -14,7 +17,7 @@ export default defineNuxtConfig({
 	modules: ['@nuxt/ui', '@nuxtseo/module', '@vueuse/nuxt', 'nuxt-icon', 'nuxt-swiper', '@nuxtjs/i18n'],
 	i18n: {
 		baseUrl: 'https://curi.dev.br/',
-		defaultLocale: 'pt-br',
+		defaultLocale: 'en',
 		langDir: 'locales',
 		locales: [
 			{ code: 'en', iso: 'en-US', name: 'English (US)', file: 'en.ts' },

@@ -13,6 +13,7 @@ const computedLanguage = computed({
 
 if (language.value === 'pt')
 	computedLanguage.value = 'pt'
+computedLanguage.value = 'en'
 
 function changeLanguage() {
 	if (computedLanguage.value === 'en')

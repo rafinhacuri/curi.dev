@@ -13,7 +13,7 @@ const computedLanguage = computed({
 
 if (language.value === 'pt')
 	computedLanguage.value = 'pt'
-computedLanguage.value = 'en'
+else computedLanguage.value = 'en'
 
 function changeLanguage() {
 	if (computedLanguage.value === 'en')
@@ -44,12 +44,12 @@ const menuItems = computed(() => [
 </script>
 
 <template>
-	<div class="dark:bg-slate-900 bg-white bg-transparent flex sticky justify-between items-center transition-all duration-500 ease-in-out z-50">
+	<div class="dark:bg-slate-900 bg-white bg-transparent h-[65px] flex sticky justify-between items-center transition-all duration-500 ease-in-out z-50">
 		<ClientOnly>
 			<img :src="!isDark ? '/image/logo.png' : '/image/logo-branca.png'" alt="Logo do site" class="w-30 h-12 m-2 ml-3">
 			<template #fallback>
 				<USkeleton
-					class="w-8 h-8 mr-3"
+					class="w-8 h-8 ml-3"
 					:ui="{ rounded: 'rounded-full', background: 'bg-gray-300 dark:bg-gray-600' }"
 				/>
 			</template>

@@ -34,6 +34,7 @@ export default defineNuxtConfig({
 	},
 	app: {
 		head: {
+			titleTemplate: '%s | Rafael Curi',
 			meta: [
 				{ property: 'og:image', content: '/og.jpg' },
 			],

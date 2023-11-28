@@ -44,7 +44,15 @@ const menuItems = computed(() => [
 
 <template>
 	<div class="dark:bg-slate-900 bg-white bg-transparent flex sticky justify-between items-center transition-all duration-500 ease-in-out z-50">
-		<img :src="!isDark ? '/image/logo.png' : '/image/logo-branca.png'" alt="Logo do site" class="w-30 h-12 m-2 ml-3">
+		<ClientOnly>
+			<img :src="!isDark ? '/image/logo.png' : '/image/logo-branca.png'" alt="Logo do site" class="w-30 h-12 m-2 ml-3">
+			<template #fallback>
+				<USkeleton
+					class="w-8 h-8 mr-3"
+					:ui="{ rounded: 'rounded-full', background: 'bg-gray-300 dark:bg-gray-600' }"
+				/>
+			</template>
+		</ClientOnly>
 		<nav class="flex justify-center flex-grow">
 			<ul class="hidden md:flex gap-8">
 				<li v-for="item in menuItems" :key="item.name" class="link link-underline link-underline-black dark:text-white text-black font-mono cursor-pointer">

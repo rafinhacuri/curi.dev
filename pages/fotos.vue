@@ -10,6 +10,36 @@ const imagensPessoal = ref([
 	{ img: '/fotosPessoal/6.jpg' },
 	{ img: '/fotosPessoal/7.jpg' },
 ])
+const imagensAmores = ref([
+	{ img: '/amores/1.jpg' },
+	{ img: '/amores/2.jpg' },
+	{ img: '/amores/3.jpg' },
+	{ img: '/amores/4.jpg' },
+	{ img: '/amores/5.jpg' },
+	{ img: '/amores/6.jpg' },
+	{ img: '/amores/7.jpg' },
+	{ img: '/amores/8.jpg' },
+	{ img: '/amores/9.jpg' },
+	{ img: '/amores/10.jpg' },
+])
+const imagensFamilia = ref([
+	{ img: '/familia/1.jpg' },
+	{ img: '/familia/2.jpg' },
+	{ img: '/familia/3.jpg' },
+	{ img: '/familia/4.jpg' },
+	{ img: '/familia/5.jpg' },
+	{ img: '/familia/6.jpg' },
+	{ img: '/familia/7.jpg' },
+	{ img: '/familia/8.jpg' },
+])
+const imagensViagem = ref([
+	{ img: '/viagem/1.jpg' },
+	{ img: '/viagem/2.jpg' },
+	{ img: '/viagem/3.jpg' },
+	{ img: '/viagem/4.jpg' },
+	{ img: '/viagem/5.jpg' },
+	{ img: '/viagem/6.jpg' },
+])
 const title1 = computed(() => t('foto.titulo1'))
 const title2 = computed(() => t('foto.titulo2'))
 const title3 = computed(() => t('foto.titulo3'))
@@ -17,9 +47,9 @@ const title4 = computed(() => t('foto.titulo4'))
 
 const categories = ref([
 	{ title: title1, icon: 'line-md:image-twotone', items: imagensPessoal },
-	{ title: title2, icon: 'line-md:heart-filled', items: imagensPessoal },
-	{ title: title3, icon: 'line-md:person', items: imagensPessoal },
-	{ title: title4, icon: 'line-md:map-marker', items: imagensPessoal },
+	{ title: title2, icon: 'line-md:heart-filled', items: imagensAmores },
+	{ title: title3, icon: 'line-md:person', items: imagensFamilia },
+	{ title: title4, icon: 'line-md:map-marker', items: imagensViagem },
 ])
 </script>
 

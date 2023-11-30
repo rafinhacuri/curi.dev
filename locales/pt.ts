@@ -15,6 +15,7 @@ export default {
 		local2: 'Centro Brazileiro de Pesquisas Fisicas',
 		descricao1: 'Ciência da Computação',
 		descricao2: 'Desenvolvedor Web',
+		tempo: '2023 - Presente',
 	},
 	foto: {
 		titulo1: 'Foto gerais ',

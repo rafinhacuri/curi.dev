@@ -15,6 +15,7 @@ export default {
 		local2: 'Brazilian Center for Physical Research',
 		descricao1: 'Computer Science',
 		descricao2: 'Web Developer',
+		tempo: '2023 - Present',
 	},
 	foto: {
 		titulo1: 'General Photos',

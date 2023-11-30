@@ -31,18 +31,19 @@ function ScrollTopDiv() {
 </script>
 
 <template>
-	<Navbar />
-	<!-- @contextmenu.prevent="nope" -->
-	<main class="min-h-full ">
-		<slot />
-		<img src="/image/nao.gif" alt="nope emoji gif" class="absolute -translate-x-[75%] -translate-y-1/2 h-32 cursor-none z-50 rounded-md" :class="{ hidden }" :style="{ left: `${x}px`, top: `${y}px` }" @contextmenu.prevent>
-		<UButton
-			id="scrollTop"
-			color="blue"
-			class="fixed z-50 transition-opacity ease-in-out rounded-full opacity-0 animate-bounce bottom-5 right-5"
-			variant="solid"
-			icon="i-heroicons-arrow-small-up-solid"
-			@click="ScrollTopDiv"
-		/>
-	</main>
+	<div @contextmenu.prevent="nope">
+		<Navbar />
+		<main class="min-h-full ">
+			<slot />
+			<img src="/image/nao.gif" alt="nope emoji gif" class="absolute -translate-x-[75%] -translate-y-1/2 h-32 cursor-none z-50 rounded-md" :class="{ hidden }" :style="{ left: `${x}px`, top: `${y}px` }" @contextmenu.prevent>
+			<UButton
+				id="scrollTop"
+				color="blue"
+				class="fixed z-50 transition-opacity ease-in-out rounded-full opacity-0 animate-bounce bottom-5 right-5"
+				variant="solid"
+				icon="i-heroicons-arrow-small-up-solid"
+				@click="ScrollTopDiv"
+			/>
+		</main>
+	</div>
 </template>

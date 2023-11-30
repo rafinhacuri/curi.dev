@@ -14,31 +14,22 @@ const slides = ref(items.map((item) => {
 </script>
 
 <template>
-	<ClientOnly>
-		<Swiper
-			class="w-60 h-60"
-			:modules="[SwiperAutoplay, SwiperEffectCards]"
-			:loop="true"
-			effect="cards"
-			:autoplay="{
-				delay: 4000,
-				disableOnInteraction: true,
-			}"
+	<Swiper
+		class="w-60 h-60"
+		:modules="[SwiperAutoplay, SwiperEffectCards]"
+		:loop="true"
+		effect="cards"
+		:autoplay="{
+			delay: 4000,
+			disableOnInteraction: true,
+		}"
+	>
+		<SwiperSlide
+			v-for="slide in slides"
+			:key="slide.img"
+			class="rounded-xl "
 		>
-			<SwiperSlide
-				v-for="slide in slides"
-				:key="slide.img"
-				class="rounded-xl "
-			>
-				<img :src="slide.img" class="h-full w-full" alt="foto pessoal">
-			</SwiperSlide>
-		</swiper>
-		<template #fallback>
-			<div class="flex justify-center items-center ">
-				<USkeleton
-					class="w-60 h-60 rounded-xl pb-3 bg-gray-300 dark:bg-gray-600"
-				/>
-			</div>
-		</template>
-	</ClientOnly>
+			<img :src="slide.img" class="h-full w-full" alt="foto pessoal">
+		</SwiperSlide>
+	</swiper>
 </template>

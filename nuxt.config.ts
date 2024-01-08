@@ -13,8 +13,8 @@ export default defineNuxtConfig({
 		port: 3000,
 		host: 'http://localhost',
 	},
-	css: ['~/assets/global.sass'],
-	modules: ['@nuxt/ui', '@nuxtseo/module', '@vueuse/nuxt', 'nuxt-icon', 'nuxt-swiper', '@nuxtjs/i18n'],
+	css: ['~/assets/global.sass', 'primevue/resources/primevue.min.css', 'primevue/resources/themes/lara-light-blue/theme.css'],
+	modules: ['@nuxt/ui', '@nuxtseo/module', '@vueuse/nuxt', 'nuxt-icon', 'nuxt-swiper', '@nuxtjs/i18n', 'nuxt-primevue'],
 	i18n: {
 		baseUrl: 'https://curi.dev.br/',
 		defaultLocale: 'en',
@@ -23,12 +23,11 @@ export default defineNuxtConfig({
 			{ code: 'en', iso: 'en-US', name: 'English (US)', file: 'en.ts' },
 			{ code: 'pt', iso: 'pt-BR', name: 'Português (BR)', file: 'pt.ts' },
 		],
-		strategy: 'no_prefix',
-		detectBrowserLanguage: false,
 	},
 	linkChecker: {
 		enabled: false,
 	},
+	tailwindcss: { cssPath: false },
 	ui: {
 		icons: ['skill-icons', 'logos', 'fa6-brands'],
 	},

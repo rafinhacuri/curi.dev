@@ -17,6 +17,7 @@
 		"@vueuse/nuxt": "^10.5.0",
 		"animate.css": "^4.1.1",
 		"flowbite": "^2.0.0",
+		"nuxt-primevue": "^0.2.2",
 		"nuxt-swiper": "^1.2.2",
 		"sass": "^1.69.5"
 	},

@@ -61,7 +61,16 @@ const categories = ref([
 					<h2 class="text-xl font-bold text-black dark:text-white mb-4 italic">
 						{{ category.title }} <Icon class="text-2xl" :name="category.icon" />
 					</h2>
-					<SwiperCard :items="category.items" />
+					<ClientOnly>
+						<SwiperCard :items="category.items" />
+						<template #fallback>
+							<div class="flex justify-center items-center ">
+								<USkeleton
+									class="w-60 h-60 rounded-xl pb-3 bg-gray-300 dark:bg-gray-600"
+								/>
+							</div>
+						</template>
+					</ClientOnly>
 				</div>
 			</div>
 		</div>

@@ -33,12 +33,13 @@ export default {
 	projetos: {
 		titulo1: 'Mesonpi CBPF',
 		subtitulo1: 'Website of the Brazilian Center for Physical Research',
+		titulo2: 'riodmmeeting',
 	},
 	sobre: {
 		titulo1: '🧑‍💻Full-Stack Web Developer',
 		titulo2: '🎮Gaming Enthusiast',
 		titulo3: '🧑Love to Code',
-		titulo4: '💼 Skills:',
+		titulo4: 'Tech-Stack',
 		titulo5: '📜 Summary:',
 		subtitulo1: '🚀 Moderate experience in Node.js, Vue.js and Nuxt.js',
 		subtitulo2: '💡 Intermediate in TypeScript and proficient in Tailwind CSS',

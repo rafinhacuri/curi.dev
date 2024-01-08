@@ -33,7 +33,7 @@ function ScrollTopDiv() {
 <template>
 	<div @contextmenu.prevent="nope">
 		<Navbar />
-		<main class="min-h-full ">
+		<main class="min-h-[calc(100vh-305px)] ">
 			<slot />
 			<img src="/image/nao.gif" alt="nope emoji gif" class="absolute -translate-x-[75%] -translate-y-1/2 h-32 cursor-none z-50 rounded-md" :class="{ hidden }" :style="{ left: `${x}px`, top: `${y}px` }" @contextmenu.prevent>
 			<UButton

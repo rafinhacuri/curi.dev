@@ -1,42 +1,91 @@
-<script setup lang="ts">
+<script setup>
 const { t } = useI18n()
 
-const isMobile = useMediaQuery('(max-width: 780px)')
+const techStack = ref([
+	{
+		img: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg',
+		name: 'JavaScript',
+	},
+	{
+		img: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg',
+		name: 'TypeScript',
+	},
+	{
+		img: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nuxtjs/nuxtjs-original.svg',
+		name: 'Nuxt',
+	},
+	{
+		img: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg',
+		name: 'HTML',
+	},
+	{
+		img: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg',
+		name: 'CSS',
+	},
+	{
+		img: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-plain.svg',
+		name: 'TailwindCss',
+	},
+	{
+		img: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vuejs/vuejs-original.svg',
+		name: 'Vue',
+	},
+	{
+		img: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/eslint/eslint-original.svg',
+		name: 'Eslint',
+	},
+])
+
+const cur = ref([
+	{
+		name: t('sobre.subtitulo1'),
+	},
+	{
+		name: t('sobre.subtitulo2'),
+	},
+	{
+		name: t('sobre.subtitulo3'),
+	},
+	{
+		name: t('sobre.subtitulo4'),
+	},
+	{
+		name: t('sobre.subtitulo5'),
+	},
+	{
+		name: t('sobre.subtitulo6'),
+	},
+])
+const descricao = ref([
+	{
+		name: t('sobre.descricao'),
+	},
+])
 </script>
 
 <template>
-	<section>
-		<div class="bg-[url('/image/sobreMim.gif')]">
-			<div class="flex justify-center items-center p-10 md:h-screen lg:h-screen sm:h-full">
-				<div class="bg-slate-200 dark:bg-slate-950 rounded-lg p-9 space-y-7 " :class="isMobile ? 'w-full' : 'w-[calc(100%-300px)]'">
-					<div class="flex justify-center items-center ">
-						<img src="/image/fotopessoal.png" alt="minha-foto" class=" w-36 rounded-full">
-					</div>
-					<span class=" flex justify-center items-center space-x-4">
-						<p>{{ t('sobre.titulo1') }}</p>
-						<p>{{ t('sobre.titulo2') }}</p>
-						<p>{{ t('sobre.titulo3') }}</p>
-					</span>
+	<div class="h-full flex flex-col bg-slate-900">
+		<div class="flex-grow overflow-auto">
+			<div class="card p-4 space-y-8">
+				<Panel toggleable class="dark:bg-slate-800">
+					<template #header>
+						<div class="flex align-items-center gap-2">
+							<span class="font-bold text-2xl">{{ t('sobre.titulo4') }}</span>
+						</div>
+					</template>
 
-					<h2 class="font-bold text-center">
-						{{ t('sobre.titulo4') }}
-					</h2>
-					<ol class="space-y-4">
-						<li>{{ t('sobre.subtitulo1') }}</li>
-						<li>{{ t('sobre.subtitulo2') }}</li>
-						<li>{{ t('sobre.subtitulo3') }}</li>
-						<li>{{ t('sobre.subtitulo4') }}</li>
-						<li>{{ t('sobre.subtitulo5') }}</li>
-						<li>{{ t('sobre.subtitulo6') }}</li>
+					<ol class="space-y-7">
+						<li v-for="(item, index) in techStack" :key="index" class="flex items-center space-x-2">
+							<img class="w-8 h-8" :src="item.img" :alt="item.name">
+							<p class="text-xl font-bold">
+								{{ item.name }}
+							</p>
+						</li>
 					</ol>
-					<h2 class="font-bold ">
-						{{ t('sobre.titulo5') }}
-					</h2>
-					<p>
-						{{ t('sobre.descricao') }}
-					</p>
-				</div>
+				</Panel>
+				<Sobre :items="cur" :title="t('sobre.titulo5')" />
+				<Sobre :items="descricao" :title="t('sobre.titulo1')" />
 			</div>
 		</div>
-	</section>
+	</div>
 </template>

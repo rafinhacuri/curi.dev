@@ -1,0 +1,11 @@
+{
+  "nav": {
+    "logo": "Letter RC logo",
+    "home": "Home",
+    "certificates": "Certificates",
+    "projects": "Projects",
+    "language": "Change language",
+    "theme": "Change theme",
+    "menu": "Open the menu"
+  }
+}

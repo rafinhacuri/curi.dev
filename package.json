@@ -1,37 +1,35 @@
 {
-	"name": "nuxt-app",
-	"type": "module",
-	"private": true,
-	"scripts": {
-		"build": "nuxt build",
-		"dev": "nuxt dev",
-		"generate": "nuxt generate",
-		"preview": "nuxt preview",
-		"postinstall": "nuxt prepare",
-		"lint": "eslint .",
-		"lint:fix": "eslint . --fix"
-	},
-	"dependencies": {
-		"@iconify/json": "^2.2.135",
-		"@nuxt/ui": "^2.10.0",
-		"@vueuse/nuxt": "^10.5.0",
-		"animate.css": "^4.1.1",
-		"flowbite": "^2.0.0",
-		"nuxt-primevue": "^0.2.2",
-		"nuxt-swiper": "^1.2.2",
-		"sass": "^1.69.5"
-	},
-	"devDependencies": {
-		"@antfu/eslint-config": "^1.1.0",
-		"@nuxt/devtools": "latest",
-		"@nuxtjs/i18n": "8.0.0-rc.5",
-		"@nuxtseo/module": "2.0.0-beta.45",
-		"@types/node": "^20.8.10",
-		"@vercel/analytics": "^1.1.1",
-		"eslint": "^8.53.0",
-		"nuxt": "^3.8.0",
-		"nuxt-icon": "^0.6.6",
-		"vue": "^3.3.7",
-		"vue-router": "^4.2.5"
-	}
+  "name": "nuxt-app",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "build": "nuxt build",
+    "dev": "nuxt dev",
+    "generate": "nuxt generate",
+    "preview": "nuxt preview",
+    "postinstall": "nuxt prepare",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix"
+  },
+  "dependencies": {
+    "@iconify-json/lucide": "^1.2.26",
+    "@nuxt/fonts": "^0.10.3",
+    "@nuxt/icon": "1.10.3",
+    "@nuxt/image": "^1.9.0",
+    "@nuxtjs/color-mode": "^3.5.2",
+    "@nuxtjs/i18n": "9.2.1",
+    "@nuxtjs/seo": "2.2.0",
+    "@nuxtjs/tailwindcss": "^6.13.1",
+    "@vercel/analytics": "^1.5.0",
+    "@vercel/speed-insights": "^1.2.0",
+    "@vueuse/nuxt": "^12.7.0",
+    "nuxt": "3.15.4",
+    "vue": "^3.5.13",
+    "vue-router": "^4.5.0"
+  },
+  "devDependencies": {
+    "@dethdkn/eslint-config": "^1.9.2",
+    "eslint": "^9.20.1",
+    "vue-tsc": "^2.2.2"
+  }
 }

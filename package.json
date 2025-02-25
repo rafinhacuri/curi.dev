@@ -12,6 +12,8 @@
     "lint:fix": "eslint . --fix"
   },
   "dependencies": {
+    "@iconify-json/devicon": "^1.2.17",
+    "@iconify-json/fa-brands": "^1.2.1",
     "@iconify-json/lucide": "^1.2.26",
     "@nuxt/fonts": "^0.10.3",
     "@nuxt/icon": "1.10.3",

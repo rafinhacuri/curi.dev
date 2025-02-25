@@ -12,8 +12,6 @@ async function onBeforeEnter(){
   <SpeedInsights />
   <NuxtRouteAnnouncer />
   <NuxtLoadingIndicator color="repeating-linear-gradient(to right,#AA3860 0%,#F28AA9 100%)" />
-  <!-- eslint-disable-next-line vue/no-restricted-static-attribute -->
-  <div class="pointer-events-none absolute left-0 top-0 z-[-1] size-full" style="background: radial-gradient(circle at top left, rgba(50,0,100,1) 0%, rgba(50,0,100,0.5) 35%, rgba(50,0,100,0) 80%);" />
   <NuxtLayout>
     <NuxtPage :transition="{ name: 'page', mode: 'out-in', onBeforeEnter }" />
   </NuxtLayout>

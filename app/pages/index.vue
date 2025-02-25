@@ -24,12 +24,14 @@ const stacks = [
 <template>
   <section>
     <div class="mt-20 flex flex-col items-center justify-center ">
-      <NuxtImg src="/rosto.png" :alt="t('nav.logo')" class="size-32 rounded-full border border-white sm:size-48 md:size-56" />
       <p class="font-['Dancing_Script'] text-4xl font-semibold text-white drop-shadow-lg sm:text-5xl">
+        Rafael Curi
+      </p>
+      <p class="text-sm font-semibold text-gray-300 drop-shadow-lg">
         {{ t('home.title') }}
       </p>
-      <p class="mt-2 text-xl font-semibold text-white sm:text-2xl">
-        {{ t('home.subtitle') }}
+      <p class="mt-2 text-sm font-semibold text-gray-300">
+        {{ t('home.descricao') }}
       </p>
     </div>
 

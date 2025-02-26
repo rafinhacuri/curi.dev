@@ -1,18 +1,3 @@
-import antfu from '@antfu/eslint-config'
+import dethdkn from '@dethdkn/eslint-config'
 
-export default antfu({
-	typescript: true,
-	vue: true,
-	rules: {
-		'no-async-promise-executor': 'off',
-		'no-use-before-define': 'off',
-		'ts/no-use-before-define': 'off',
-		'no-tabs': 'off',
-		'prefer-promise-reject-errors': 'off',
-		'no-throw-literal': 'off',
-	},
-	stylistic: {
-		indent: 'tab',
-		quotes: 'single',
-	},
-})
+export default dethdkn({ tailwind: true, vue: true, nuxt: true, vueI18n: true })

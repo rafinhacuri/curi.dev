@@ -48,15 +48,16 @@ const jornada = computed(() => [
         <p class="mb-5 text-center font-['Dancing_Script'] text-4xl font-semibold text-white drop-shadow-lg sm:text-5xl md:text-start">
           {{ t('home.jornada') }}
         </p>
-        <div v-for="{ano, descricao,titulo} of jornada" :key="ano" class="m-4 flex items-start justify-start space-x-5 md:m-0">
+        <div v-for="{ano, descricao,titulo} of jornada" :key="ano" class="m-4 flex cursor-default items-start justify-start space-x-5 md:m-0">
           <p class="text-2xl font-extralight text-gray-500">
             {{ ano }}
           </p>
-          <div class="group">
-            <p class="border-yellow-400 text-lg font-light text-yellow-400 drop-shadow-[0_0_5px_#F28AA9]">
+          <div class="group relative before:absolute before:bottom-[-4px] before:left-0 before:h-[3px] before:w-0 before:bg-yellow-400 before:transition-all before:duration-500 before:ease-out group-hover:before:w-full">
+            <!-- TÍTULO: O brilho acontece aqui -->
+            <p class=" text-lg font-light text-gray-400 transition-all duration-300 ease-in-out group-hover:scale-105 group-hover:text-yellow-400 group-hover:drop-shadow-[0_0_5px_#F28AA9]">
               {{ titulo }}
             </p>
-            <div class="relative hidden h-[30px] w-[250px] overflow-hidden md:block md:w-[300px] lg:w-[400px]">
+            <div class="relative hidden h-[30px] w-[250px] overflow-hidden md:block md:w-[300px] lg:w-[400px] ">
               <p class="whitespace-nowrap text-gray-500 group-hover:animate-scrollHorizontal">
                 {{ descricao }}
               </p>

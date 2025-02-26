@@ -14,6 +14,16 @@
     "subtitle": "Full Stack Developer",
     "description": "Here you will find information about my projects, certificates and a little about me.",
     "stacks": "My stacks",
-    "contact": "Contact me"
+    "contact": "Contact me",
+    "descricao1": "I'm a full-stack software developer from 🇧🇷 Rio de Janeiro, Brazil.",
+    "descricao2": "I use Vue, Nuxt, Tailwind, and TypeScript for programming.",
+    "jornada": "My journey",
+    "jornada1": "Start of my college Computer Science, Start of my first internship as a developer, Developed my first web system",
+    "jornada2": "I developed several web systems, I learned to work with different technologies, I became a fullstack developer",
+    "jornada3": "I became a senior developer, developing highly complex systems",
+    "jornada_inicio": "Start of my journey",
+    "jornada_aperfeicoamento": "Improvement of my dev skills",
+    "jornada_crescimento": "Professional growth",
+    "stack": "My tack-stacks"
   }
 }

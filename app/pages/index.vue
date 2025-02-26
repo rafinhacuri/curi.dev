@@ -19,27 +19,64 @@ const stacks = [
   { title: 'CSS', icon: 'devicon:css3', color: '#1572B6' },
   { title: 'Javascript', icon: 'devicon:javascript', color: '#F7DF1E' },
 ]
+
+const jornada = computed(() => [
+  { ano: 2023, titulo: t('home.jornada_inicio'), descricao: t('home.jornada1') },
+  { ano: 2024, titulo: t('home.jornada_aperfeicoamento'), descricao: t('home.jornada2') },
+  { ano: 2025, titulo: t('home.jornada_crescimento'), descricao: t('home.jornada3') },
+])
 </script>
 
 <template>
   <section>
-    <div class="mt-20 flex flex-col items-center justify-center ">
-      <p class="font-['Dancing_Script'] text-4xl font-semibold text-white drop-shadow-lg sm:text-5xl">
-        Rafael Curi
-      </p>
-      <p class="text-sm font-semibold text-gray-300 drop-shadow-lg">
-        {{ t('home.title') }}
-      </p>
-      <p class="mt-2 text-sm font-semibold text-gray-300">
-        {{ t('home.descricao') }}
-      </p>
+    <div class="mt-20 flex flex-col justify-around space-y-8 md:flex-row md:space-y-0">
+      <div class="mx-4 mt-5 space-y-3 text-center md:my-0 md:text-start">
+        <p class="mb-5 text-center font-['Dancing_Script'] text-4xl font-semibold text-white drop-shadow-lg sm:text-5xl md:text-start">
+          Rafael Curi
+        </p>
+        <p class="text-gray-400 ">
+          {{ t('home.title') }}
+        </p>
+        <p class="mt-2   text-gray-400">
+          {{ t('home.descricao1') }}
+        </p>
+        <p class="mt-2   text-gray-400">
+          {{ t('home.descricao2') }}
+        </p>
+      </div>
+      <div class="mt-5 space-y-3 text-start">
+        <p class="mb-5 text-center font-['Dancing_Script'] text-4xl font-semibold text-white drop-shadow-lg sm:text-5xl md:text-start">
+          {{ t('home.jornada') }}
+        </p>
+        <div v-for="{ano, descricao,titulo} of jornada" :key="ano" class="m-4 flex items-start justify-start space-x-5 md:m-0">
+          <p class="text-2xl font-extralight text-gray-500">
+            {{ ano }}
+          </p>
+          <div class="group">
+            <p class="border-yellow-400 text-lg font-light text-yellow-400 drop-shadow-[0_0_5px_#F28AA9]">
+              {{ titulo }}
+            </p>
+            <div class="relative hidden h-[30px] w-[250px] overflow-hidden md:block md:w-[300px] lg:w-[400px]">
+              <p class="whitespace-nowrap text-gray-500 group-hover:animate-scrollHorizontal">
+                {{ descricao }}
+              </p>
+            </div>
+            <p class="text-wrap break-words text-gray-500 md:hidden">
+              {{ descricao }}
+            </p>
+          </div>
+        </div>
+      </div>
     </div>
 
     <div class="mt-20 w-full">
+      <h2 class="mb-5 flex justify-center font-['Dancing_Script'] text-4xl font-semibold text-white drop-shadow-lg sm:text-5xl">
+        {{ t('home.stack') }}
+      </h2>
       <div class="relative mt-10 w-screen overflow-hidden">
         <div class="flex w-[200vw] animate-scroll space-x-5">
           <!-- eslint-disable-next-line vue/no-restricted-v-bind -->
-          <div v-for="(item, index) in stacks.concat(stacks)" :key="index" class="inline-block flex-1 cursor-default rounded-lg border p-1 text-center text-lg transition-transform md:text-5xl" :style="{ color: item.color, 'border-color': item.color }">
+          <div v-for="(item, index) in stacks.concat(stacks)" :key="index" class="mb-20 inline-block flex-1 cursor-default rounded-lg border p-1 text-center text-lg transition-transform md:text-5xl" :style="{ color: item.color, 'border-color': item.color }">
             <div class="flex items-center justify-center space-x-2">
               <Icon :name="item.icon" :size="isMobile? 20 : 35" />
               <span>{{ item.title }}</span>

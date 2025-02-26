@@ -7,8 +7,12 @@ const routes = computed(() => [
   { path: '/projects', text: t('nav.projects') },
 ])
 
+const { start, finish } = useLoadingIndicator()
+
 function changeLanguage(){
+  start()
   locale.value === 'en' ? setLocale('pt') : setLocale('en')
+  finish()
 }
 
 const menuClosed = ref(true)
@@ -33,7 +37,7 @@ const menuClosed = ref(true)
             <Icon name="line-md:email" class="size-5 text-gray-400 hover:text-yellow-400 md:size-8" />
           </NuxtLink>
           <button :aria-label="t('nav.language')" class="relative text-lg font-medium text-gray-400 transition-all duration-300 ease-in-out before:absolute before:bottom-[-4px] before:left-1/2 before:h-[3px] before:w-0 before:-translate-x-1/2 before:bg-yellow-400 before:transition-all before:duration-500 before:ease-out hover:scale-105 hover:text-yellow-400 hover:drop-shadow-[0_0_5px_#F28AA9] hover:before:w-full" @click="changeLanguage">
-            <Icon name="line-md:mastodon" class="size-5 text-gray-400 hover:text-yellow-400 md:size-8" />
+            <Icon name="ion:language-outline" class="size-5 text-gray-400 hover:text-yellow-400 md:size-8" />
           </button>
           <button :aria-label="t('nav.menu')" class=" lg:hidden" @click="menuClosed = !menuClosed">
             <Icon :name="!menuClosed ? 'lucide:list-x' : 'lucide:menu'" class="size-5 text-gray-400 " />

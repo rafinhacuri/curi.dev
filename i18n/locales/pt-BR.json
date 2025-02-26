@@ -14,6 +14,16 @@
     "subtitle": "Desenvolvedor Full Stack",
     "description": "Aqui você encontra informações sobre meus projetos, certificados e um pouco sobre mim.",
     "stacks": "Minhas Habilidades",
-    "contact": "Contate-me"
+    "contact": "Contate-me",
+    "descricao1": "Sou desenvolvedor de software full-stack do 🇧🇷 Rio de Janeiro, Brasil.",
+    "descricao2": "Eu uso Vue, Nuxt, Tailwind e TypeScript para programar.",
+    "jornada": "Minha Jornada",
+    "jornada1": "Início da minha faculdade de Ciência da Computação, Início do meu primeiro estágio como desenvolvedor, Desenvolvi meu primeiro sistema web",
+    "jornada2": "Desenvolvi vários sistemas web, Aprendi a trabalhar com diferentes tecnologias, Me tornei um desenvolvedor fullstack",
+    "jornada3": "Me tornei um desenvolvedor sênior, desenvolvendo sistemas altamente complexos",
+    "jornada_inicio": "Inicio da minha jornada",
+    "jornada_aperfeicoamento": "Apefeiçoamento das minhas habilidades de dev",
+    "jornada_crescimento": "Crescimento profissional",
+    "stack": "Minhas tack-stacks"
   }
 }

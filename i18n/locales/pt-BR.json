@@ -25,5 +25,9 @@
     "jornada_aperfeicoamento": "Apefeiçoamento das minhas habilidades de dev",
     "jornada_crescimento": "Crescimento profissional",
     "stack": "Minhas tech-stacks"
+  },
+  "cert": {
+    "head": "Certificados",
+    "ver_cert": "Ver certificado"
   }
 }

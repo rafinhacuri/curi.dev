@@ -22,7 +22,7 @@ useHead({ title: `${statusCode.value}` })
         </span>
         {{ statusCode }}
       </h1>
-      <h2 class="text-2xl font-medium text-[#CDD5F4] transition-all duration-500 hover:text-yellow-400">
+      <h2 class="text-2xl font-medium text-[#CDD5F4] ">
         {{ message }}
       </h2>
       <button class="relative overflow-hidden rounded-lg bg-[#F28AA9] px-6 py-3 text-lg font-semibold text-white shadow-lg transition-all duration-300 hover:scale-110 hover:bg-[#e7688e] hover:shadow-[0_0_15px_rgba(242,138,169,0.5)] active:scale-95" @click="clearError({ redirect: localePath('/') })">

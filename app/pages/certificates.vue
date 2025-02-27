@@ -5,6 +5,7 @@ useHead({ title: t('cert.head') })
 useSeoMeta({ description: t('home.subtitle') })
 defineOgImageComponent('Home', { title: t('cert.head'), subtitle: t('home.title') })
 
+// TODO: ADICINAR CERTIFICADO DE VUE, NUXT, TAILWIND, ESLINT, HTML, CSS, GIT, GITHUB, TYPESCRIPT
 const certificates = ref([
   { titulo: 'JavaScript', foto: '/cursos/js.png', link: 'https://udemy-certificate.s3.amazonaws.com/image/UC-8edb710a-0a99-4ec3-8f90-2fbd32442e3f.jpg?v=1712845766000', icon: 'devicon:javascript' },
   { titulo: 'NodeJS', foto: '/cursos/node.png', link: 'https://udemy-certificate.s3.amazonaws.com/image/UC-2c9e050a-f4ee-40d9-b44f-0d8ed31184ee.jpg?v=1725544221000', icon: 'devicon:nodejs' },

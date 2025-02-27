@@ -18,6 +18,9 @@ const stacks = [
   { title: 'HTML', icon: 'devicon:html5', color: '#E34F26' },
   { title: 'CSS', icon: 'devicon:css3', color: '#1572B6' },
   { title: 'Javascript', icon: 'devicon:javascript', color: '#F7DF1E' },
+  { title: 'Git', icon: 'devicon:git', color: '#F05033' },
+  { title: 'Github', icon: 'devicon:github', color: '#3B3B3B' },
+
 ]
 
 const jornada = computed(() => [
@@ -71,7 +74,7 @@ const jornada = computed(() => [
     </div>
 
     <div class="mt-20 w-full">
-      <h2 class="mb-5 flex justify-center font-['Dancing_Script'] text-4xl font-semibold text-white drop-shadow-lg sm:text-5xl">
+      <h2 class="mb-5 flex justify-center  font-['Dancing_Script'] text-4xl font-semibold text-white drop-shadow-lg sm:text-5xl">
         {{ t('home.stack') }}
       </h2>
       <div class="relative mt-10 w-screen overflow-hidden">

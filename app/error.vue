@@ -1,4 +1,4 @@
-<script setup lang='ts'>
+<script setup lang="ts">
 const error = useError()
 const localePath = useLocalePath()
 
@@ -14,19 +14,21 @@ useHead({ title: `${statusCode.value}` })
 </script>
 
 <template>
-  <main class="h-screen bg-[#EFF1F5] dark:bg-[#1E1E2E]">
-    <div class="flex h-screen items-center justify-center">
-      <div class="space-y-10 text-center">
-        <h1 class="inline border-b-2 border-[#F28AA9] text-8xl text-[#4C4F69] dark:text-[#CDD5F4]">
+  <main class="flex h-screen items-center justify-center bg-transparent">
+    <div class="animate-fadeIn space-y-10 text-center">
+      <h1 class="relative text-9xl font-bold text-[#F28AA9] transition-all duration-300 hover:scale-105">
+        <span class="absolute left-0 top-0 w-full animate-glitch text-[#F28AA9] opacity-50 blur-sm">
           {{ statusCode }}
-        </h1>
-        <h1 class="text-xl text-[#4C4F69] dark:text-[#CDD5F4]">
-          {{ message }}
-        </h1>
-        <button class="gap-x-1.5 rounded-md bg-[#F28AA9] px-2.5 py-1.5 text-sm font-medium text-white shadow-sm hover:bg-[#e7688e]" @click="clearError({ redirect: localePath('/') })">
-          Home
-        </button>
-      </div>
+        </span>
+        {{ statusCode }}
+      </h1>
+      <h2 class="text-2xl font-medium text-[#CDD5F4] transition-all duration-500 hover:text-yellow-400">
+        {{ message }}
+      </h2>
+      <button class="relative overflow-hidden rounded-lg bg-[#F28AA9] px-6 py-3 text-lg font-semibold text-white shadow-lg transition-all duration-300 hover:scale-110 hover:bg-[#e7688e] hover:shadow-[0_0_15px_rgba(242,138,169,0.5)] active:scale-95" @click="clearError({ redirect: localePath('/') })">
+        <span class="absolute inset-0 animate-pulse bg-white opacity-10" />
+        Home
+      </button>
     </div>
   </main>
 </template>

@@ -56,12 +56,37 @@ div::-webkit-scrollbar-track {
     background-color: #020617;
 }
 
-.page-enter-active, .page-leave-active {
-  transition: all 0.4s;
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+    filter: blur(2px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0);
+  }
 }
 
-.page-enter-from, .page-leave-to {
-  opacity: 0;
-  filter: blur(0.1rem);
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(10px);
+    filter: blur(2px);
+  }
+}
+
+.page-enter-active {
+  animation: fadeIn 0.4s ease-out;
+}
+
+.page-leave-active {
+  animation: fadeOut 0.4s ease-in;
 }
 </style>

@@ -39,6 +39,7 @@ export default <Partial<Config>>{
         glitch: 'glitch 0.5s infinite',
         fadeIn: 'fadeIn 1s ease-out',
         scrollHorizontal: 'scrollHorizontal 6s linear infinite',
+        scroll: 'scroll 20s linear infinite',
         colorFlow: 'colorFlow 4s linear infinite',
         pulseGlow: 'pulseGlow 3s ease-in-out infinite',
       },

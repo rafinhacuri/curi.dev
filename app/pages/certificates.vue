@@ -45,10 +45,10 @@ const filteredCertificates = computed(() => {
     <label for="search" class="sr-only">{{ t('cert.busca') }}</label>
     <input id="search" v-model="searchQuery" type="text" :placeholder="t('cert.busca')" class="mb-6 w-full max-w-md rounded-lg border border-gray-300 bg-gray-800 p-3 text-white shadow-md outline-none transition-all focus:border-yellow-400 focus:ring focus:ring-yellow-400/50">
 
-    <transition-group tag="div" class="grid grid-cols-1 gap-10 sm:grid-cols-2 lg:grid-cols-3" enter-active-class="transition-all duration-300" enter-from-class="opacity-0 translate-y-3" enter-to-class="opacity-100 translate-y-0" leave-active-class="transition-all duration-300" leave-from-class="opacity-100 translate-y-0" leave-to-class="opacity-0 translate-y-3">
+    <transition-group tag="div" class="grid grid-cols-1 gap-10 sm:grid-cols-2 lg:grid-cols-3" enter-active-class="transition-all duration-400 ease-in-out" enter-from-class="opacity-0 translate-y-2" enter-to-class="opacity-100 translate-y-0" leave-active-class="transition-all duration-400 ease-in-out" leave-from-class="opacity-100 translate-y-0" leave-to-class="opacity-0 translate-y-2">
       <div v-for="cert in filteredCertificates" :key="cert.foto" class="group relative flex max-w-[280px] flex-col items-center justify-center overflow-hidden rounded-xl bg-gradient-to-b from-slate-900 to-slate-800 p-5 shadow-lg transition-all duration-300 hover:scale-105 hover:shadow-[0_0_20px_rgba(255,255,255,0.1)]">
         <div class="relative w-full overflow-hidden rounded-lg">
-          <img :src="cert.foto" :alt="cert.titulo" class="h-[200px] w-full rounded-lg object-cover grayscale transition-all duration-500 ease-out group-hover:rotate-2 group-hover:scale-110 group-hover:shadow-[0_5px_20px_rgba(255,255,255,0.2)] group-hover:grayscale-0">
+          <img :src="cert.foto" :alt="cert.titulo" class="h-[200px] w-full rounded-lg object-cover transition-all duration-500 ease-out group-hover:rotate-2 group-hover:scale-110 group-hover:shadow-[0_5px_20px_rgba(255,255,255,0.2)] md:grayscale md:group-hover:grayscale-0">
         </div>
         <h3 class="mt-5 text-lg font-semibold text-white transition-all duration-300 group-hover:text-yellow-400">
           <div class="flex items-center justify-center space-x-3">

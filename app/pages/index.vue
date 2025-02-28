@@ -32,7 +32,7 @@ const jornada = computed(() => [
 
 <template>
   <section>
-    <div class="mt-20 flex flex-col justify-around space-y-8 md:flex-row md:space-y-0">
+    <div class="flex flex-col justify-around space-y-8 pt-20 md:flex-row md:space-y-0">
       <div class="mx-4 mt-5 space-y-3 text-center md:my-0 md:text-start">
         <p class="mb-5 text-center font-['Dancing_Script'] text-4xl font-semibold text-white drop-shadow-lg sm:text-5xl md:text-start">
           Rafael Curi
@@ -56,7 +56,6 @@ const jornada = computed(() => [
             {{ ano }}
           </p>
           <div class="group relative before:absolute before:bottom-[-4px] before:left-0 before:h-[3px] before:w-0 before:bg-yellow-400 before:transition-all before:duration-500 before:ease-out group-hover:before:w-full">
-            <!-- TÍTULO: O brilho acontece aqui -->
             <p class=" text-lg font-light text-gray-400 transition-all duration-300 ease-in-out group-hover:scale-105 group-hover:text-yellow-400 group-hover:drop-shadow-[0_0_5px_#F28AA9]">
               {{ titulo }}
             </p>

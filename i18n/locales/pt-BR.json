@@ -28,6 +28,21 @@
   },
   "cert": {
     "head": "Certificados",
-    "ver_cert": "Ver certificado"
+    "ver_cert": "Ver certificado",
+    "busca": "Buscar certificado...",
+    "js": "Aprenda JAVASCRIPT em 7 dias + Projetos Reais",
+    "node": "Node JS Curso Completo do Básico ao Avançado",
+    "html-css1": "DESENVOLVIMENTO WEB 2020 (HTML5+CSS3): MÓDULO 1 DE 5",
+    "html-css2": "DESENVOLVIMENTO WEB 2020 (HTML5+CSS3): MÓDULO 2 DE 5",
+    "html-css3": "DESENVOLVIMENTO WEB 2020 (HTML5+CSS3): MÓDULO 3 DE 5",
+    "html-css4": "DESENVOLVIMENTO WEB 2020 (HTML5+CSS3): MÓDULO 4 DE 5",
+    "html-css5": "DESENVOLVIMENTO WEB 2020 (HTML5+CSS3): MÓDULO 5 DE 5",
+    "linux00": "LINUX – MÓDULO 00: PRIMEIROS PASSOS",
+    "linux01": "LINUX – MÓDULO 01: INTERFACE E TERMINAL",
+    "linux02": "LINUX - MÓDULO 02: PACOTES E GESTÃO DE PROCESSOS",
+    "linux03": "LINUX - MÓDULO 03: PROGRAMAÇÃO COM LINUX",
+    "linux04": "LINUX - MÓDULO 04: TERMINAL AVANÇADO",
+    "linux05": "LINUX - MÓDULO 05: DISCOS E RAID",
+    "git-github": "GIT E GITHUB"
   }
 }

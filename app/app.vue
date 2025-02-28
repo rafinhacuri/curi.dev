@@ -11,7 +11,7 @@ async function onBeforeEnter(){
 <template>
   <SpeedInsights />
   <NuxtRouteAnnouncer />
-  <NuxtLoadingIndicator color="repeating-linear-gradient(to right,#AA3860 0%,#F28AA9 100%)" />
+  <NuxtLoadingIndicator color="repeating-linear-gradient(to right,#FACC15. 0%,#CA8A04 100%)" />
   <NuxtLayout>
     <NuxtPage :transition="{ name: 'page', mode: 'out-in', onBeforeEnter }" />
   </NuxtLayout>

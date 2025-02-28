@@ -28,6 +28,21 @@
   },
   "cert": {
     "head": "Certificates",
-    "ver_cert": "View certificate"
+    "ver_cert": "View certificate",
+    "busca": "Search certificate...",
+    "js": "Learn JAVASCRIPT in 7 days + Real Projects",
+    "node": "Node JS Full Course from Basic to Advanced",
+    "html-css1": "WEB DEVELOPMENT 2020 (HTML5+CSS3): MODULE 1 OF 5",
+    "html-css2": "WEB DEVELOPMENT 2020 (HTML5+CSS3): MODULE 2 OF 5",
+    "html-css3": "WEB DEVELOPMENT 2020 (HTML5+CSS3): MODULE 3 OF 5",
+    "html-css4": "WEB DEVELOPMENT 2020 (HTML5+CSS3): MODULE 4 OF 5",
+    "html-css5": "WEB DEVELOPMENT 2020 (HTML5+CSS3): MODULE 5 OF 5",
+    "linux00": "LINUX – MODULE 00: FIRST STEPS",
+    "linux01": "LINUX – MODULE 01: INTERFACE AND TERMINAL",
+    "linux02": "LINUX - MODULE 02: PACKAGES AND PROCESS MANAGEMENT",
+    "linux03": "LINUX - MODULE 03: PROGRAMMING WITH LINUX",
+    "linux04": "LINUX - MODULE 04: ADVANCED TERMINAL",
+    "linux05": "LINUX - MODULE 05: DISKS AND RAID",
+    "git-github": "GIT AND GITHUB"
   }
 }

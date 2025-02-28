@@ -43,6 +43,33 @@
     "linux03": "LINUX - MÓDULO 03: PROGRAMAÇÃO COM LINUX",
     "linux04": "LINUX - MÓDULO 04: TERMINAL AVANÇADO",
     "linux05": "LINUX - MÓDULO 05: DISCOS E RAID",
-    "git-github": "GIT E GITHUB"
+    "git-github": "GIT E GITHUB",
+    "vuejs": "Vue JS 3 Completo com Composition API, Vuex & Vue Router",
+    "nuxtjs": "Master Nuxt 3 - Guia Completo Full-Stack",
+    "ts": "Aprenda TYPESCRIPT em 7 dias + Projetos Reais"
+  },
+  "projects": {
+    "title1": "Projetos Solo",
+    "title2": "Projetos em Equipe",
+    "proj1": "Agenda-CBPF",
+    "desc1": "Sistema de gerenciamento de notícias",
+    "proj2": "Os",
+    "desc2": "Sistema das ordens de serviço",
+    "proj3": "Eventos",
+    "desc3": "Sistema criacão de páginas de eventos",
+    "proj4": "Mesonpi",
+    "desc4": "Sistema de link para páginas do CBPF",
+    "proj5": "SGCAD-Painel SELIC",
+    "desc5": "Sistema de controle de contratos e funcionários",
+    "proj6": "Explotools-Brasil",
+    "desc6": "Aplicação WEB da empressa Explotools-Brasil",
+    "proj7": "Bicicletário",
+    "desc7": "Aplicação WEB de gestão e controle de um bicicletário",
+    "proj8": "curi.dev.br",
+    "desc8": "Meu site pessoal",
+    "proj9": "Agenda de Auditórios",
+    "desc9": "Sistema de gerenciamento de reservas de auditórios",
+    "proj10": "Posgrad COEDU",
+    "desc10": "Sistema de pós-graduação do CBPF"
   }
 }

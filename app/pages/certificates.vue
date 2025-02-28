@@ -1,8 +1,4 @@
 <script setup lang="ts">
-import { useHead, useSeoMeta } from '#imports'
-import { computed, ref } from 'vue'
-import { useI18n } from 'vue-i18n'
-
 const { t } = useI18n()
 
 useHead({ title: t('cert.head') })
@@ -10,6 +6,9 @@ useSeoMeta({ description: t('home.subtitle') })
 
 const certificates = computed(() => [
   { titulo: t('cert.js'), foto: '/cursos/js.png', link: '/certificates/js.jpg', icons: ['devicon:javascript'], nome: 'JavaScript' },
+  { titulo: t('cert.ts'), foto: '/cursos/ts.png', link: '/certificates/ts.jpg', icons: ['devicon:typescript'], nome: 'TypeScript' },
+  { titulo: t('cert.vuejs'), foto: '/cursos/vuejs.png', link: '/certificates/vuejs.jpg', icons: ['devicon:vuejs'], nome: 'vuejs' },
+  { titulo: t('cert.nuxtjs'), foto: '/cursos/nuxtjs.png', link: '/certificates/nuxtjs.jpg', icons: ['devicon:nuxtjs'], nome: 'nuxtjs' },
   { titulo: t('cert.node'), foto: '/cursos/node.png', link: '/certificates/node.jpg', icons: ['devicon:nodejs'], nome: 'nodeJS' },
   { titulo: t('cert.git-github'), foto: '/cursos/git-github.png', link: '/certificates/git-github.pdf', icons: ['devicon:git', 'devicon:github'], nome: 'git e github' },
   { titulo: t('cert.html-css1'), foto: '/cursos/html-css01.png', link: '/certificates/html-css01.pdf', icons: ['devicon:html5', 'devicon:css3'], nome: 'html5 e css3 modulo 1' },
@@ -39,9 +38,9 @@ const filteredCertificates = computed(() => {
 
 <template>
   <div class="flex flex-col items-center justify-center p-10">
-    <h1 class="mb-8 text-center font-['Dancing_Script'] text-5xl font-semibold text-white drop-shadow-[0_2px_10px_rgba(255,255,255,0.5)]">
+    <h2 class="mb-8 text-center font-['Dancing_Script'] text-5xl font-semibold text-white drop-shadow-[0_2px_10px_rgba(255,255,255,0.5)]">
       {{ t("cert.head") }}
-    </h1>
+    </h2>
     <label for="search" class="sr-only">{{ t('cert.busca') }}</label>
     <input id="search" v-model="searchQuery" type="text" :placeholder="t('cert.busca')" class="mb-6 w-full max-w-md rounded-lg border border-gray-300 bg-gray-800 p-3 text-white shadow-md outline-none transition-all focus:border-yellow-400 focus:ring focus:ring-yellow-400/50">
 

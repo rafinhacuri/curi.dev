@@ -43,6 +43,33 @@
     "linux03": "LINUX - MODULE 03: PROGRAMMING WITH LINUX",
     "linux04": "LINUX - MODULE 04: ADVANCED TERMINAL",
     "linux05": "LINUX - MODULE 05: DISKS AND RAID",
-    "git-github": "GIT AND GITHUB"
+    "git-github": "GIT AND GITHUB",
+    "vuejs": "Vue JS 3 Complete with Composition API, Vuex & Vue Router",
+    "nuxtjs": "Master Nuxt 3 - Full-Stack Complete Guide",
+    "ts": "Learn TYPESCRIPT in 7 days + Real Projects"
+  },
+  "projects": {
+    "title1": "Solo Projects",
+    "title2": "Team Projects",
+    "proj1": "Agenda-CBPF",
+    "desc1": "News management system",
+    "proj2": "Os",
+    "desc2": "Service order system",
+    "proj3": "Events",
+    "desc3": "Event page creation system",
+    "proj4": "Mesonpi",
+    "desc4": "Link system for CBPF pages",
+    "proj5": "SGCAD-Painel SELIC",
+    "desc5": "Contract and employee control system",
+    "proj6": "Explotools-Brasil",
+    "desc6": "Link system for event pages",
+    "proj7": "Bicicletário",
+    "desc7": "Bike rack management and control application",
+    "proj8": "curi.dev.br",
+    "desc8": "My personal website",
+    "proj9": "Agenda de Auditórios",
+    "desc9": "Auditorium scheduling system",
+    "proj10": "Posgrad COEDU",
+    "desc10": "CBPF postgraduate system"
   }
 }

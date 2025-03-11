@@ -23,11 +23,11 @@ const projects2 = computed(() => [
 
 <template>
   <section class="mx-10 my-8 md:mx-32 md:my-16">
-    <h2 class="mb-8 font-['Dancing_Script'] text-5xl text-white drop-shadow-[0_2px_10px_rgba(255,255,255,0.5)]">
-      {{ t('projects.title1') }}
-    </h2>
-
     <ClientOnly>
+      <h2 class="mb-8 font-['Dancing_Script'] text-5xl text-white drop-shadow-[0_2px_10px_rgba(255,255,255,0.5)]">
+        {{ t('projects.title1') }}
+      </h2>
+
       <div class="group grid grid-cols-1 gap-10 md:grid-cols-2">
         <button v-for="{ description, icon, link, nome, title } of projects" :key="nome" class="relative w-full rounded-md border-2 border-gray-800/50 p-3 shadow-lg transition-all duration-300 ease-in-out before:absolute before:bottom-[-4px] before:left-1/2 before:h-[3px] before:w-0 before:-translate-x-1/2 before:animate-colorFlow before:bg-animated-line before:bg-[length:200%_100%] before:transition-all before:duration-500 before:ease-out hover:translate-y-[-3px] hover:animate-pulseGlow hover:bg-slate-800 hover:shadow-[0_0_20px_rgba(255,255,255,0.1)] hover:before:w-full" @click="navigateTo(link, { external: true, open: { target: '_blank' } })">
           <div class="flex items-center justify-items-start space-x-2">
@@ -41,13 +41,11 @@ const projects2 = computed(() => [
           </p>
         </button>
       </div>
-    </ClientOnly>
 
-    <h2 class="my-8 font-['Dancing_Script'] text-5xl text-white drop-shadow-[0_2px_10px_rgba(255,255,255,0.5)]">
-      {{ t('projects.title2') }}
-    </h2>
+      <h2 class="my-8 font-['Dancing_Script'] text-5xl text-white drop-shadow-[0_2px_10px_rgba(255,255,255,0.5)]">
+        {{ t('projects.title2') }}
+      </h2>
 
-    <ClientOnly>
       <div class="group grid grid-cols-1 gap-10 md:grid-cols-2">
         <button v-for="{ description, icon, link, nome, title, avatar, contribuidores, links } of projects2" :key="nome" class="relative w-full rounded-md border-2 border-gray-800/50 p-3 shadow-lg transition-all duration-300 ease-in-out before:absolute before:bottom-[-4px] before:left-1/2 before:h-[3px] before:w-0 before:-translate-x-1/2 before:animate-colorFlow before:bg-animated-line before:bg-[length:200%_100%] before:transition-all before:duration-500 before:ease-out hover:translate-y-[-3px] hover:animate-pulseGlow hover:bg-slate-800 hover:shadow-[0_0_20px_rgba(255,255,255,0.1)] hover:before:w-full" @click="navigateTo(link, { external: true, open: { target: '_blank' } })">
           <div class="flex items-center justify-between space-x-2">

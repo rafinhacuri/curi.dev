@@ -24,9 +24,10 @@ const menuClosed = ref(true)
   <nav>
     <div class="mx-auto flex max-w-screen-xl flex-wrap items-center justify-between p-4">
       <NuxtLink to="/" class="group flex cursor-pointer items-center space-x-3 transition-all duration-300 ease-in-out hover:scale-125">
-        <NuxtImg src="/rosto.png" :alt="t('nav.logo')" class="size-10 rounded-lg " />
-        <NuxtImg src="/logo-branca.png" :alt="t('nav.logo')" class="mr-3 h-10 w-12" />
+        <NuxtImg src="/rosto.png" :alt="t('nav.logo')" class="aspect-square size-10 rounded-lg" />
+        <NuxtImg src="/logo-branca.png" :alt="t('nav.logo')" class="h-10 w-auto" />
       </NuxtLink>
+
       <div class="flex flex-col items-center sm:mt-0 lg:order-2 lg:flex-row">
         <div class="flex items-center space-x-4 sm:mt-0 md:ml-16 lg:order-2">
           <NuxtLink v-for="{icon, link, name} of socials" :key="name" :to="link" target="_blank" :aria-label="name" class="group relative text-lg font-medium text-gray-400 transition-all duration-300 ease-in-out before:absolute before:bottom-[-4px] before:left-1/2 before:h-[3px] before:w-0 before:-translate-x-1/2 before:bg-yellow-400 before:transition-all before:duration-500 before:ease-out hover:scale-105 hover:text-yellow-400 hover:drop-shadow-[0_0_5px_#F28AA9] hover:before:w-full">

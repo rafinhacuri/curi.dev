@@ -7,8 +7,8 @@ useSeoMeta({ description: t('home.subtitle') })
 const projects = computed(() => [
   { title: t('projects.proj1'), description: t('projects.desc1'), icon: 'lucide:tv', nome: 'Agenda-CBPF', link: 'https://youtu.be/Z866qplsBdA' },
   { title: t('projects.proj2'), description: t('projects.desc2'), icon: 'lucide:wrench', nome: 'Os', link: 'https://youtu.be/MRcAPzhyDLA' },
-  { title: t('projects.proj3'), description: t('projects.desc3'), icon: 'lucide:venetian-mask', nome: 'Eventos', link: 'https://eventos.cbpf.br' },
-  { title: t('projects.proj4'), description: t('projects.desc4'), icon: 'lucide:database', nome: 'Mesonpi', link: 'https://mesonpi.cbpf.br/projetos/login' },
+  { title: t('projects.proj3'), description: t('projects.desc3'), icon: 'lucide:venetian-mask', nome: 'Eventos', link: 'https://eventos.cbpf.br/wteo/' },
+  { title: t('projects.proj4'), description: t('projects.desc4'), icon: 'lucide:database', nome: 'Mesonpi', link: 'https://mesonpi.cbpf.br/projetos/' },
   { title: t('projects.proj5'), description: t('projects.desc5'), icon: 'lucide:building', nome: 'SGCAD-Painel SELIC', link: 'https://youtu.be/Rh3RZ4rqL_I' },
   { title: t('projects.proj6'), description: t('projects.desc6'), icon: 'lucide:building-2', nome: 'Explotools-Brasil', link: 'https://explotools.com.br/' },
   { title: t('projects.proj7'), description: t('projects.desc7'), icon: 'lucide:bike', nome: 'Bicicletário', link: 'https://github.com/rafinhacuri/sistema-bicicletario' },

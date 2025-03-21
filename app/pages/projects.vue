@@ -28,7 +28,7 @@ const projects2 = computed(() => [
     </h2>
 
     <div class="group grid grid-cols-1 gap-10 md:grid-cols-2">
-      <article v-for="{ description, icon, link, nome, title } of projects" :key="nome" class="relative w-full rounded-md border-2 border-gray-800/50 p-3 shadow-lg transition-all duration-300 ease-in-out before:absolute before:bottom-[-4px] before:left-1/2 before:h-[3px] before:w-0 before:-translate-x-1/2 before:animate-colorFlow before:bg-animated-line before:bg-[length:200%_100%] before:transition-all before:duration-500 before:ease-out hover:translate-y-[-3px] hover:animate-pulseGlow hover:bg-slate-800 hover:shadow-[0_0_20px_rgba(255,255,255,0.1)] hover:before:w-full" role="button" @click="navigateTo(link, { external: true, open: { target: '_blank' } })" @keydown.enter="navigateTo(link, { external: true, open: { target: '_blank' } })">
+      <article v-for="{ description, icon, link, nome, title } of projects" :key="nome" data-aos="zoom-in" class="relative w-full rounded-md border-2 border-gray-800/50 p-3 shadow-lg transition-all duration-300 ease-in-out before:absolute before:bottom-[-4px] before:left-1/2 before:h-[3px] before:w-0 before:-translate-x-1/2 before:animate-colorFlow before:bg-animated-line before:bg-[length:200%_100%] before:transition-all before:duration-500 before:ease-out hover:translate-y-[-3px] hover:animate-pulseGlow hover:bg-slate-800 hover:shadow-[0_0_20px_rgba(255,255,255,0.1)] hover:before:w-full" role="button" @click="navigateTo(link, { external: true, open: { target: '_blank' } })" @keydown.enter="navigateTo(link, { external: true, open: { target: '_blank' } })">
         <header class="flex items-center justify-items-start space-x-2">
           <Icon :name="icon" class="text-4xl text-gray-300" />
           <p class="text-lg font-medium text-gray-300">
@@ -41,12 +41,12 @@ const projects2 = computed(() => [
       </article>
     </div>
 
-    <h2 class="my-8 font-['Dancing_Script'] text-5xl text-white drop-shadow-[0_2px_10px_rgba(255,255,255,0.5)]">
+    <h2 data-aos="zoom-in" class="my-8 font-['Dancing_Script'] text-5xl text-white drop-shadow-[0_2px_10px_rgba(255,255,255,0.5)]">
       {{ t('projects.title2') }}
     </h2>
 
     <div class="group grid grid-cols-1 gap-10 pb-2 md:grid-cols-2">
-      <article v-for="{ description, icon, link, nome, title, avatar, contribuidores, links } in projects2" :key="nome" class="relative w-full rounded-md border-2 border-gray-800/50 p-3 shadow-lg transition-all duration-300 ease-in-out before:absolute before:bottom-[-4px] before:left-1/2 before:h-[3px] before:w-0 before:-translate-x-1/2 before:animate-colorFlow before:bg-animated-line before:bg-[length:200%_100%] before:transition-all before:duration-500 before:ease-out hover:translate-y-[-3px] hover:animate-pulseGlow hover:bg-slate-800 hover:shadow-[0_0_20px_rgba(255,255,255,0.1)] hover:before:w-full" role="button" @keydown.enter="navigateTo(link, { external: true, open: { target: '_blank' } })" @click="navigateTo(link, { external: true, open: { target: '_blank' } })">
+      <article v-for="{ description, icon, link, nome, title, avatar, contribuidores, links } in projects2" :key="nome" data-aos="zoom-in" class="relative w-full rounded-md border-2 border-gray-800/50 p-3 shadow-lg transition-all duration-300 ease-in-out before:absolute before:bottom-[-4px] before:left-1/2 before:h-[3px] before:w-0 before:-translate-x-1/2 before:animate-colorFlow before:bg-animated-line before:bg-[length:200%_100%] before:transition-all before:duration-500 before:ease-out hover:translate-y-[-3px] hover:animate-pulseGlow hover:bg-slate-800 hover:shadow-[0_0_20px_rgba(255,255,255,0.1)] hover:before:w-full" role="button" @keydown.enter="navigateTo(link, { external: true, open: { target: '_blank' } })" @click="navigateTo(link, { external: true, open: { target: '_blank' } })">
         <header class="flex items-center justify-between">
           <div class="flex items-center space-x-2">
             <Icon :name="icon" class="text-4xl text-gray-300" />

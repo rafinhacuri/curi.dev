@@ -20,7 +20,9 @@ const stacks = [
   { title: 'Javascript', icon: 'devicon:javascript', color: '#F7DF1E' },
   { title: 'Git', icon: 'devicon:git', color: '#F05033' },
   { title: 'Github', icon: 'devicon:github', color: '#3B3B3B' },
-
+  { title: 'Linux', icon: 'devicon:linux', color: '#FCC624' },
+  { title: 'Nginx', icon: 'devicon:nginx', color: '#009639' },
+  { title: 'Pm2', icon: 'devicon:pm2', color: '#E50000' },
 ]
 
 const jornada = computed(() => [

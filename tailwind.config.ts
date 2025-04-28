@@ -18,7 +18,7 @@ export default <Partial<Config>>{
         },
         scroll: {
           '0%': { transform: 'translateX(0)' },
-          '100%': { transform: 'translateX(-50%)' },
+          '100%': { transform: 'translateX(-100%)' },
         },
         scrollHorizontal: {
           '0%': { transform: 'translateX(0)' },
@@ -39,7 +39,7 @@ export default <Partial<Config>>{
         glitch: 'glitch 0.5s infinite',
         fadeIn: 'fadeIn 1s ease-out',
         scrollHorizontal: 'scrollHorizontal 6s linear infinite',
-        scroll: 'scroll 20s linear infinite',
+        scroll: 'scroll 40s linear infinite',
         colorFlow: 'colorFlow 4s linear infinite',
         pulseGlow: 'pulseGlow 3s ease-in-out infinite',
       },

@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { Analytics } from '@vercel/analytics/nuxt'
 import { SpeedInsights } from '@vercel/speed-insights/nuxt'
 
 const { finalizePendingLocaleChange } = useI18n()
@@ -10,6 +11,7 @@ async function onBeforeEnter(){
 
 <template>
   <SpeedInsights />
+  <Analytics />
   <NuxtRouteAnnouncer />
   <NuxtLoadingIndicator color="repeating-linear-gradient(to right,#FACC15. 0%,#CA8A04 100%)" />
   <NuxtLayout>

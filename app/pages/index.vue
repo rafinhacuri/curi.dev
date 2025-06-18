@@ -37,7 +37,7 @@ const jornada = computed(() => [
     <div class="flex flex-col justify-around space-y-8 pt-20 md:flex-row md:space-y-0">
       <div class="mx-4 mt-5 space-y-3 text-center md:my-0 md:text-start">
         <p class="mb-5 text-center font-['Dancing_Script'] text-4xl font-semibold text-white drop-shadow-lg sm:text-5xl md:text-start">
-          Rafael Curi
+          {{ t('home.nome') }}
         </p>
         <p class="text-gray-400 ">
           {{ t('home.title') }}
@@ -81,7 +81,7 @@ const jornada = computed(() => [
       <div class="relative mt-10 w-screen overflow-hidden">
         <div class="flex w-[200vw] animate-scroll space-x-5">
           <!-- eslint-disable-next-line vue/no-restricted-v-bind -->
-          <div v-for="(item, index) in stacks.concat(stacks)" :key="index" class="mb-20 inline-block flex-1 cursor-default rounded-lg border p-1 text-center text-lg transition-transform md:text-5xl" :style="{ color: item.color, 'border-color': item.color }">
+          <div v-for="(item, index) in stacks.concat(stacks)" :key="index" class="mb-20 inline-block flex-1 cursor-default rounded-lg border p-1 text-center text-lg transition-transform md:text-5xl" :style="{ color: item.color, 'borderColor': item.color }">
             <div class="flex items-center justify-center space-x-2">
               <Icon :name="item.icon" :size="isMobile? 20 : 35" />
               <span>{{ item.title }}</span>

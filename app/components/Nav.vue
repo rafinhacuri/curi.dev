@@ -1,5 +1,5 @@
 <script setup lang="ts">
-const { locale, setLocale, t } = useI18n()
+const { locale, setLocale, t, setLocaleCookie } = useI18n()
 
 const routes = computed(() => [
   { path: '/', text: t('nav.home') },
@@ -14,7 +14,14 @@ const socials = [
 ]
 
 function changeLanguage(){
-  locale.value === 'en' ? setLocale('pt') : setLocale('en')
+  if(locale.value === 'en'){
+    setLocale('pt')
+    setLocaleCookie('pt')
+  }
+  else {
+    setLocale('en')
+    setLocaleCookie('en')
+  }
 }
 
 const menuClosed = ref(true)

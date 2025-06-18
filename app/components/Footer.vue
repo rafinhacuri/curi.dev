@@ -1,4 +1,6 @@
 <script setup lang="ts">
+const { t } = useI18n()
+
 const socials = [
   { icon: 'line-md:linkedin', link: 'https://www.linkedin.com/in/rafael-curi-a4a837292/', name: 'linkedin' },
   { icon: 'line-md:github-loop', link: 'https://github.com/rafinhacuri', name: 'github' },
@@ -15,7 +17,7 @@ const socials = [
     </div>
     <div class="flex flex-col items-center justify-center space-y-2 text-[#4C4F69] dark:text-[#CDD5F4]">
       <p class="flex items-center justify-center">
-        © {{ new Date().getFullYear() }}-PRESENT Rafael Curi. All rights reserved.
+        {{ t('footer.copyright', { year: new Date().getFullYear() }) }}
       </p>
     </div>
   </footer>

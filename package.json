@@ -16,30 +16,30 @@
     "release": "eslint . && nuxi typecheck && bumpp"
   },
   "dependencies": {
-    "@iconify-json/devicon": "^1.2.29",
+    "@iconify-json/devicon": "^1.2.31",
     "@iconify-json/fa-brands": "^1.2.1",
-    "@iconify-json/ion": "^1.2.3",
+    "@iconify-json/ion": "^1.2.4",
     "@iconify-json/line-md": "^1.2.8",
-    "@iconify-json/lucide": "^1.2.50",
+    "@iconify-json/lucide": "^1.2.57",
     "@nuxt/fonts": "^0.11.4",
-    "@nuxt/icon": "1.13.0",
+    "@nuxt/icon": "1.15.0",
     "@nuxt/image": "^1.10.0",
     "@nuxtjs/color-mode": "^3.5.2",
-    "@nuxtjs/i18n": "9.5.5",
-    "@nuxtjs/seo": "3.0.3",
-    "@nuxtjs/tailwindcss": "^6.13.1",
+    "@nuxtjs/i18n": "10.0.0",
+    "@nuxtjs/seo": "3.1.0",
+    "@nuxtjs/tailwindcss": "^6.14.0",
     "@vercel/analytics": "^1.5.0",
     "@vercel/speed-insights": "^1.2.0",
-    "@vueuse/nuxt": "^13.3.0",
-    "nuxt": "3.17.5",
+    "@vueuse/nuxt": "^13.5.0",
+    "nuxt": "4.0.0",
     "nuxt-aos": "^1.2.5",
     "vue": "^3.5.17",
     "vue-router": "^4.5.1"
   },
   "devDependencies": {
-    "@dethdkn/eslint-config": "^3.0.3",
+    "@dethdkn/eslint-config": "^3.2.0",
     "bumpp": "^10.2.0",
-    "eslint": "^9.29.0",
-    "vue-tsc": "^2.2.10"
+    "eslint": "^9.31.0",
+    "vue-tsc": "^3.0.1"
   }
 }

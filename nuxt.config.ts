@@ -8,7 +8,6 @@ export default defineNuxtConfig({
     description: 'Full Stack Developer',
     identity: { type: 'Person' },
   },
-  future: { compatibilityVersion: 4 },
   compatibilityDate: '2025-01-14',
   i18n: {
     baseUrl: 'https://curi.dev.br/',

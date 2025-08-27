@@ -46,7 +46,8 @@
     "git_github": "GIT E GITHUB",
     "vuejs": "Vue JS 3 Completo com Composition API, Vuex & Vue Router",
     "nuxtjs": "Master Nuxt 3 - Guia Completo Full-Stack",
-    "ts": "Aprenda TYPESCRIPT em 7 dias + Projetos Reais"
+    "ts": "Aprenda TYPESCRIPT em 7 dias + Projetos Reais",
+    "go": "Go (Golang): Explorando a Linguagem do Google"
   },
   "projects": {
     "title1": "Projetos Solo",

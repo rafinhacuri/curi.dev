@@ -14,6 +14,7 @@ const stacks = [
   { title: 'NodeJS', icon: 'devicon:nodejs', color: '#339933' },
   { title: 'MongoDB', icon: 'devicon:mongodb', color: '#47A248' },
   { title: 'Typescript', icon: 'devicon:typescript', color: '#3178C6' },
+  { title: 'Golang', icon: 'devicon:go', color: '#00a7d1' },
   { title: 'Eslint', icon: 'devicon:eslint', color: '#4B32C3' },
   { title: 'HTML', icon: 'devicon:html5', color: '#E34F26' },
   { title: 'CSS', icon: 'devicon:css3', color: '#1572B6' },

@@ -8,6 +8,7 @@ const certificates = computed(() => [
   { titulo: t('cert.js'), foto: '/cursos/js.png', link: '/certificates/js.jpg', icons: ['devicon:javascript'], nome: 'JavaScript' },
   { titulo: t('cert.ts'), foto: '/cursos/ts.png', link: '/certificates/ts.jpg', icons: ['devicon:typescript'], nome: 'TypeScript' },
   { titulo: t('cert.go'), foto: '/cursos/go.png', link: '/certificates/go.jpg', icons: ['devicon:go'], nome: 'Golang' },
+  { titulo: t('cert.docker'), foto: '/cursos/docker.png', link: '/certificates/docker.jpg', icons: ['devicon:docker'], nome: 'Docker' },
   { titulo: t('cert.vuejs'), foto: '/cursos/vuejs.png', link: '/certificates/vuejs.jpg', icons: ['devicon:vuejs'], nome: 'vuejs' },
   { titulo: t('cert.nuxtjs'), foto: '/cursos/nuxtjs.png', link: '/certificates/nuxtjs.jpg', icons: ['devicon:nuxtjs'], nome: 'nuxtjs' },
   { titulo: t('cert.node'), foto: '/cursos/node.png', link: '/certificates/node.jpg', icons: ['devicon:nodejs'], nome: 'nodeJS' },

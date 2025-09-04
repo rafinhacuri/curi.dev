@@ -16,11 +16,11 @@
     "release": "eslint . && nuxi typecheck && bumpp"
   },
   "dependencies": {
-    "@iconify-json/devicon": "^1.2.42",
+    "@iconify-json/devicon": "^1.2.43",
     "@iconify-json/fa-brands": "^1.2.2",
     "@iconify-json/ion": "^1.2.6",
     "@iconify-json/line-md": "^1.2.11",
-    "@iconify-json/lucide": "^1.2.64",
+    "@iconify-json/lucide": "^1.2.66",
     "@nuxt/fonts": "^0.11.4",
     "@nuxt/icon": "2.0.0",
     "@nuxt/image": "^1.11.0",
@@ -30,14 +30,14 @@
     "@nuxtjs/tailwindcss": "^6.14.0",
     "@vercel/analytics": "^1.5.0",
     "@vercel/speed-insights": "^1.2.0",
-    "@vueuse/nuxt": "^13.8.0",
-    "nuxt": "4.0.3",
+    "@vueuse/nuxt": "^13.9.0",
+    "nuxt": "4.1.0",
     "nuxt-aos": "^1.2.5",
-    "vue": "^3.5.20",
+    "vue": "^3.5.21",
     "vue-router": "^4.5.1"
   },
   "devDependencies": {
-    "@dethdkn/eslint-config": "^3.3.4",
+    "@dethdkn/eslint-config": "^3.3.5",
     "bumpp": "^10.2.3",
     "eslint": "^9.34.0",
     "vue-tsc": "^3.0.6"

@@ -47,7 +47,8 @@
     "vuejs": "Vue JS 3 Complete with Composition API, Vuex & Vue Router",
     "nuxtjs": "Master Nuxt 3 - Full-Stack Complete Guide",
     "ts": "Learn TYPESCRIPT in 7 days + Real Projects",
-    "go": "Go (Golang): Exploring Google's Language"
+    "go": "Go (Golang): Exploring Google's Language",
+    "docker": "Docker from Basic to Advanced + Real Projects"
   },
   "projects": {
     "title1": "Solo Projects",

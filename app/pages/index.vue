@@ -8,7 +8,7 @@ defineOgImageComponent('Home', { title: t('home.title2'), subtitle: t('home.titl
 const isMobile = useMediaQuery('(max-width: 640px)')
 
 const stacks = [
-  { title: 'Nuxt', icon: 'devicon:nuxtjs', color: '#00C58E' },
+  { title: 'Nuxt', icon: 'devicon:nuxt', color: '#00C58E' },
   { title: 'Vue', icon: 'devicon:vuejs', color: '#42b883' },
   { title: 'Tailwind', icon: 'devicon:tailwindcss', color: '#38BDF8' },
   { title: 'NodeJS', icon: 'devicon:nodejs', color: '#339933' },
@@ -24,6 +24,7 @@ const stacks = [
   { title: 'Linux', icon: 'devicon:linux', color: '#FCC624' },
   { title: 'Nginx', icon: 'devicon:nginx', color: '#009639' },
   { title: 'Pm2', icon: 'devicon:pm2', color: '#E50000' },
+  { title: 'Docker', icon: 'devicon:docker', color: '#2496ED' },
 ]
 
 const jornada = computed(() => [

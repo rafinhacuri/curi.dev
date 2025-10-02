@@ -12,6 +12,7 @@ const certificates = computed(() => [
   { titulo: t('cert.vuejs'), foto: '/cursos/vuejs.png', link: '/certificates/vuejs.jpg', icons: ['devicon:vuejs'], nome: 'vuejs' },
   { titulo: t('cert.nuxtjs'), foto: '/cursos/nuxtjs.png', link: '/certificates/nuxtjs.jpg', icons: ['devicon:nuxtjs'], nome: 'nuxtjs' },
   { titulo: t('cert.node'), foto: '/cursos/node.png', link: '/certificates/node.jpg', icons: ['devicon:nodejs'], nome: 'nodeJS' },
+  { titulo: t('cert.oauth'), foto: '/cursos/oauth.png', link: '/certificates/oauth.png', icons: ['devicon:oauth'], nome: 'OAuth' },
   { titulo: t('cert.git_github'), foto: '/cursos/git_github.png', link: '/certificates/git_github.pdf', icons: ['devicon:git', 'devicon:github'], nome: 'git e github' },
   { titulo: t('cert.html_css1'), foto: '/cursos/html_css01.png', link: '/certificates/html_css01.pdf', icons: ['devicon:html5', 'devicon:css3'], nome: 'html5 e css3 modulo 1' },
   { titulo: t('cert.html_css2'), foto: '/cursos/html_css02.png', link: '/certificates/html_css02.pdf', icons: ['devicon:html5', 'devicon:css3'], nomde: 'html5 e css3 modulo 2' },

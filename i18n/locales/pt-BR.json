@@ -48,7 +48,8 @@
     "nuxtjs": "Master Nuxt 3 - Guia Completo Full-Stack",
     "ts": "Aprenda TYPESCRIPT em 7 dias + Projetos Reais",
     "go": "Go (Golang): Explorando a Linguagem do Google",
-    "docker": "Docker do Básico ao Avançado + Projetos Reais"
+    "docker": "Docker do Básico ao Avançado + Projetos Reais",
+    "oauth": "Os detalhes práticos do OAuth 2.0"
   },
   "projects": {
     "title1": "Projetos Solo",

@@ -49,7 +49,8 @@
     "ts": "Aprenda TYPESCRIPT em 7 dias + Projetos Reais",
     "go": "Go (Golang): Explorando a Linguagem do Google",
     "docker": "Docker do Básico ao Avançado + Projetos Reais",
-    "oauth": "Os detalhes práticos do OAuth 2.0"
+    "oauth": "Os detalhes práticos do OAuth 2.0",
+    "dns": "Mergulho Profundo em DNS"
   },
   "projects": {
     "title1": "Projetos Solo",
@@ -73,6 +74,8 @@
     "proj9": "Agenda de Auditórios",
     "desc9": "Sistema de gerenciamento de reservas de auditórios",
     "proj10": "Posgrad COEDU",
-    "desc10": "Sistema de pós-graduação do CBPF"
+    "desc10": "Sistema de pós-graduação do CBPF",
+    "proj11": "SanchezDNS",
+    "desc11": "Sistema de gerenciamento de DNS"
   }
 }

@@ -5,6 +5,7 @@ useHead({ title: t('nav.projects') })
 useSeoMeta({ description: t('home.subtitle') })
 
 const projects = computed(() => [
+  { title: t('projects.proj11'), description: t('projects.desc11'), icon: 'lucide:server', nome: 'SanchezDNS', link: 'https://sanchezdns.curi.dev.br' },
   { title: t('projects.proj1'), description: t('projects.desc1'), icon: 'lucide:tv', nome: 'Agenda-CBPF', link: 'https://youtu.be/Z866qplsBdA' },
   { title: t('projects.proj2'), description: t('projects.desc2'), icon: 'lucide:wrench', nome: 'Os', link: 'https://youtu.be/MRcAPzhyDLA' },
   { title: t('projects.proj3'), description: t('projects.desc3'), icon: 'lucide:venetian-mask', nome: 'Eventos', link: 'https://eventos.cbpf.br/wteo/' },

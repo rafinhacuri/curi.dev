@@ -49,7 +49,8 @@
     "ts": "Learn TYPESCRIPT in 7 days + Real Projects",
     "go": "Go (Golang): Exploring Google's Language",
     "docker": "Docker from Basic to Advanced + Real Projects",
-    "oauth": "The Nuts and Bolts of OAuth 2.0"
+    "oauth": "The Nuts and Bolts of OAuth 2.0",
+    "dns": "DNS Deep Dive"
   },
   "projects": {
     "title1": "Solo Projects",
@@ -73,6 +74,8 @@
     "proj9": "Agenda de Auditórios",
     "desc9": "Auditorium scheduling system",
     "proj10": "Posgrad COEDU",
-    "desc10": "CBPF postgraduate system"
+    "desc10": "CBPF postgraduate system",
+    "proj11": "SanchezDNS",
+    "desc11": "DNS management system"
   }
 }

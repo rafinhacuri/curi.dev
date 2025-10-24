@@ -25,6 +25,7 @@ const stacks = [
   { title: 'Nginx', icon: 'devicon:nginx', color: '#009639' },
   { title: 'Pm2', icon: 'devicon:pm2', color: '#E50000' },
   { title: 'Docker', icon: 'devicon:docker', color: '#2496ED' },
+  { title: 'DNS', icon: 'lucide:server', color: '#4CAF50' },
 ]
 
 const jornada = computed(() => [

@@ -25,6 +25,7 @@ const certificates = computed(() => [
   { titulo: t('cert.linux03'), foto: '/cursos/linux03.png', link: '/certificates/linux03.pdf', icons: ['devicon:linux'], nome: 'linux modulo 3' },
   { titulo: t('cert.linux04'), foto: '/cursos/linux05.png', link: '/certificates/linux04.pdf', icons: ['devicon:linux'], nome: 'linux modulo 4' },
   { titulo: t('cert.linux05'), foto: '/cursos/linux05.png', link: '/certificates/linux05.pdf', icons: ['devicon:linux'], nome: 'linux modulo 5' },
+  { titulo: t('cert.dns'), foto: '/cursos/dns.png', link: '/certificates/dns.pdf', icons: ['lucide:server'], nome: 'DNS' },
 ])
 
 const searchQuery = ref('')

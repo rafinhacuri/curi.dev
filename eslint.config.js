@@ -1,3 +1,3 @@
 import dethdkn from '@dethdkn/eslint-config'
 
-export default dethdkn({ tailwind: true, vue: true, nuxt: true, vueI18n: true })
+export default dethdkn({ vue: true, nuxt: true, tailwind: true, vueI18n: true })

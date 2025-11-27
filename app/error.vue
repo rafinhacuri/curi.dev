@@ -18,7 +18,7 @@ useHead({ title: String(statusCode.value) })
   <main class="flex h-screen items-center justify-center bg-transparent">
     <div class="animate-fadeIn space-y-10 text-center">
       <h1 class="relative text-9xl font-bold text-[#FACC15] transition-all duration-300 hover:scale-105">
-        <span class="absolute left-0 top-0 w-full animate-glitch text-[#FACC15] opacity-50 blur-sm">
+        <span class="animate-glitch absolute top-0 left-0 w-full text-[#FACC15] opacity-50 blur-sm">
           {{ statusCode }}
         </span>
         {{ statusCode }}

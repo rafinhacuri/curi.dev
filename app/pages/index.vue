@@ -65,7 +65,7 @@ const jornada = computed(() => [
               {{ titulo }}
             </p>
             <div class="relative hidden h-[30px] w-[250px] overflow-hidden md:block md:w-[300px] lg:w-[400px] ">
-              <p class="whitespace-nowrap text-gray-500 group-hover:animate-scrollHorizontal">
+              <p class="group-hover:animate-scrollHorizontal whitespace-nowrap text-gray-500">
                 {{ descricao }}
               </p>
             </div>
@@ -82,7 +82,7 @@ const jornada = computed(() => [
         {{ t('home.stack') }}
       </h2>
       <div class="relative mt-10 w-screen overflow-hidden">
-        <div class="flex w-[200vw] animate-scroll space-x-5">
+        <div class="animate-scroll flex w-[200vw] space-x-5">
           <!-- eslint-disable-next-line vue/no-restricted-v-bind -->
           <div v-for="(item, index) in stacks.concat(stacks)" :key="index" class="mb-20 inline-block flex-1 cursor-default rounded-lg border p-1 text-center text-lg transition-transform md:text-5xl" :style="{ color: item.color, 'borderColor': item.color }">
             <div class="flex items-center justify-center space-x-2">

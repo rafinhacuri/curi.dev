@@ -1,5 +1,7 @@
 {
   "i18n-ally.localesPaths": ["i18n/locales"],
   "i18n-ally.keystyle": "nested",
-  "i18n-ally.sourceLanguage": "pt-BR"
+  "i18n-ally.sourceLanguage": "pt-BR",
+  "css.lint.unknownAtRules": "ignore",
+  "scss.lint.unknownAtRules": "ignore"
 }

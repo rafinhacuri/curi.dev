@@ -76,6 +76,8 @@
     "proj10": "Posgrad COEDU",
     "desc10": "Sistema de pós-graduação do CBPF",
     "proj11": "SanchezDNS",
-    "desc11": "Sistema de gerenciamento de DNS"
+    "desc11": "Sistema de gerenciamento de DNS",
+    "proj12": "Deku",
+    "desc12": "Sistema de controle de receitas e despesas"
   }
 }

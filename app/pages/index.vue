@@ -60,7 +60,7 @@ const jornada = computed(() => [
           <p class="text-2xl font-extralight text-gray-500">
             {{ ano }}
           </p>
-          <div class="group relative before:absolute before:bottom-[-4px] before:left-0 before:h-[3px] before:w-0 before:bg-yellow-400 before:transition-all before:duration-500 before:ease-out group-hover:before:w-full">
+          <div class="group relative before:absolute before:-bottom-1 before:left-0 before:h-[3px] before:w-0 before:bg-yellow-400 before:transition-all before:duration-500 before:ease-out group-hover:before:w-full">
             <p class=" text-lg font-light text-gray-400 transition-all duration-300 ease-in-out group-hover:scale-105 group-hover:text-yellow-400 group-hover:drop-shadow-[0_0_5px_#F28AA9]">
               {{ titulo }}
             </p>
@@ -69,7 +69,7 @@ const jornada = computed(() => [
                 {{ descricao }}
               </p>
             </div>
-            <p class="text-wrap break-words text-gray-500 md:hidden">
+            <p class="text-wrap wrap-break-word text-gray-500 md:hidden">
               {{ descricao }}
             </p>
           </div>

@@ -159,19 +159,15 @@ const stacks = [
             <p class="text-[13px] leading-relaxed text-slate-400">
               {{ t('home.experience_p1') }}
             </p>
-
             <p class="text-[13px] leading-relaxed text-slate-400">
               {{ t('home.experience_p2') }}
             </p>
-
             <p class="text-[13px] leading-relaxed text-slate-400">
               {{ t('home.experience_p3') }}
             </p>
-
             <p class="text-[13px] leading-relaxed text-slate-400">
               {{ t('home.experience_p4') }}
             </p>
-
             <p class="text-[13px] leading-relaxed text-slate-400">
               {{ t('home.experience_p5') }}
             </p>

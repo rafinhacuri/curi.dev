@@ -10,54 +10,19 @@ async function onBeforeEnter(){
 </script>
 
 <template>
-  <SpeedInsights />
-  <Analytics />
-  <NuxtRouteAnnouncer />
-  <NuxtLoadingIndicator color="repeating-linear-gradient(to right,#FACC15. 0%,#CA8A04 100%)" />
-  <NuxtLayout>
-    <NuxtPage :transition="{ name: 'page', mode: 'out-in', onBeforeEnter }" />
-  </NuxtLayout>
+  <UApp :toaster="{expand: false}">
+    <SpeedInsights />
+    <Analytics />
+    <NuxtRouteAnnouncer />
+    <NuxtLoadingIndicator color="repeating-linear-gradient(to right,#FACC15. 0%,#CA8A04 100%)" />
+    <NuxtLayout>
+      <NuxtPage :transition="{ name: 'page', mode: 'out-in', onBeforeEnter }" />
+    </NuxtLayout>
+  </UApp>
 </template>
 
-<!-- eslint-disable-next-line vue/no-restricted-block vue/enforce-style-attribute -->
-<style>
-html, body {
-    height: 100%;
-    margin: 0;
-    padding: 0;
-}
-
-body {
-    background-color: #020617; /* slate-950 */
-    position: relative;
-}
-
-body::-webkit-scrollbar {
-    background-color: #020617;
-}
-
-body::-webkit-scrollbar-thumb {
-    background-color: #1e293b;
-    border: 4px solid #020617;
-}
-
-body::-webkit-scrollbar-track {
-    background-color: #020617;
-}
-
-div::-webkit-scrollbar {
-    background-color: #020617;
-}
-
-div::-webkit-scrollbar-thumb {
-    background-color: #1e293b;
-    border: 4px solid #020617;
-}
-
-div::-webkit-scrollbar-track {
-    background-color: #020617;
-}
-
+<!-- eslint-disable-next-line vue/no-restricted-block -->
+<style scoped>
 @keyframes fadeIn {
   from {
     opacity: 0;

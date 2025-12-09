@@ -1,53 +1,5 @@
 @import "tailwindcss";
-
-@theme {
-  --animate-glitch: glitch 0.5s infinite;
-  --animate-fadeIn: fadeIn 1s ease-out;
-  --animate-scroll: scroll 40s linear infinite;
-  --animate-scrollHorizontal: scrollHorizontal 6s linear infinite;
-  --animate-colorFlow: colorFlow 4s linear infinite;
-  --animate-pulseGlow: pulseGlow 3s ease-in-out infinite;
-
-  --background-image-animated-line: linear-gradient(90deg, transparent, #FFD700, #FFA500, #FFD700, transparent);
-  
-  --background-size-200: 200% 100%;
-
-  @keyframes glitch {
-    0% { transform: translate(0); }
-    20% { transform: translate(-2px, 2px); }
-    40% { transform: translate(2px, -2px); }
-    60% { transform: translate(-1px, 1px); }
-    80% { transform: translate(1px, -1px); }
-    100% { transform: translate(0); }
-  }
-
-  @keyframes fadeIn {
-    0% { opacity: 0; transform: translateY(-10px); }
-    100% { opacity: 1; transform: translateY(0); }
-  }
-
-  @keyframes scroll {
-    0% { transform: translateX(0); }
-    100% { transform: translateX(-100%); }
-  }
-
-  @keyframes scrollHorizontal {
-    0% { transform: translateX(0); }
-    90% { transform: translateX(-100%); }
-    100% { transform: translateX(0); }
-  }
-
-  @keyframes colorFlow {
-    0% { background-position: 200% 0; }
-    100% { background-position: -200% 0; }
-  }
-
-  @keyframes pulseGlow {
-    0% { filter: drop-shadow(0 0 5px rgba(124, 252, 0, 0.2)); }
-    50% { filter: drop-shadow(0 0 15px rgba(124, 252, 0, 0.6)); }
-    100% { filter: drop-shadow(0 0 5px rgba(124, 252, 0, 0.2)); }
-  }
-}
+@import "@nuxt/ui";
 
 @layer base {
   button:not(:disabled),

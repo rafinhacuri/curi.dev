@@ -1,7 +1,5 @@
-import tailwindcss from '@tailwindcss/vite'
-
 export default defineNuxtConfig({
-  modules: ['@nuxt/fonts', '@nuxt/image', '@nuxtjs/color-mode', '@nuxtjs/seo', '@nuxtjs/i18n', '@vueuse/nuxt', '@nuxt/icon', 'nuxt-aos'],
+  modules: ['@nuxt/fonts', '@nuxt/ui', '@nuxt/image', '@nuxtjs/color-mode', '@nuxtjs/seo', '@nuxtjs/i18n', '@vueuse/nuxt', '@nuxt/icon', 'nuxt-aos'],
   devtools: { enabled: true },
   app: { head: { templateParams: { separator: '•' } } },
   css: ['~/assets/main.css'],
@@ -12,7 +10,6 @@ export default defineNuxtConfig({
     identity: { type: 'Person' },
   },
   compatibilityDate: '2025-10-14',
-  vite: { plugins: [tailwindcss()] },
   i18n: {
     baseUrl: 'https://curi.dev.br/',
     defaultLocale: 'en',

@@ -20,16 +20,13 @@
     "build": "Construindo experiências para a web",
     "projetos": "Meus projetos",
     "certificates": "Minhas certificações",
-
     "backend_title": "Backend & APIs",
     "backend_desc": "Go · Node · REST",
     "frontend_title": "Frontend",
     "frontend_desc": "Nuxt · Vue · Tailwind",
     "devops_title": "DevOps & Infra",
-    "devops_desc": "Docker · DNS · Nginx",
-
+    "devops_desc": "Docker · PowerDNS · Nginx",
     "experience": "Experiência",
-    "experience_timeline": "Timeline",
     "experience_period_1": "2023 - Atual",
     "experience_company_1": "Centro Brasileiro de Pesquisas Físicas",
     "experience_role_1": "Engenheiro de Software & DevOps",

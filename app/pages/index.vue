@@ -134,9 +134,6 @@ const stacks = [
             {{ t('home.experience') }}
           </p>
         </div>
-        <span class="hidden rounded-full border border-slate-700/70 bg-slate-900/80 px-3 py-1 text-[11px] tracking-[0.18em] text-slate-400 uppercase md:inline-flex">
-          {{ t('home.experience_timeline') }}
-        </span>
       </div>
 
       <div class="space-y-4">

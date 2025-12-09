@@ -49,7 +49,7 @@ function changeLanguage(){
     </template>
 
     <nav class="space-x-4">
-      <NuxtLinkLocale v-for="item in items" :key="item.to" :to="item.to" class="relative text-lg font-medium text-gray-400 transition duration-300 ease-in-out before:absolute before:-bottom-1 before:left-1/2 before:h-[3px] before:w-0 before:-translate-x-1/2 before:bg-gray-300 before:transition-all before:duration-500 before:ease-out hover:scale-105 hover:text-gray-300 hover:before:w-full" active-class="text-slate-200 before:w-full">
+      <NuxtLinkLocale v-for="item in items" :key="item.to" :to="item.to" class="relative font-medium text-gray-400 transition duration-300 ease-in-out before:absolute before:-bottom-1 before:left-1/2 before:h-[3px] before:w-0 before:-translate-x-1/2 before:bg-gray-300 before:transition-all before:duration-500 before:ease-out hover:scale-105 hover:text-gray-300 hover:before:w-full" active-class="text-slate-200 before:w-full">
         {{ item.label }}
       </NuxtLinkLocale>
     </nav>
@@ -73,7 +73,7 @@ function changeLanguage(){
 
     <template #body>
       <div class="flex flex-col gap-1.5 py-3">
-        <NuxtLinkLocale v-for="item in items" :key="item.to" :to="item.to" class="relative text-lg font-medium text-gray-400 transition duration-300 ease-in-out before:absolute before:-bottom-1 before:left-1/2 before:h-[3px] before:w-0 before:-translate-x-1/2 before:bg-gray-300 before:transition-all before:duration-500 before:ease-out hover:scale-105 hover:text-gray-300 hover:before:w-full" active-class="text-slate-200 before:w-full">
+        <NuxtLinkLocale v-for="item in items" :key="item.to" :to="item.to" class="relative font-medium text-gray-400 transition duration-300 ease-in-out before:absolute before:-bottom-1 before:left-1/2 before:h-[3px] before:w-0 before:-translate-x-1/2 before:bg-gray-300 before:transition-all before:duration-500 before:ease-out hover:scale-105 hover:text-gray-300 hover:before:w-full" active-class="text-slate-200 before:w-full">
           {{ item.label }}
         </NuxtLinkLocale>
       </div>

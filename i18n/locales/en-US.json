@@ -69,6 +69,8 @@
     "dns": "DNS Deep Dive"
   },
   "projects": {
+    "title": "My Projects",
+    "open": "Open project",
     "title1": "Solo Projects",
     "title2": "Team Projects",
     "proj1": "Agenda-CBPF",

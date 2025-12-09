@@ -69,6 +69,8 @@
     "dns": "Mergulho Profundo em DNS"
   },
   "projects": {
+    "title": "Meus Projetos",
+    "open": "Abrir projeto",
     "title1": "Projetos Solo",
     "title2": "Projetos em Equipe",
     "proj1": "Agenda-CBPF",
@@ -84,7 +86,7 @@
     "proj6": "Explotools-Brasil",
     "desc6": "Aplicação WEB da empressa Explotools-Brasil",
     "proj7": "Bicicletário",
-    "desc7": "Aplicação WEB de gestão e controle de um bicicletário",
+    "desc7": "Sistema de gestão e controle de um bicicletário",
     "proj8": "curi.dev.br",
     "desc8": "Meu site pessoal",
     "proj9": "Agenda de Auditórios",

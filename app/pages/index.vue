@@ -29,7 +29,7 @@ const stacks = [
 
 <template>
   <UContainer class="relative mt-10 space-y-16">
-    <section class=" w-full ">
+    <section class="w-full" data-aos="zoom-in">
       <div class="relative overflow-hidden rounded-[28px] border border-emerald-400/35 bg-slate-950/95 p-6 shadow-[0_24px_80px_rgba(15,23,42,0.9)] backdrop-blur-xl sm:p-8">
         <div class="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(16,185,129,0.22),transparent_60%),radial-gradient(circle_at_bottom_right,rgba(15,23,42,0.85),transparent_70%)]" />
         <div class="pointer-events-none absolute inset-0 opacity-45">
@@ -108,7 +108,7 @@ const stacks = [
       </div>
     </section>
 
-    <section class="space-y-8">
+    <section class="space-y-8" data-aos="zoom-in">
       <p class="text-xs font-semibold tracking-[0.3em] text-emerald-400 uppercase">
         {{ t('home.stack') }}
       </p>
@@ -127,7 +127,7 @@ const stacks = [
       </UMarquee>
     </section>
 
-    <section class="mt-10 space-y-6">
+    <section data-aos="zoom-in" class="mt-10 space-y-6">
       <div class="flex items-center justify-between gap-3">
         <div class="space-y-1">
           <p class="text-xs font-semibold tracking-[0.3em] text-emerald-400 uppercase">

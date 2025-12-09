@@ -30,7 +30,7 @@ const certificates = computed(() => [
 
 const searchQuery = ref('')
 
-function normalizeText(text: string){
+function normalizeText(text: string): string {
   return text.toLowerCase().normalize('NFD').replaceAll(/[\u0300-\u036F]/g, '')
 }
 
@@ -41,34 +41,89 @@ const filteredCertificates = computed(() => {
 </script>
 
 <template>
-  <section class="min-h-[calc(100vh-183px)]">
-    <div class="flex flex-col items-center justify-center p-10">
-      <h2 class="mb-8 text-center font-['Dancing_Script'] text-5xl font-semibold text-white drop-shadow-[0_2px_10px_rgba(255,255,255,0.5)]">
-        {{ t("cert.head") }}
-      </h2>
-      <label for="search" class="sr-only">{{ t('cert.busca') }}</label>
-      <input id="search" v-model="searchQuery" type="text" :placeholder="t('cert.busca')" class="mb-6 w-full max-w-md rounded-lg border border-gray-300 bg-gray-800 p-3 text-white shadow-md transition-all outline-none focus:border-yellow-400 focus:ring focus:ring-yellow-400/50">
+  <UContainer class="mt-10 space-y-16">
+    <header class="space-y-6" data-aos="fade-up">
+      <div class="inline-flex items-center gap-2 rounded-full border border-emerald-400/40 bg-emerald-400/10 px-3 py-1 text-[11px] font-semibold tracking-[0.26em] text-emerald-200 uppercase">
+        <span class="h-1.5 w-1.5 rounded-full bg-emerald-400" />
+        <span>{{ t('cert.head') }}</span>
+      </div>
 
-      <div class="grid grid-cols-1 gap-10 sm:grid-cols-2 lg:grid-cols-3">
-        <div v-for="cert in filteredCertificates" :key="cert.foto" data-aos="zoom-in" class="group relative flex max-w-[280px] flex-col items-center justify-center overflow-hidden rounded-xl bg-linear-to-b from-slate-900 to-slate-800 p-5 shadow-lg transition-all duration-300 hover:scale-105 hover:shadow-[0_0_20px_rgba(255,255,255,0.1)]">
-          <div class="relative w-full overflow-hidden rounded-lg">
-            <img :src="cert.foto" :alt="cert.titulo" class="h-[200px] w-full rounded-lg object-cover transition-all duration-500 ease-out group-hover:scale-110 group-hover:rotate-2 group-hover:shadow-[0_5px_20px_rgba(255,255,255,0.2)] md:grayscale md:group-hover:grayscale-0">
-          </div>
-          <h3 class="mt-5 text-lg font-semibold text-white transition-all duration-300 group-hover:text-yellow-400">
-            <div class="flex items-center justify-center space-x-3">
-              <div class="flex flex-col items-center space-y-2">
-                <span v-for="icon in cert.icons" :key="icon">
-                  <Icon :name="icon" class="text-2xl transition-all duration-300 group-hover:scale-125" />
-                </span>
-              </div>
-              <span>{{ cert.titulo }}</span>
-            </div>
-          </h3>
-          <NuxtLink v-if="cert.link" :to="cert.link" external target="_blank" class="mt-5 rounded-lg border border-white px-5 py-2 text-white transition-all duration-300 hover:border-yellow-400 hover:text-yellow-400 hover:shadow-[0_0_15px_rgba(255,255,255,0.2)]">
-            {{ t("cert.ver_cert") }}
-          </NuxtLink>
+      <div class="space-y-3">
+        <h1 class="text-3xl font-semibold text-slate-50 sm:text-4xl lg:text-5xl">
+          {{ t('cert.title') }}
+        </h1>
+        <p class="max-w-2xl text-sm leading-relaxed text-slate-300">
+          {{ t('cert.description') }}
+        </p>
+      </div>
+
+      <div class="flex flex-wrap items-center gap-4">
+        <div class="max-w-md min-w-60 flex-1">
+          <label for="search" class="sr-only">
+            {{ t('cert.busca') }}
+          </label>
+          <UInput id="search" v-model="searchQuery" :placeholder="t('cert.busca')" icon="lucide:search" size="md" class="w-full" />
+        </div>
+
+        <div class="flex flex-wrap items-center gap-2 text-xs text-slate-400">
+          <span class="rounded-full border border-slate-700/70 bg-slate-900/80 px-3 py-1">
+            {{ filteredCertificates.length }} / {{ certificates.length }} {{ t('cert.exibidos') }}
+          </span>
+          <span class="hidden rounded-full border border-slate-700/70 bg-slate-900/80 px-3 py-1 sm:inline-flex">
+            {{ t('cert.filter_realtime') }}
+          </span>
         </div>
       </div>
-    </div>
-  </section>
+    </header>
+
+    <section class="mt-12" data-aos="fade-up" data-aos-delay="80">
+      <div v-if="filteredCertificates.length" class="grid gap-7 md:grid-cols-2 xl:grid-cols-3">
+        <UCard v-for="cert in filteredCertificates" :key="cert.foto" as="article" data-aos="zoom-in" class="relative overflow-hidden border border-slate-800/80 bg-slate-950/90 shadow-xl backdrop-blur-xl">
+          <div class="pointer-events-none absolute inset-0 bg-radial from-emerald-500/12 via-slate-950/0 to-slate-950/0" />
+          <div class="relative z-10 flex h-full flex-col">
+            <div class="relative overflow-hidden rounded-2xl">
+              <NuxtImg :src="cert.foto" :alt="cert.titulo" class="h-40 w-full object-cover transition-transform duration-500 ease-out group-hover:scale-105" />
+            </div>
+
+            <div class="mt-4 flex-1 space-y-3">
+              <div class="flex items-start justify-between gap-3">
+                <div class="space-y-1">
+                  <p class="text-xs font-semibold tracking-[0.18em] text-emerald-300 uppercase">
+                    {{ cert.nome || 'Certificado' }}
+                  </p>
+                  <h3 class="text-sm font-semibold text-slate-50">
+                    {{ cert.titulo }}
+                  </h3>
+                </div>
+
+                <div class="flex flex-col items-end gap-1">
+                  <span v-for="icon in cert.icons" :key="icon" class="inline-flex h-7 w-7 items-center justify-center rounded-full border border-slate-700/70 bg-slate-900/80">
+                    <Icon :name="icon" class="text-[18px] text-slate-200" />
+                  </span>
+                </div>
+              </div>
+            </div>
+
+            <div class="mt-4 flex items-center justify-end text-[11px] text-slate-400">
+              <NuxtLink v-if="cert.link" :to="cert.link" external target="_blank" class="inline-flex items-center gap-1 rounded-full border border-emerald-400/60 bg-emerald-500/10 px-3 py-1 font-semibold text-emerald-200 transition hover:border-emerald-300 hover:bg-emerald-500/20">
+                <Icon name="lucide:external-link" class="text-[14px]" />
+                <span>{{ t('cert.ver_cert') }}</span>
+              </NuxtLink>
+            </div>
+          </div>
+        </UCard>
+      </div>
+
+      <div v-else class="mt-16 flex flex-col items-center justify-center gap-3 text-center text-sm text-slate-400" data-aos="fade-up">
+        <Icon name="lucide:search-x" class="text-slate-600" size="32" />
+        <p>
+          {{ t('cert.no_results_prefix') }}
+          <span class="font-semibold text-slate-200">{{ `"${searchQuery}"` }}</span>.
+        </p>
+        <p class="text-xs text-slate-500">
+          {{ t('cert.no_results_tip') }}
+        </p>
+      </div>
+    </section>
+  </UContainer>
 </template>

@@ -2,13 +2,12 @@
   "footer": {
     "copyright": "© {year}-PRESENT Rafael Curi. Todos os direitos reservados."
   },
-  "nav": {
+  "header": {
     "logo": "Logo da RC",
     "home": "Início",
     "certificates": "Certificados",
     "projects": "Projetos",
-    "language": "Mudar idioma",
-    "menu": "Abrir o menu"
+    "language": "Mudar idioma"
   },
   "home": {
     "nome": "Rafael Curi",
@@ -16,20 +15,37 @@
     "title2": "Home",
     "subtitle": "Desenvolvedor Full Stack",
     "descricao1": "Sou desenvolvedor de software full-stack do 🇧🇷 Rio de Janeiro, Brasil.",
-    "descricao2": "Eu uso Vue, Nuxt, Tailwind e TypeScript para programar.",
-    "jornada": "Minha Jornada",
-    "jornada1": "Início da minha faculdade de Ciência da Computação, Início do meu primeiro estágio como desenvolvedor, Desenvolvi meu primeiro sistema web",
-    "jornada2": "Desenvolvi vários sistemas web, Aprendi a trabalhar com diferentes tecnologias, Me tornei um desenvolvedor fullstack",
-    "jornada3": "Me tornei um desenvolvedor junior, desenvolvendo sistemas altamente complexos",
-    "jornada_inicio": "Inicio da minha jornada",
-    "jornada_aperfeicoamento": "Apefeiçoamento das minhas habilidades de dev",
-    "jornada_crescimento": "Crescimento profissional",
-    "stack": "Minhas tech-stacks"
+    "stack": "Minhas tech-stacks",
+    "mini_stacks": "Nuxt · Vue · Go · Docker",
+    "build": "Construindo experiências para a web",
+    "projetos": "Meus projetos",
+    "certificates": "Minhas certificações",
+    "backend_title": "Backend & APIs",
+    "backend_desc": "Go · Node · REST",
+    "frontend_title": "Frontend",
+    "frontend_desc": "Nuxt · Vue · Tailwind",
+    "devops_title": "DevOps & Infra",
+    "devops_desc": "Docker · PowerDNS · Nginx",
+    "experience": "Experiência",
+    "experience_period_1": "2023 - Atual",
+    "experience_company_1": "Centro Brasileiro de Pesquisas Físicas",
+    "experience_role_1": "Engenheiro de Software & DevOps",
+    "experience_p1": "Desde 2023, atuo na engenharia de software e, a partir de 2025, também na área de DevOps do Centro Brasileiro de Pesquisas Físicas (CBPF), contribuindo de maneira estratégica e contínua para a transformação profunda do ecossistema digital da instituição. Nesse período, tenho desempenhado um papel central na migração de uma infraestrutura historicamente fragmentada e marcada por limitações tecnológicas para um paradigma computacional moderno, coeso e sustentável, capaz de responder às demandas contemporâneas de confiabilidade, escalabilidade e governança de dados. Como parte desse esforço, conduzi um amplo processo de reengenharia de sistemas originalmente desenvolvidos em PHP 5, coordenando sua substituição por arquiteturas fundamentadas em Nuxt e Go, linguagens e frameworks que oferecem maior segurança, previsibilidade e eficiência operacional. Essa modernização não apenas reduziu de forma substancial a dívida técnica acumulada ao longo dos anos, como também fortaleceu de maneira duradoura os pilares estruturantes da instituição no que diz respeito à robustez, desempenho, segurança da informação e capacidade de evolução contínua. A soma desses avanços consolida um ambiente digital mais resiliente e alinhado às melhores práticas contemporâneas da engenharia de software e da infraestrutura de missão crítica.",
+    "experience_p2": "Dedico-me à gestão do núcleo da infraestrutura web da instituição, operando o servidor principal em Nginx — configurado para HTTP/3 e executado em um ambiente orquestrado por containers Docker — com enfoque em eficiência, previsibilidade e rigor arquitetural. Paralelamente, assumo a administração do stack de dados composto por MongoDB e Redis, assegurando uma camada persistente e de cache altamente estável, coerente e resiliente, capaz de sustentar cargas intensas de operação sem comprometer a integridade, a disponibilidade ou o desempenho sistêmico.",
+    "experience_p3": "Desenvolvo e aprimoro o sistema de Single Sign-On (SSO) institucional, concebido para unificar a autenticação e fortalecer a governança de identidades digitais em todos os sistemas do CBPF. Essa centralização, apoiada em protocolos modernos e mecanismos de verificação criptográfica, estabelece um ponto de confiança robusto, reduzindo significativamente redundâncias arquiteturais e ampliando a segurança operacional. Paralelamente, atuo com domínio técnico na configuração de infraestruturas de DNS autoritativo e recursivo — abrangendo servidores primários e secundários — assegurando aderência a padrões internacionais de resolução, alta disponibilidade, políticas rígidas de validação e estratégias de redundância que mitigam riscos sistêmicos. No âmbito da engenharia de software, opero o ecossistema GitLab com ênfase em automação, versionamento e integração contínua. Por meio de GitLab Runners, estruturo pipelines que implementam validações sistemáticas, testes automatizados e ciclos de entrega contínua, promovendo rastreabilidade, confiabilidade e um fluxo de trabalho que atende às exigências de equipes de pesquisa e desenvolvimento em ambientes de missão crítica.",
+    "experience_p4": "Desempenho um papel ativo na implementação e manutenção de soluções avançadas de observabilidade e monitoramento, concebidas para oferecer visibilidade operacional profunda sobre a dinâmica de execução de containers e serviços de missão crítica. Essas plataformas, fundamentadas em práticas contemporâneas de engenharia de confiabilidade, permitem não apenas a detecção célere de anomalias e a mitigação de falhas em ambientes distribuídos, mas também a interpretação rigorosa dos padrões comportamentais dos sistemas em produção. Tal abordagem favorece análises diagnósticas mais precisas, aprimora processos decisórios e contribui para a construção de uma infraestrutura resiliente, eficiente e alinhada às exigências de escalabilidade e estabilidade institucionais.",
+    "experience_p5": "Atualmente, minhas atribuições englobam a arquitetura e evolução de sistemas institucionais de alta relevância, a supervisão estratégica da infraestrutura web que viabiliza os serviços do CBPF e a coordenação completa do ciclo de vida do software — abrangendo desde práticas avançadas de controle de versão até metodologias de entrega contínua e orquestração operacional em ambientes de produção."
   },
   "cert": {
     "head": "Certificados",
-    "ver_cert": "Ver certificado",
+    "title": "Certificados & aprendizado contínuo.",
+    "description": "Uma coleção de cursos e certificações focados em JavaScript, TypeScript, Go, Docker, Linux, DNS e muito mais — sempre com o objetivo de aplicar o conhecimento em projetos reais e produção.",
     "busca": "Buscar certificado...",
+    "filter_realtime": "Filtro por título em tempo real",
+    "exibidos": "certificados exibidos",
+    "no_results_prefix": "Nenhum certificado encontrado para",
+    "no_results_tip": "Tente usar termos mais gerais, como \"JavaScript\", \"Linux\" ou \"Docker\".",
+    "ver_cert": "Ver certificado",
     "js": "Aprenda JAVASCRIPT em 7 dias + Projetos Reais",
     "node": "Node JS Curso Completo do Básico ao Avançado",
     "html_css1": "DESENVOLVIMENTO WEB 2020 (HTML5+CSS3): MÓDULO 1 DE 5",
@@ -53,6 +69,8 @@
     "dns": "Mergulho Profundo em DNS"
   },
   "projects": {
+    "title": "Meus Projetos",
+    "open": "Abrir projeto",
     "title1": "Projetos Solo",
     "title2": "Projetos em Equipe",
     "proj1": "Agenda-CBPF",
@@ -68,7 +86,7 @@
     "proj6": "Explotools-Brasil",
     "desc6": "Aplicação WEB da empressa Explotools-Brasil",
     "proj7": "Bicicletário",
-    "desc7": "Aplicação WEB de gestão e controle de um bicicletário",
+    "desc7": "Sistema de gestão e controle de um bicicletário",
     "proj8": "curi.dev.br",
     "desc8": "Meu site pessoal",
     "proj9": "Agenda de Auditórios",

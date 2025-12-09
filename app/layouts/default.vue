@@ -1,10 +1,12 @@
 <template>
-  <!-- eslint-disable-next-line vue/no-restricted-static-attribute -->
-  <div class="min-h-[calc(100vh-158px)]" style="background: radial-gradient(circle at top left, rgba(50,0,100,1) 0%, rgba(50,0,100,0.5) 35%, rgba(50,0,100,0) 80%);">
-    <Nav />
-    <main class="min-h-[calc(100vh-193px)]">
-      <slot />
-    </main>
-    <Footer />
-  </div>
+  <Header />
+  <UMain>
+    <div class="pointer-events-none fixed inset-0 -z-10">
+      <div class="fixed top-0 left-0 h-64 w-64 rounded-full bg-emerald-500/15 blur-[100px]" />
+      <div class="fixed top-32 right-0 h-72 w-72 rounded-full bg-sky-400/10 blur-[100px]" />
+      <div class="fixed bottom-0 left-0 h-72 w-72 rounded-full bg-gray-400/6 blur-[100px]" />
+    </div>
+    <slot />
+  </UMain>
+  <Footer />
 </template>

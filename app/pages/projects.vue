@@ -1,7 +1,7 @@
 <script setup lang="ts">
 const { t } = useI18n()
 
-useHead({ title: t('nav.projects') })
+useHead({ title: t('header.projects') })
 useSeoMeta({ description: t('home.subtitle') })
 
 const projects = computed(() => [
@@ -24,53 +24,86 @@ const projects2 = computed(() => [
 </script>
 
 <template>
-  <section class="mx-10 my-8 md:mx-32 md:my-16">
-    <h2 class="mb-8 font-['Dancing_Script'] text-5xl text-white drop-shadow-[0_2px_10px_rgba(255,255,255,0.5)]">
-      {{ t('projects.title1') }}
-    </h2>
+  <UContainer class="mt-10 space-y-16">
+    <header class="space-y-4" data-aos="fade-up">
+      <p class="inline-flex items-center gap-2 rounded-full border border-emerald-400/40 bg-emerald-400/10 px-3 py-1 text-[11px] font-semibold tracking-[0.25em] text-emerald-200 uppercase">
+        <span class="h-1.5 w-1.5 rounded-full bg-emerald-400" />
+        <span>{{ t('projects.title') }}</span>
+      </p>
+    </header>
 
-    <div class="group grid grid-cols-1 gap-10 md:grid-cols-2">
-      <article v-for="{ description, icon, link, nome, title } of projects" :key="nome" data-aos="zoom-in" class="before:animate-colorFlow before:bg-animated-line hover:animate-pulseGlow relative w-full rounded-md border-2 border-gray-800/50 p-3 shadow-lg transition-all duration-300 ease-in-out before:absolute before:-bottom-1 before:left-1/2 before:h-[3px] before:w-0 before:-translate-x-1/2 before:bg-size-[200%_100%] before:transition-all before:duration-500 before:ease-out hover:translate-y-[-3px] hover:bg-slate-800 hover:shadow-[0_0_20px_rgba(255,255,255,0.1)] hover:before:w-full" role="button" @click="navigateTo(link, { external: true, open: { target: '_blank' } })" @keydown.enter="navigateTo(link, { external: true, open: { target: '_blank' } })">
-        <header class="flex items-center justify-items-start space-x-2">
-          <Icon :name="icon" class="text-4xl text-gray-300" />
-          <p class="text-lg font-medium text-gray-300">
-            {{ title }}
-          </p>
-        </header>
-        <section class="mt-2 text-start font-extralight text-gray-400">
-          {{ description }}
-        </section>
-      </article>
-    </div>
+    <section class="space-y-6">
+      <div class="flex items-center justify-between gap-4" data-aos="fade-up" data-aos-delay="40">
+        <h2 class="text-base font-semibold tracking-[0.2em] text-slate-400 uppercase">
+          {{ t('projects.title1') }}
+        </h2>
+      </div>
 
-    <h2 data-aos="zoom-in" class="my-8 font-['Dancing_Script'] text-5xl text-white drop-shadow-[0_2px_10px_rgba(255,255,255,0.5)]">
-      {{ t('projects.title2') }}
-    </h2>
-
-    <div class="group grid grid-cols-1 gap-10 pb-2 md:grid-cols-2">
-      <article v-for="{ description, icon, link, nome, title, avatar, contribuidores, links } in projects2" :key="nome" data-aos="zoom-in" class="before:animate-colorFlow before:bg-animated-line hover:animate-pulseGlow relative w-full rounded-md border-2 border-gray-800/50 p-3 shadow-lg transition-all duration-300 ease-in-out before:absolute before:-bottom-1 before:left-1/2 before:h-[3px] before:w-0 before:-translate-x-1/2 before:bg-size-[200%_100%] before:transition-all before:duration-500 before:ease-out hover:translate-y-[-3px] hover:bg-slate-800 hover:shadow-[0_0_20px_rgba(255,255,255,0.1)] hover:before:w-full" role="button" @keydown.enter="navigateTo(link, { external: true, open: { target: '_blank' } })" @click="navigateTo(link, { external: true, open: { target: '_blank' } })">
-        <header class="flex items-center justify-between">
-          <div class="flex items-center space-x-2">
-            <Icon :name="icon" class="text-4xl text-gray-300" />
-            <h3 class="text-lg font-medium text-gray-300">
-              {{ title }}
-            </h3>
+      <div class="grid grid-cols-1 gap-6 md:grid-cols-2">
+        <article v-for="project in projects" :key="project.nome" data-aos="zoom-in" class=" flex h-full flex-col justify-between rounded-2xl border border-slate-800/80 bg-slate-950/80 p-5 shadow-lg transition-all duration-300 ease-in-out hover:-translate-y-1 hover:border-emerald-500/50 hover:shadow-[0_0_28px_rgba(16,185,129,0.30)]" role="button" @click="navigateTo(project.link, { external: true, open: { target: '_blank' } })" @keydown.enter="navigateTo(project.link, { external: true, open: { target: '_blank' } })">
+          <div class="flex items-start justify-between gap-4">
+            <div class="flex items-start gap-3">
+              <div class="flex h-10 w-10 items-center justify-center rounded-xl border border-slate-700/80 bg-slate-900/80">
+                <Icon :name="project.icon" class="text-xl text-emerald-300" />
+              </div>
+              <div class="space-y-1">
+                <p class="text-xs font-semibold tracking-[0.18em] text-emerald-300 uppercase">
+                  {{ project.nome }}
+                </p>
+                <h3 class="text-sm font-semibold text-slate-50">
+                  {{ project.description }}
+                </h3>
+              </div>
+            </div>
+            <span class="inline-flex items-center gap-1 rounded-full border border-slate-700/80 bg-slate-900/80 px-2 py-1 text-[10px] font-semibold tracking-[0.16em] text-slate-400 uppercase">
+              <UIcon name="lucide:external-link" class="size-3" />
+              <span>{{ t('projects.open') }}</span>
+            </span>
           </div>
-          <div class="hidden flex-col items-center space-y-2 md:flex">
-            <button v-for="(contribuidor, index) in contribuidores" :key="index" class="flex items-center space-x-2" @click.stop="navigateTo(links[index], { external: true, open: { target: '_blank' } })">
-              <img :src="avatar[index]" class="size-6 rounded-full md:size-10" :alt="contribuidor">
-            </button>
+        </article>
+      </div>
+    </section>
+
+    <section class="space-y-6">
+      <div class="flex items-center justify-between gap-4" data-aos="fade-up" data-aos-delay="60">
+        <h2 class="text-base font-semibold tracking-[0.2em] text-slate-400 uppercase">
+          {{ t('projects.title2') }}
+        </h2>
+      </div>
+
+      <div class="grid grid-cols-1 gap-6 md:grid-cols-2">
+        <article v-for="project in projects2" :key="project.nome" data-aos="zoom-in" class="group relative flex h-full flex-col justify-between rounded-2xl border border-slate-800/80 bg-slate-950/80 p-5 shadow-lg transition-transform duration-300 hover:-translate-y-1 hover:border-sky-500/50 hover:shadow-[0_0_28px_rgba(56,189,248,0.25)]" role="button" @click="navigateTo(project.link, { external: true, open: { target: '_blank' } })" @keydown.enter="navigateTo(project.link, { external: true, open: { target: '_blank' } })">
+          <header class="flex items-start justify-between gap-4">
+            <div class="flex items-start gap-3">
+              <div class="flex h-10 w-10 items-center justify-center rounded-xl border border-slate-700/80 bg-slate-900/80">
+                <Icon :name="project.icon" class="text-xl text-sky-300" />
+              </div>
+              <div class="space-y-1">
+                <p class="text-xs font-semibold tracking-[0.18em] text-sky-300 uppercase">
+                  {{ project.nome }}
+                </p>
+                <h3 class="text-sm font-semibold text-slate-50">
+                  {{ project.description }}
+                </h3>
+              </div>
+            </div>
+
+            <div class="hidden flex-col items-end gap-2 md:flex">
+              <button v-for="(contribuidor, index) in project.contribuidores" :key="index" class="flex items-center gap-2" @click.stop="navigateTo(project.links[index], { external: true, open: { target: '_blank' } })">
+                <img :src="project.avatar[index]" class="size-8 rounded-full" :alt="contribuidor">
+              </button>
+            </div>
+          </header>
+
+          <div class="mt-4 flex flex-wrap items-center justify-between gap-2 text-[11px] text-slate-500">
+            <div class="flex flex-wrap items-center gap-2 md:hidden">
+              <button v-for="(contribuidor, index) in project.contribuidores" :key="index" class="flex items-center gap-2" @click.stop="navigateTo(project.links[index], { external: true, open: { target: '_blank' } })">
+                <img :src="project.avatar[index]" class="size-7 rounded-full" :alt="contribuidor">
+              </button>
+            </div>
           </div>
-        </header>
-        <section class="mt-2 text-start font-extralight text-gray-400">
-          <p>{{ description }}</p>
-        </section>
-        <div class="mt-4 flex flex-wrap items-center justify-start space-y-2 md:hidden">
-          <button v-for="(contribuidor, index) in contribuidores" :key="index" class="flex items-center space-x-2" @click.stop="navigateTo(links[index], { external: true, open: { target: '_blank' } })">
-            <img :src="avatar[index]" class="size-6 rounded-full md:size-10" :alt="contribuidor">
-          </button>
-        </div>
-      </article>
-    </div>
-  </section>
+        </article>
+      </div>
+    </section>
+  </UContainer>
 </template>

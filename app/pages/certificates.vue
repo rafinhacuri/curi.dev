@@ -30,7 +30,7 @@ const certificates = computed(() => [
 
 const searchQuery = ref('')
 
-function normalizeText(text: string){
+function normalizeText(text: string): string {
   return text.toLowerCase().normalize('NFD').replaceAll(/[\u0300-\u036F]/g, '')
 }
 

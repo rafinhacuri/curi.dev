@@ -10,8 +10,10 @@
     "generate": "nuxt generate",
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare",
-    "lint": "eslint .",
-    "lint:fix": "eslint . --fix",
+    "fmt": "oxfmt --check",
+    "fmt:fix": "oxfmt",
+    "lint": "oxlint --type-aware",
+    "lint:fix": "oxlint --type-aware --fix",
     "typecheck": "nuxi typecheck",
     "release": "eslint . && nuxi typecheck && bumpp"
   },
@@ -36,13 +38,13 @@
     "vue-router": "^4.6.3"
   },
   "devDependencies": {
-    "@dethdkn/eslint-config": "^4.0.3",
+    "@dethdkn/ox-config": "^1.0.4",
     "bumpp": "^10.3.2",
-    "eslint": "^9.39.1",
     "vue-tsc": "^3.1.8"
   },
   "trustedDependencies": [
     "@parcel/watcher",
+    "@tailwindcss/oxide",
     "unrs-resolver"
   ]
 }

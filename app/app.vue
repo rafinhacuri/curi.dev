@@ -4,7 +4,7 @@ import { SpeedInsights } from '@vercel/speed-insights/nuxt'
 
 const { finalizePendingLocaleChange } = useI18n()
 
-async function onBeforeEnter(){
+async function onBeforeEnter(): Promise<void> {
   await finalizePendingLocaleChange()
 }
 </script>

@@ -14,7 +14,7 @@ const socials = [
 
 ]
 
-function changeLanguage(){
+function changeLanguage(): void {
   if(locale.value === 'en'){
     setLocale('pt')
     setLocaleCookie('pt')

@@ -1,17 +1,20 @@
 <script setup lang="ts">
-import * as locales from '@nuxt/ui/locale'
+  import { en, pt_br } from '@nuxt/ui/locale'
 
-const { finalizePendingLocaleChange, locale } = useI18n()
+  const { finalizePendingLocaleChange, locale } = useI18n()
+  const uiLocale = computed(() => (locale.value === 'pt_br' ? pt_br : en))
 
-async function onBeforeEnter(): Promise<void> {
-  await finalizePendingLocaleChange()
-}
+  async function onBeforeEnter(): Promise<void> {
+    await finalizePendingLocaleChange()
+  }
 </script>
 
-<template> 
-  <UApp :toaster="{expand: false}" :locale="locales[locale]">
+<template>
+  <UApp :toaster="{ expand: false }" :locale="uiLocale">
     <NuxtRouteAnnouncer />
-    <NuxtLoadingIndicator color="repeating-linear-gradient(to right,#FACC15. 0%,#CA8A04 100%)" />
+    <NuxtLoadingIndicator
+      color="repeating-linear-gradient(90deg,#ffffff 0 18%,#70ddff 18% 40%,#8fe35b 40% 62%,#ffffff 62% 100%)"
+      :height="4" />
     <NuxtLayout>
       <NuxtPage :transition="{ name: 'page', mode: 'out-in', onBeforeEnter }" />
     </NuxtLayout>

@@ -1,64 +1,63 @@
 <script setup lang="ts">
-const { t } = useI18n()
+  const { t } = useI18n()
 
-useHead({ title: t('home.title2') })
-useSeoMeta({ description: t('home.subtitle') })
-defineOgImageComponent('Home', { title: t('home.title2'), subtitle: t('home.title') })
+  useHead({ title: t('home.title2') })
+  useSeoMeta({ description: t('home.subtitle') })
 
-const stacks = [
-  { title: 'Nuxt', icon: 'devicon:nuxt', color: 'text-lime-300', bg: 'bg-lime-300' },
-  { title: 'Vue', icon: 'devicon:vuejs', color: 'text-emerald-300', bg: 'bg-emerald-300' },
-  { title: 'Tailwind', icon: 'devicon:tailwindcss', color: 'text-cyan-300', bg: 'bg-cyan-300' },
-  { title: 'NodeJS', icon: 'devicon:nodejs', color: 'text-green-300', bg: 'bg-green-300' },
-  { title: 'MongoDB', icon: 'devicon:mongodb', color: 'text-lime-300', bg: 'bg-lime-300' },
-  { title: 'Typescript', icon: 'devicon:typescript', color: 'text-sky-300', bg: 'bg-sky-300' },
-  { title: 'Golang', icon: 'devicon:go', color: 'text-cyan-200', bg: 'bg-cyan-200' },
-  { title: 'Eslint', icon: 'devicon:eslint', color: 'text-violet-300', bg: 'bg-violet-300' },
-  { title: 'HTML', icon: 'devicon:html5', color: 'text-orange-300', bg: 'bg-orange-300' },
-  { title: 'CSS', icon: 'devicon:css3', color: 'text-blue-300', bg: 'bg-blue-300' },
-  {
-    title: 'Javascript',
-    icon: 'devicon:javascript',
-    color: 'text-yellow-300',
-    bg: 'bg-yellow-300',
-  },
-  { title: 'Git', icon: 'devicon:git', color: 'text-red-300', bg: 'bg-red-300' },
-  { title: 'Github', icon: 'devicon:github', color: 'text-zinc-100', bg: 'bg-zinc-100' },
-  { title: 'Linux', icon: 'devicon:linux', color: 'text-yellow-200', bg: 'bg-yellow-200' },
-  { title: 'Nginx', icon: 'devicon:nginx', color: 'text-green-300', bg: 'bg-green-300' },
-  { title: 'Pm2', icon: 'devicon:pm2', color: 'text-lime-200', bg: 'bg-lime-200' },
-  { title: 'Docker', icon: 'devicon:docker', color: 'text-sky-300', bg: 'bg-sky-300' },
-  { title: 'DNS', icon: 'lucide:server', color: 'text-pink-300', bg: 'bg-pink-300' },
-]
+  const stacks = [
+    { title: 'Nuxt', icon: 'devicon:nuxt', color: 'text-lime-300', bg: 'bg-lime-300' },
+    { title: 'Vue', icon: 'devicon:vuejs', color: 'text-emerald-300', bg: 'bg-emerald-300' },
+    { title: 'Tailwind', icon: 'devicon:tailwindcss', color: 'text-cyan-300', bg: 'bg-cyan-300' },
+    { title: 'NodeJS', icon: 'devicon:nodejs', color: 'text-green-300', bg: 'bg-green-300' },
+    { title: 'MongoDB', icon: 'devicon:mongodb', color: 'text-lime-300', bg: 'bg-lime-300' },
+    { title: 'Typescript', icon: 'devicon:typescript', color: 'text-sky-300', bg: 'bg-sky-300' },
+    { title: 'Golang', icon: 'devicon:go', color: 'text-cyan-200', bg: 'bg-cyan-200' },
+    { title: 'Eslint', icon: 'devicon:eslint', color: 'text-violet-300', bg: 'bg-violet-300' },
+    { title: 'HTML', icon: 'devicon:html5', color: 'text-orange-300', bg: 'bg-orange-300' },
+    { title: 'CSS', icon: 'devicon:css3', color: 'text-blue-300', bg: 'bg-blue-300' },
+    {
+      title: 'Javascript',
+      icon: 'devicon:javascript',
+      color: 'text-yellow-300',
+      bg: 'bg-yellow-300',
+    },
+    { title: 'Git', icon: 'devicon:git', color: 'text-red-300', bg: 'bg-red-300' },
+    { title: 'Github', icon: 'devicon:github', color: 'text-zinc-100', bg: 'bg-zinc-100' },
+    { title: 'Linux', icon: 'devicon:linux', color: 'text-yellow-200', bg: 'bg-yellow-200' },
+    { title: 'Nginx', icon: 'devicon:nginx', color: 'text-green-300', bg: 'bg-green-300' },
+    { title: 'Pm2', icon: 'devicon:pm2', color: 'text-lime-200', bg: 'bg-lime-200' },
+    { title: 'Docker', icon: 'devicon:docker', color: 'text-sky-300', bg: 'bg-sky-300' },
+    { title: 'DNS', icon: 'lucide:server', color: 'text-pink-300', bg: 'bg-pink-300' },
+  ]
 
-const bootLines = [
-  'CURI.OS 1994 EDITION',
-  'LOADING WEB STACK...',
-  'MOUNT /DEV/NUXT',
-  'PING CBPF.INFRA OK',
-  'READY.',
-]
+  const bootLines = [
+    'CURI.OS 1994 EDITION',
+    'LOADING WEB STACK...',
+    'MOUNT /DEV/NUXT',
+    'PING CBPF.INFRA OK',
+    'READY.',
+  ]
 
-const highlights = [
-  {
-    label: 'API',
-    title: t('home.backend_title'),
-    desc: t('home.backend_desc'),
-    tone: 'border-cyan-300 bg-cyan-300 text-cyan-950',
-  },
-  {
-    label: 'GUI',
-    title: t('home.frontend_title'),
-    desc: t('home.frontend_desc'),
-    tone: 'border-pink-300 bg-pink-300 text-pink-950',
-  },
-  {
-    label: 'OPS',
-    title: t('home.devops_title'),
-    desc: t('home.devops_desc'),
-    tone: 'border-yellow-300 bg-yellow-300 text-yellow-950',
-  },
-]
+  const highlights = [
+    {
+      label: 'API',
+      title: t('home.backend_title'),
+      desc: t('home.backend_desc'),
+      tone: 'border-cyan-300 bg-cyan-300 text-cyan-950',
+    },
+    {
+      label: 'GUI',
+      title: t('home.frontend_title'),
+      desc: t('home.frontend_desc'),
+      tone: 'border-pink-300 bg-pink-300 text-pink-950',
+    },
+    {
+      label: 'OPS',
+      title: t('home.devops_title'),
+      desc: t('home.devops_desc'),
+      tone: 'border-yellow-300 bg-yellow-300 text-yellow-950',
+    },
+  ]
 </script>
 
 <template>
@@ -88,7 +87,7 @@ const highlights = [
             </div>
           </div>
 
-          <div class="grid min-h-[560px] gap-6 p-4 sm:p-6 lg:grid-cols-[1fr_170px]">
+          <div class="grid min-h-140 gap-6 p-4 sm:p-6 lg:grid-cols-[1fr_170px]">
             <div class="flex flex-col justify-between gap-8">
               <div class="space-y-5">
                 <div
@@ -160,7 +159,7 @@ const highlights = [
           <div
             class="border-4 border-yellow-300 bg-yellow-200 p-4 text-black shadow-[8px_8px_0_#000]">
             <div class="mb-4 flex items-center justify-between border-b-4 border-black pb-3">
-              <p class="text-xs font-black uppercase tracking-[0.2em]">status board</p>
+              <p class="text-xs font-black tracking-[0.2em] uppercase">status board</p>
               <UIcon name="i-lucide-radio-tower" class="size-5" />
             </div>
             <div class="space-y-3">
@@ -220,7 +219,7 @@ const highlights = [
             </div>
             <div class="min-w-0">
               <p class="text-xs font-black tracking-[0.18em] text-zinc-500 uppercase">module</p>
-              <p class="truncate text-sm font-black uppercase text-zinc-100">
+              <p class="truncate text-sm font-black text-zinc-100 uppercase">
                 {{ stack.title }}
               </p>
             </div>
@@ -231,8 +230,8 @@ const highlights = [
 
       <section data-aos="zoom-in" class="grid gap-6 lg:grid-cols-[260px_1fr]">
         <div class="border-4 border-lime-300 bg-lime-300 p-5 text-black shadow-[8px_8px_0_#000]">
-          <p class="text-xs font-black uppercase tracking-[0.2em]">timeline.sys</p>
-          <p class="mt-3 text-4xl font-black uppercase leading-none">
+          <p class="text-xs font-black tracking-[0.2em] uppercase">timeline.sys</p>
+          <p class="mt-3 text-4xl leading-none font-black uppercase">
             {{ t('home.experience') }}
           </p>
           <div class="mt-6 grid grid-cols-5 gap-1">

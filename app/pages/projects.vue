@@ -1,150 +1,150 @@
 <script setup lang="ts">
-const { t } = useI18n()
+  const { t } = useI18n()
 
-useHead({ title: t('header.projects') })
-useSeoMeta({ description: t('home.subtitle') })
+  useHead({ title: t('header.projects') })
+  useSeoMeta({ description: t('home.subtitle') })
 
-const projects = computed(() => [
-  {
-    title: t('projects.proj11'),
-    description: t('projects.desc11'),
-    icon: 'lucide:server',
-    nome: 'SanchezDNS',
-    link: 'https://sanchezdns.curi.dev.br',
-    tone: 'cyan',
-  },
-  {
-    title: t('projects.proj12'),
-    description: t('projects.desc12'),
-    icon: 'lucide:coins',
-    nome: 'Deku',
-    link: 'https://deku.curi.dev.br',
-    tone: 'yellow',
-  },
-  {
-    title: t('projects.proj1'),
-    description: t('projects.desc1'),
-    icon: 'lucide:tv',
-    nome: 'Agenda-CBPF',
-    link: 'https://youtu.be/Z866qplsBdA',
-    tone: 'pink',
-  },
-  {
-    title: t('projects.proj2'),
-    description: t('projects.desc2'),
-    icon: 'lucide:wrench',
-    nome: 'Os',
-    link: 'https://youtu.be/MRcAPzhyDLA',
-    tone: 'lime',
-  },
-  {
-    title: t('projects.proj3'),
-    description: t('projects.desc3'),
-    icon: 'lucide:venetian-mask',
-    nome: 'Eventos',
-    link: 'https://eventos.cbpf.br/wteo/',
-    tone: 'cyan',
-  },
-  {
-    title: t('projects.proj4'),
-    description: t('projects.desc4'),
-    icon: 'lucide:database',
-    nome: 'Mesonpi',
-    link: 'https://mesonpi.cbpf.br/projetos/',
-    tone: 'yellow',
-  },
-  {
-    title: t('projects.proj5'),
-    description: t('projects.desc5'),
-    icon: 'lucide:building',
-    nome: 'SGCAD-Painel SELIC',
-    link: 'https://youtu.be/Rh3RZ4rqL_I',
-    tone: 'pink',
-  },
-  {
-    title: t('projects.proj6'),
-    description: t('projects.desc6'),
-    icon: 'lucide:building-2',
-    nome: 'Explotools-Brasil',
-    link: 'https://explotools.com.br/',
-    tone: 'lime',
-  },
-  {
-    title: t('projects.proj7'),
-    description: t('projects.desc7'),
-    icon: 'lucide:bike',
-    nome: 'Bicicletario',
-    link: 'https://github.com/rafinhacuri/sistema-bicicletario',
-    tone: 'cyan',
-  },
-  {
-    title: t('projects.proj8'),
-    description: t('projects.desc8'),
-    icon: 'lucide:user',
-    nome: 'curi.dev',
-    link: '/',
-    tone: 'yellow',
-  },
-])
+  const projects = computed(() => [
+    {
+      title: t('projects.proj11'),
+      description: t('projects.desc11'),
+      icon: 'lucide:server',
+      nome: 'SanchezDNS',
+      link: 'https://sanchezdns.curi.dev.br',
+      tone: 'cyan',
+    },
+    {
+      title: t('projects.proj12'),
+      description: t('projects.desc12'),
+      icon: 'lucide:coins',
+      nome: 'Deku',
+      link: 'https://deku.curi.dev.br',
+      tone: 'yellow',
+    },
+    {
+      title: t('projects.proj1'),
+      description: t('projects.desc1'),
+      icon: 'lucide:tv',
+      nome: 'Agenda-CBPF',
+      link: 'https://youtu.be/Z866qplsBdA',
+      tone: 'pink',
+    },
+    {
+      title: t('projects.proj2'),
+      description: t('projects.desc2'),
+      icon: 'lucide:wrench',
+      nome: 'Os',
+      link: 'https://youtu.be/MRcAPzhyDLA',
+      tone: 'lime',
+    },
+    {
+      title: t('projects.proj3'),
+      description: t('projects.desc3'),
+      icon: 'lucide:venetian-mask',
+      nome: 'Eventos',
+      link: 'https://eventos.cbpf.br/wteo/',
+      tone: 'cyan',
+    },
+    {
+      title: t('projects.proj4'),
+      description: t('projects.desc4'),
+      icon: 'lucide:database',
+      nome: 'Mesonpi',
+      link: 'https://mesonpi.cbpf.br/projetos/',
+      tone: 'yellow',
+    },
+    {
+      title: t('projects.proj5'),
+      description: t('projects.desc5'),
+      icon: 'lucide:building',
+      nome: 'SGCAD-Painel SELIC',
+      link: 'https://youtu.be/Rh3RZ4rqL_I',
+      tone: 'pink',
+    },
+    {
+      title: t('projects.proj6'),
+      description: t('projects.desc6'),
+      icon: 'lucide:building-2',
+      nome: 'Explotools-Brasil',
+      link: 'https://explotools.com.br/',
+      tone: 'lime',
+    },
+    {
+      title: t('projects.proj7'),
+      description: t('projects.desc7'),
+      icon: 'lucide:bike',
+      nome: 'Bicicletario',
+      link: 'https://github.com/rafinhacuri/sistema-bicicletario',
+      tone: 'cyan',
+    },
+    {
+      title: t('projects.proj8'),
+      description: t('projects.desc8'),
+      icon: 'lucide:user',
+      nome: 'curi.dev',
+      link: '/',
+      tone: 'yellow',
+    },
+  ])
 
-const projects2 = computed(() => [
-  {
-    title: t('projects.proj9'),
-    description: t('projects.desc9'),
-    icon: 'lucide:calendar',
-    nome: 'Agenda de Auditorios',
-    link: 'https://auditorios.cbpf.br/',
-    contribuidores: ['Gabriel Rosa'],
-    links: ['https://rosa.dev.br'],
-    avatar: ['https://rosa.dev.br/gsr.webp'],
-    tone: 'pink',
-  },
-  {
-    title: t('projects.proj10'),
-    description: t('projects.desc10'),
-    icon: 'lucide:book-marked',
-    nome: 'Posgrad COEDU',
-    link: 'https://posgrad.coedu.cbpf.br/login',
-    contribuidores: ['Gabriel Rosa'],
-    links: ['https://rosa.dev.br'],
-    avatar: ['https://rosa.dev.br/gsr.webp'],
-    tone: 'cyan',
-  },
-])
+  const projects2 = computed(() => [
+    {
+      title: t('projects.proj9'),
+      description: t('projects.desc9'),
+      icon: 'lucide:calendar',
+      nome: 'Agenda de Auditorios',
+      link: 'https://auditorios.cbpf.br/',
+      contribuidores: ['Gabriel Rosa'],
+      links: ['https://rosa.dev.br'],
+      avatar: ['https://rosa.dev.br/gsr.webp'],
+      tone: 'pink',
+    },
+    {
+      title: t('projects.proj10'),
+      description: t('projects.desc10'),
+      icon: 'lucide:book-marked',
+      nome: 'Posgrad COEDU',
+      link: 'https://posgrad.coedu.cbpf.br/login',
+      contribuidores: ['Gabriel Rosa'],
+      links: ['https://rosa.dev.br'],
+      avatar: ['https://rosa.dev.br/gsr.webp'],
+      tone: 'cyan',
+    },
+  ])
 
-function toneClasses(tone: string): string {
-  const tones: Record<string, string> = {
-    cyan: 'border-cyan-300 text-cyan-300 hover:shadow-[10px_10px_0_#22d3ee]',
-    yellow: 'border-yellow-300 text-yellow-300 hover:shadow-[10px_10px_0_#facc15]',
-    pink: 'border-pink-300 text-pink-300 hover:shadow-[10px_10px_0_#ec4899]',
-    lime: 'border-lime-300 text-lime-300 hover:shadow-[10px_10px_0_#a3e635]',
+  function toneClasses(tone: string): string {
+    const tones: Record<string, string> = {
+      cyan: 'border-cyan-300 text-cyan-300 hover:shadow-[10px_10px_0_#22d3ee]',
+      yellow: 'border-yellow-300 text-yellow-300 hover:shadow-[10px_10px_0_#facc15]',
+      pink: 'border-pink-300 text-pink-300 hover:shadow-[10px_10px_0_#ec4899]',
+      lime: 'border-lime-300 text-lime-300 hover:shadow-[10px_10px_0_#a3e635]',
+    }
+
+    return tones[tone] ?? 'border-cyan-300 text-cyan-300 hover:shadow-[10px_10px_0_#22d3ee]'
   }
 
-  return tones[tone] ?? 'border-cyan-300 text-cyan-300 hover:shadow-[10px_10px_0_#22d3ee]'
-}
+  function badgeClasses(tone: string): string {
+    const tones: Record<string, string> = {
+      cyan: 'border-cyan-300 bg-cyan-300',
+      yellow: 'border-yellow-300 bg-yellow-300',
+      pink: 'border-pink-300 bg-pink-400',
+      lime: 'border-lime-300 bg-lime-300',
+    }
 
-function badgeClasses(tone: string): string {
-  const tones: Record<string, string> = {
-    cyan: 'border-cyan-300 bg-cyan-300',
-    yellow: 'border-yellow-300 bg-yellow-300',
-    pink: 'border-pink-300 bg-pink-400',
-    lime: 'border-lime-300 bg-lime-300',
+    return tones[tone] ?? 'border-cyan-300 bg-cyan-300'
   }
 
-  return tones[tone] ?? 'border-cyan-300 bg-cyan-300'
-}
+  async function openProject(link: string): Promise<void> {
+    await navigateTo(link, { external: true, open: { target: '_blank' } })
+  }
 
-function openProject(link: string): void {
-  navigateTo(link, { external: true, open: { target: '_blank' } })
-}
+  function contributorLink(project: { links: string[] }, index: number): string {
+    return project.links[index] ?? project.links[0] ?? '/'
+  }
 
-function contributorLink(project: { links: string[] }, index: number): string {
-  return project.links[index] ?? project.links[0] ?? '/'
-}
-
-function contributorAvatar(project: { avatar: string[] }, index: number): string {
-  return project.avatar[index] ?? project.avatar[0] ?? ''
-}
+  function contributorAvatar(project: { avatar: string[] }, index: number): string {
+    return project.avatar[index] ?? project.avatar[0] ?? ''
+  }
 </script>
 
 <template>

@@ -1,31 +1,31 @@
 <script setup lang="ts">
-const { locale, setLocale, t, setLocaleCookie } = useI18n()
+  const { locale, setLocale, t, setLocaleCookie } = useI18n()
 
-const items = [
-  { to: '/', label: t('header.home') },
-  { to: '/certificates', label: t('header.certificates') },
-  { to: '/projects', label: t('header.projects') },
-]
+  const items = [
+    { to: '/', label: t('header.home') },
+    { to: '/certificates', label: t('header.certificates') },
+    { to: '/projects', label: t('header.projects') },
+  ]
 
-const socials = [
-  {
-    icon: 'line-md:linkedin',
-    link: 'https://www.linkedin.com/in/rafael-curi-a4a837292/',
-    name: 'linkedin',
-  },
-  { icon: 'line-md:github-loop', link: 'https://github.com/rafinhacuri', name: 'github' },
-  { icon: 'line-md:email', link: 'mailto:rafael@curi.dev.br', name: 'email' },
-]
+  const socials = [
+    {
+      icon: 'line-md:linkedin',
+      link: 'https://www.linkedin.com/in/rafael-curi-a4a837292/',
+      name: 'linkedin',
+    },
+    { icon: 'line-md:github-loop', link: 'https://github.com/rafinhacuri', name: 'github' },
+    { icon: 'line-md:email', link: 'mailto:rafael@curi.dev.br', name: 'email' },
+  ]
 
-function changeLanguage(): void {
-  if (locale.value === 'en') {
-    setLocale('pt')
-    setLocaleCookie('pt')
-  } else {
-    setLocale('en')
-    setLocaleCookie('en')
+  function changeLanguage(): void {
+    if (locale.value === 'en') {
+      setLocale('pt_br')
+      setLocaleCookie('pt_br')
+    } else {
+      setLocale('en')
+      setLocaleCookie('en')
+    }
   }
-}
 </script>
 
 <template>

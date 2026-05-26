@@ -1,15 +1,15 @@
 <script setup lang="ts">
-const { t } = useI18n()
+  const { t } = useI18n()
 
-const socials = [
-  {
-    icon: 'line-md:linkedin',
-    link: 'https://www.linkedin.com/in/rafael-curi-a4a837292/',
-    name: 'linkedin',
-  },
-  { icon: 'line-md:github-loop', link: 'https://github.com/rafinhacuri', name: 'github' },
-  { icon: 'line-md:email', link: 'mailto:rafael@curi.dev.br', name: 'email' },
-]
+  const socials = [
+    {
+      icon: 'line-md:linkedin',
+      link: 'https://www.linkedin.com/in/rafael-curi-a4a837292/',
+      name: 'linkedin',
+    },
+    { icon: 'line-md:github-loop', link: 'https://github.com/rafinhacuri', name: 'github' },
+    { icon: 'line-md:email', link: 'mailto:rafael@curi.dev.br', name: 'email' },
+  ]
 </script>
 
 <template>

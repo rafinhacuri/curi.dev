@@ -1,174 +1,174 @@
 <script setup lang="ts">
-const { t } = useI18n()
+  const { t } = useI18n()
 
-useHead({ title: t('cert.head') })
-useSeoMeta({ description: t('home.subtitle') })
+  useHead({ title: t('cert.head') })
+  useSeoMeta({ description: t('home.subtitle') })
 
-const certificates = computed(() => [
-  {
-    titulo: t('cert.js'),
-    foto: '/cursos/js.png',
-    link: '/certificates/js.jpg',
-    icons: ['devicon:javascript'],
-    nome: 'JavaScript',
-  },
-  {
-    titulo: t('cert.ts'),
-    foto: '/cursos/ts.png',
-    link: '/certificates/ts.jpg',
-    icons: ['devicon:typescript'],
-    nome: 'TypeScript',
-  },
-  {
-    titulo: t('cert.go'),
-    foto: '/cursos/go.png',
-    link: '/certificates/go.jpg',
-    icons: ['devicon:go'],
-    nome: 'Golang',
-  },
-  {
-    titulo: t('cert.docker'),
-    foto: '/cursos/docker.png',
-    link: '/certificates/docker.jpg',
-    icons: ['devicon:docker'],
-    nome: 'Docker',
-  },
-  {
-    titulo: t('cert.vuejs'),
-    foto: '/cursos/vuejs.png',
-    link: '/certificates/vuejs.jpg',
-    icons: ['devicon:vuejs'],
-    nome: 'VueJS',
-  },
-  {
-    titulo: t('cert.nuxtjs'),
-    foto: '/cursos/nuxtjs.png',
-    link: '/certificates/nuxtjs.jpg',
-    icons: ['devicon:nuxtjs'],
-    nome: 'NuxtJS',
-  },
-  {
-    titulo: t('cert.node'),
-    foto: '/cursos/node.png',
-    link: '/certificates/node.jpg',
-    icons: ['devicon:nodejs'],
-    nome: 'NodeJS',
-  },
-  {
-    titulo: t('cert.oauth'),
-    foto: '/cursos/oauth.png',
-    link: '/certificates/oauth.png',
-    icons: ['devicon:oauth'],
-    nome: 'OAuth',
-  },
-  {
-    titulo: t('cert.git_github'),
-    foto: '/cursos/git_github.png',
-    link: '/certificates/git_github.pdf',
-    icons: ['devicon:git', 'devicon:github'],
-    nome: 'Git e Github',
-  },
-  {
-    titulo: t('cert.html_css1'),
-    foto: '/cursos/html_css01.png',
-    link: '/certificates/html_css01.pdf',
-    icons: ['devicon:html5', 'devicon:css3'],
-    nome: 'HTML5 e CSS3 modulo 1',
-  },
-  {
-    titulo: t('cert.html_css2'),
-    foto: '/cursos/html_css02.png',
-    link: '/certificates/html_css02.pdf',
-    icons: ['devicon:html5', 'devicon:css3'],
-    nome: 'HTML5 e CSS3 modulo 2',
-  },
-  {
-    titulo: t('cert.html_css3'),
-    foto: '/cursos/html_css03.png',
-    link: '/certificates/html_css03.pdf',
-    icons: ['devicon:html5', 'devicon:css3'],
-    nome: 'HTML5 e CSS3 modulo 3',
-  },
-  {
-    titulo: t('cert.html_css4'),
-    foto: '/cursos/html_css04.png',
-    link: '/certificates/html_css04.pdf',
-    icons: ['devicon:html5', 'devicon:css3'],
-    nome: 'HTML5 e CSS3 modulo 4',
-  },
-  {
-    titulo: t('cert.html_css5'),
-    foto: '/cursos/html_css05.png',
-    link: '/certificates/html_css04.pdf',
-    icons: ['devicon:html5', 'devicon:css3'],
-    nome: 'HTML5 e CSS3 modulo 5',
-  },
-  {
-    titulo: t('cert.linux00'),
-    foto: '/cursos/linux00.png',
-    link: '/certificates/linux00.pdf',
-    icons: ['devicon:linux'],
-    nome: 'Linux modulo 0',
-  },
-  {
-    titulo: t('cert.linux01'),
-    foto: '/cursos/linux01.png',
-    link: '/certificates/linux01.pdf',
-    icons: ['devicon:linux'],
-    nome: 'Linux modulo 1',
-  },
-  {
-    titulo: t('cert.linux02'),
-    foto: '/cursos/linux02.png',
-    link: '/certificates/linux02.pdf',
-    icons: ['devicon:linux'],
-    nome: 'Linux modulo 2',
-  },
-  {
-    titulo: t('cert.linux03'),
-    foto: '/cursos/linux03.png',
-    link: '/certificates/linux03.pdf',
-    icons: ['devicon:linux'],
-    nome: 'Linux modulo 3',
-  },
-  {
-    titulo: t('cert.linux04'),
-    foto: '/cursos/linux05.png',
-    link: '/certificates/linux04.pdf',
-    icons: ['devicon:linux'],
-    nome: 'Linux modulo 4',
-  },
-  {
-    titulo: t('cert.linux05'),
-    foto: '/cursos/linux05.png',
-    link: '/certificates/linux05.pdf',
-    icons: ['devicon:linux'],
-    nome: 'Linux modulo 5',
-  },
-  {
-    titulo: t('cert.dns'),
-    foto: '/cursos/dns.png',
-    link: '/certificates/dns.pdf',
-    icons: ['lucide:server'],
-    nome: 'DNS',
-  },
-])
+  const certificates = computed(() => [
+    {
+      titulo: t('cert.js'),
+      foto: '/cursos/js.png',
+      link: '/certificates/js.jpg',
+      icons: ['devicon:javascript'],
+      nome: 'JavaScript',
+    },
+    {
+      titulo: t('cert.ts'),
+      foto: '/cursos/ts.png',
+      link: '/certificates/ts.jpg',
+      icons: ['devicon:typescript'],
+      nome: 'TypeScript',
+    },
+    {
+      titulo: t('cert.go'),
+      foto: '/cursos/go.png',
+      link: '/certificates/go.jpg',
+      icons: ['devicon:go'],
+      nome: 'Golang',
+    },
+    {
+      titulo: t('cert.docker'),
+      foto: '/cursos/docker.png',
+      link: '/certificates/docker.jpg',
+      icons: ['devicon:docker'],
+      nome: 'Docker',
+    },
+    {
+      titulo: t('cert.vuejs'),
+      foto: '/cursos/vuejs.png',
+      link: '/certificates/vuejs.jpg',
+      icons: ['devicon:vuejs'],
+      nome: 'VueJS',
+    },
+    {
+      titulo: t('cert.nuxtjs'),
+      foto: '/cursos/nuxtjs.png',
+      link: '/certificates/nuxtjs.jpg',
+      icons: ['devicon:nuxtjs'],
+      nome: 'NuxtJS',
+    },
+    {
+      titulo: t('cert.node'),
+      foto: '/cursos/node.png',
+      link: '/certificates/node.jpg',
+      icons: ['devicon:nodejs'],
+      nome: 'NodeJS',
+    },
+    {
+      titulo: t('cert.oauth'),
+      foto: '/cursos/oauth.png',
+      link: '/certificates/oauth.png',
+      icons: ['devicon:oauth'],
+      nome: 'OAuth',
+    },
+    {
+      titulo: t('cert.git_github'),
+      foto: '/cursos/git_github.png',
+      link: '/certificates/git_github.pdf',
+      icons: ['devicon:git', 'devicon:github'],
+      nome: 'Git e Github',
+    },
+    {
+      titulo: t('cert.html_css1'),
+      foto: '/cursos/html_css01.png',
+      link: '/certificates/html_css01.pdf',
+      icons: ['devicon:html5', 'devicon:css3'],
+      nome: 'HTML5 e CSS3 modulo 1',
+    },
+    {
+      titulo: t('cert.html_css2'),
+      foto: '/cursos/html_css02.png',
+      link: '/certificates/html_css02.pdf',
+      icons: ['devicon:html5', 'devicon:css3'],
+      nome: 'HTML5 e CSS3 modulo 2',
+    },
+    {
+      titulo: t('cert.html_css3'),
+      foto: '/cursos/html_css03.png',
+      link: '/certificates/html_css03.pdf',
+      icons: ['devicon:html5', 'devicon:css3'],
+      nome: 'HTML5 e CSS3 modulo 3',
+    },
+    {
+      titulo: t('cert.html_css4'),
+      foto: '/cursos/html_css04.png',
+      link: '/certificates/html_css04.pdf',
+      icons: ['devicon:html5', 'devicon:css3'],
+      nome: 'HTML5 e CSS3 modulo 4',
+    },
+    {
+      titulo: t('cert.html_css5'),
+      foto: '/cursos/html_css05.png',
+      link: '/certificates/html_css04.pdf',
+      icons: ['devicon:html5', 'devicon:css3'],
+      nome: 'HTML5 e CSS3 modulo 5',
+    },
+    {
+      titulo: t('cert.linux00'),
+      foto: '/cursos/linux00.png',
+      link: '/certificates/linux00.pdf',
+      icons: ['devicon:linux'],
+      nome: 'Linux modulo 0',
+    },
+    {
+      titulo: t('cert.linux01'),
+      foto: '/cursos/linux01.png',
+      link: '/certificates/linux01.pdf',
+      icons: ['devicon:linux'],
+      nome: 'Linux modulo 1',
+    },
+    {
+      titulo: t('cert.linux02'),
+      foto: '/cursos/linux02.png',
+      link: '/certificates/linux02.pdf',
+      icons: ['devicon:linux'],
+      nome: 'Linux modulo 2',
+    },
+    {
+      titulo: t('cert.linux03'),
+      foto: '/cursos/linux03.png',
+      link: '/certificates/linux03.pdf',
+      icons: ['devicon:linux'],
+      nome: 'Linux modulo 3',
+    },
+    {
+      titulo: t('cert.linux04'),
+      foto: '/cursos/linux05.png',
+      link: '/certificates/linux04.pdf',
+      icons: ['devicon:linux'],
+      nome: 'Linux modulo 4',
+    },
+    {
+      titulo: t('cert.linux05'),
+      foto: '/cursos/linux05.png',
+      link: '/certificates/linux05.pdf',
+      icons: ['devicon:linux'],
+      nome: 'Linux modulo 5',
+    },
+    {
+      titulo: t('cert.dns'),
+      foto: '/cursos/dns.png',
+      link: '/certificates/dns.pdf',
+      icons: ['lucide:server'],
+      nome: 'DNS',
+    },
+  ])
 
-const searchQuery = ref('')
+  const searchQuery = ref('')
 
-function normalizeText(text: string): string {
-  return text
-    .toLowerCase()
-    .normalize('NFD')
-    .replaceAll(/[\u0300-\u036F]/g, '')
-}
+  function normalizeText(text: string): string {
+    return text
+      .toLowerCase()
+      .normalize('NFD')
+      .replaceAll(/[\u0300-\u036F]/gu, '')
+  }
 
-const filteredCertificates = computed(() => {
-  const query = normalizeText(searchQuery.value)
-  return certificates.value.filter((cert) =>
-    normalizeText(`${cert.titulo} ${cert.nome}`).includes(query),
-  )
-})
+  const filteredCertificates = computed(() => {
+    const query = normalizeText(searchQuery.value)
+    return certificates.value.filter((cert) =>
+      normalizeText(`${cert.titulo} ${cert.nome}`).includes(query),
+    )
+  })
 </script>
 
 <template>
@@ -242,7 +242,7 @@ const filteredCertificates = computed(() => {
             v-for="(cert, index) in filteredCertificates"
             :key="cert.foto"
             data-aos="zoom-in"
-            class="group relative flex min-h-[390px] flex-col border-4 border-zinc-100 bg-black shadow-[8px_8px_0_#000] transition hover:-translate-y-1 hover:shadow-[10px_10px_0_#ec4899]">
+            class="group relative flex min-h-97.5 flex-col border-4 border-zinc-100 bg-black shadow-[8px_8px_0_#000] transition hover:-translate-y-1 hover:shadow-[10px_10px_0_#ec4899]">
             <div
               class="flex items-center justify-between border-b-4 border-zinc-100 bg-zinc-100 px-3 py-2 text-black">
               <p class="text-xs font-black uppercase">

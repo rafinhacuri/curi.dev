@@ -16,6 +16,8 @@
     "subtitle": "Desenvolvedor Full Stack",
     "descricao1": "Sou desenvolvedor de software full-stack do 🇧🇷 Rio de Janeiro, Brasil.",
     "stack": "Minhas tech-stacks",
+    "stack_desc": "insira moeda para inspecionar",
+    "module": "módulo",
     "mini_stacks": "Nuxt · Vue · Go · Docker",
     "build": "Construindo experiências para a web",
     "projetos": "Meus projetos",
@@ -46,6 +48,8 @@
     "no_results_prefix": "Nenhum certificado encontrado para",
     "no_results_tip": "Tente usar termos mais gerais, como \"JavaScript\", \"Linux\" ou \"Docker\".",
     "ver_cert": "Ver certificado",
+    "realtime": "Tempo real",
+    "floppy_search": "Busca em tempo real",
     "js": "Aprenda JAVASCRIPT em 7 dias + Projetos Reais",
     "node": "Node JS Curso Completo do Básico ao Avançado",
     "html_css1": "DESENVOLVIMENTO WEB 2020 (HTML5+CSS3): MÓDULO 1 DE 5",
@@ -70,6 +74,8 @@
   },
   "projects": {
     "title": "Meus Projetos",
+    "subtitle": "Sistemas que saíram do cartucho.",
+    "description": "Um gabinete de projetos web, infra, ferramentas internas e experimentos de produto.",
     "open": "Abrir projeto",
     "title1": "Projetos Solo",
     "title2": "Projetos em Equipe",
@@ -96,6 +102,24 @@
     "proj11": "SanchezDNS",
     "desc11": "Sistema de gerenciamento de DNS",
     "proj12": "Deku",
-    "desc12": "Sistema de controle de receitas e despesas"
+    "desc12": "Sistema de controle de receitas e despesas",
+    "escola_iac_2026": "Escola IAC 2026",
+    "escola_iac_2026_desc": "Página da Escola IAC 2026",
+    "labia": "LABIA",
+    "labia_desc": "Página do Laboratório de Instrumentação e Astrofísica (LABIA)",
+    "uniposrio": "Uniposrio",
+    "uniposrio_desc": "Sistema de controle de inscrições para o mestrado e doutorado da UNIPOSRIO",
+    "id": "ID CBPF",
+    "id_desc": "Sistema de gerenciamento de identidade do CBPF"
+  },
+  "error": {
+    "label": "Erro",
+    "title_404": "Página não encontrada",
+    "title_default": "Algo saiu do controle",
+    "message": "Não foi possível carregar essa página.",
+    "back_home": "Voltar para o início",
+    "reload": "Recarregar",
+    "status": "Status",
+    "route": "Rota"
   }
 }

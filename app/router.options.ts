@@ -1,37 +1,36 @@
-/* eslint-disable no-restricted-globals, typescript/no-explicit-any */
-
+/* oxlint-disable no-restricted-globals, typescript/no-explicit-any avoid-new explicit-function-return-type */
 import type { RouterConfig } from '@nuxt/schema'
 
-const RouteOptions: RouterConfig = {
+export default {
   scrollBehavior(to, from, savedPosition) {
     const nuxtApp = useNuxtApp()
 
     if (savedPosition) {
-      nuxtApp.hooks.hookOnce('page:finish', () => {
-        setTimeout(() => {
-          window.scrollTo({ top: savedPosition.top, behavior: 'auto' })
-        }, 50)
+      return new Promise((resolve) => {
+        nuxtApp.hooks.hookOnce('page:finish', () => {
+          setTimeout(() => {
+            resolve(savedPosition)
+          }, 50)
+        })
       })
-      return savedPosition
     }
 
     if (to.hash) {
       setTimeout(() => {
-        let heading = document.querySelector<HTMLElement>(`[id="${to.hash.replace('#', '')}"]`)
-        if (!heading) heading = document.querySelector<HTMLElement>(`[href$="${to.hash}"]`)
-        if (!heading) return
+        let heading = document.querySelector(`[id="${to.hash.replace('#', '')}"]`)
+        heading ??= document.querySelector(`[href$="${to.hash}"]`)
+        if (!heading || !('offsetTop' in heading) || typeof heading.offsetTop !== 'number') return
         window.scrollTo({ top: heading.offsetTop, behavior: 'smooth' })
       })
-      return
+
+      return false
     }
 
     if (from.path !== to.path) {
       window.scrollTo({ top: 0, behavior: 'smooth' })
-      return
+      return false
     }
 
     return { top: 0 }
   },
-}
-
-export default RouteOptions
+} satisfies RouterConfig

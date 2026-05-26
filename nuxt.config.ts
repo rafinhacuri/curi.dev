@@ -12,6 +12,7 @@ export default defineNuxtConfig({
     '@vueuse/nuxt',
     'nuxt-aos',
     'nuxt-security',
+    '@vercel/analytics',
   ],
   devtools: { enabled: true },
   app: { head: { templateParams: { separator: '•' } } },

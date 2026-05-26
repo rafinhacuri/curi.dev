@@ -236,7 +236,7 @@
         </div>
       </section>
 
-      <section data-aos="zoom-in" class="grid gap-6 lg:grid-cols-[260px_1fr]">
+      <section data-aos="zoom-in" class="grid gap-6 lg:grid-cols-[260px_1fr] lg:items-start">
         <div class="border-4 border-lime-300 bg-lime-300 p-5 text-black shadow-[8px_8px_0_#000]">
           <p class="text-xs font-black tracking-[0.2em] uppercase">timeline.sys</p>
           <p class="mt-3 text-3xl leading-none font-black uppercase">

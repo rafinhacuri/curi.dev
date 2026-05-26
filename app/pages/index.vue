@@ -31,7 +31,7 @@
   ]
 
   const bootLines = [
-    'CURI.OS 1994 EDITION',
+    'CURI.OS EDITION',
     'LOADING WEB STACK...',
     'MOUNT /DEV/NUXT',
     'PING CBPF.INFRA OK',

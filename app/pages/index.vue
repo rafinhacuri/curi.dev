@@ -126,8 +126,8 @@
             </div>
 
             <div
-              class="hidden border-4 border-zinc-200 bg-zinc-950 p-3 shadow-[6px_6px_0_#000] lg:block">
-              <div class="grid grid-cols-4 gap-2">
+              class="hidden min-w-52 border-4 border-zinc-200 bg-zinc-950 p-3 shadow-[6px_6px_0_#000] lg:block">
+              <div class="grid grid-cols-5 gap-2">
                 <span
                   v-for="index in 48"
                   :key="index"
@@ -199,7 +199,7 @@
           </p>
           <p
             class="border-2 border-pink-300 bg-pink-400 px-2 py-1 text-xs font-black text-black uppercase shadow-[4px_4px_0_#000]">
-            insert coin to inspect
+            {{ t('home.stack_desc') }}
           </p>
         </div>
 
@@ -222,7 +222,9 @@
                   <UIcon :name="stack.icon" size="28" />
                 </div>
                 <div class="min-w-0">
-                  <p class="text-xs font-black tracking-[0.18em] text-zinc-500 uppercase">module</p>
+                  <p class="text-xs font-black tracking-[0.18em] text-zinc-500 uppercase">
+                    {{ t('home.module') }}
+                  </p>
                   <p class="truncate text-sm font-black text-zinc-100 uppercase">
                     {{ stack.title }}
                   </p>

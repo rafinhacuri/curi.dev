@@ -16,6 +16,8 @@
     "subtitle": "Full Stack Developer",
     "descricao1": "I am a full-stack software developer from 🇧🇷 Rio de Janeiro, Brazil.",
     "stack": "My tech stacks",
+    "stack_desc": "insert coin to inspect",
+    "module": "module",
     "mini_stacks": "Nuxt · Vue · Go · Docker",
     "build": "Building experiences for the web",
     "projetos": "My projects",

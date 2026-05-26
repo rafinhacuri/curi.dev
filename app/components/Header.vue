@@ -58,7 +58,7 @@
           :key="item.to"
           :to="item.to"
           class="relative border-2 border-transparent px-2 py-1 text-sm font-black text-zinc-300 uppercase transition hover:border-yellow-300 hover:bg-yellow-300 hover:text-black"
-          active-class="border-cyan-200 bg-cyan-200 text-black shadow-[4px_4px_0_#ec4899]">
+          active-class="border-cyan-200 bg-zinc-950 text-cyan-100 shadow-[4px_4px_0_#ec4899]">
           {{ item.label }}
         </NuxtLinkLocale>
       </nav>
@@ -105,35 +105,18 @@
       v-if="open"
       class="border-t-4 border-cyan-200 bg-black px-4 py-5 font-mono shadow-[inset_0_6px_0_#ec4899] md:hidden">
       <div class="mx-auto max-w-7xl space-y-5">
-        <div
-          class="flex items-center gap-3 border-4 border-zinc-100 bg-zinc-950 p-3 shadow-[6px_6px_0_#000]">
-          <NuxtImg
-            src="/rosto.png"
-            :alt="t('header.logo')"
-            class="size-14 border-4 border-yellow-300 bg-black shadow-[4px_4px_0_#ec4899]" />
-
-          <div class="min-w-0">
-            <p class="truncate text-sm font-black tracking-wide text-cyan-100 uppercase">
-              {{ t('home.nome') }}
-            </p>
-            <p class="truncate text-xs font-bold text-pink-300 uppercase">
-              {{ t('home.subtitle') }}
-            </p>
-          </div>
-        </div>
-
         <div class="grid gap-2">
           <NuxtLinkLocale
             v-for="item in items"
             :key="item.to"
             :to="item.to"
             class="group flex items-center justify-between border-4 border-zinc-100 bg-zinc-950 px-4 py-3 text-sm font-black text-zinc-100 uppercase shadow-[5px_5px_0_#000] transition hover:-translate-y-0.5 hover:border-yellow-300 hover:bg-yellow-300 hover:text-black hover:shadow-[7px_7px_0_#ec4899]"
-            active-class="border-cyan-200 bg-cyan-200 text-black shadow-[5px_5px_0_#ec4899]"
+            active-class="border-cyan-200 bg-zinc-950 text-cyan-100 shadow-[5px_5px_0_#ec4899] ring-2 ring-pink-400"
             @click="open = false">
             <span>{{ item.label }}</span>
             <Icon
               name="line-md:arrow-right"
-              class="text-pink-300 transition group-hover:text-black"
+              class="text-pink-300 transition group-hover:text-black group-[.router-link-active]:text-cyan-100"
               size="20" />
           </NuxtLinkLocale>
         </div>

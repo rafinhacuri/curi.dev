@@ -103,10 +103,6 @@
                   <p
                     class="max-w-2xl border-l-4 border-pink-400 pl-4 text-base leading-7 text-cyan-100 sm:text-lg">
                     {{ t('home.descricao1') }}
-                    <span class="text-yellow-200">
-                      Buildando sistemas com energia de fliperama, terminal piscando e deploy sem
-                      drama.</span
-                    >
                   </p>
                 </div>
               </div>
@@ -207,31 +203,41 @@
           </p>
         </div>
 
-        <UMarquee class="py-3" pause-on-hover>
+        <div
+          class="relative overflow-hidden border-y-4 border-cyan-200 bg-black py-5 shadow-[inset_0_6px_0_#ec4899,inset_0_-6px_0_#facc15]">
           <div
-            v-for="stack in stacks"
-            :key="stack.title"
-            class="mx-2 flex min-w-48 items-center gap-3 border-4 border-zinc-100 bg-black px-4 py-3 shadow-[6px_6px_0_#000] transition hover:-translate-y-1"
-            :class="stack.color">
-            <div
-              class="flex size-12 items-center justify-center border-2 border-current bg-zinc-950">
-              <UIcon :name="stack.icon" size="28" />
-            </div>
-            <div class="min-w-0">
-              <p class="text-xs font-black tracking-[0.18em] text-zinc-500 uppercase">module</p>
-              <p class="truncate text-sm font-black text-zinc-100 uppercase">
-                {{ stack.title }}
-              </p>
-            </div>
-            <span class="ml-auto size-3 border border-black" :class="stack.bg" />
+            class="pointer-events-none absolute inset-y-0 left-0 z-10 w-16 bg-linear-to-r from-black to-transparent" />
+          <div
+            class="pointer-events-none absolute inset-y-0 right-0 z-10 w-16 bg-linear-to-l from-black to-transparent" />
+
+          <div class="stack-marquee flex w-max gap-4 hover:[animation-play-state:paused]">
+            <template v-for="loop in 2" :key="loop">
+              <div
+                v-for="stack in stacks"
+                :key="`${loop}-${stack.title}`"
+                class="group flex min-w-48 items-center gap-3 border-4 border-zinc-100 bg-black px-4 py-3 shadow-[6px_6px_0_#000] transition hover:-translate-y-1 hover:border-yellow-300 hover:shadow-[8px_8px_0_#ec4899]"
+                :class="stack.color">
+                <div
+                  class="flex size-12 items-center justify-center border-2 border-current bg-zinc-950 transition group-hover:bg-zinc-900">
+                  <UIcon :name="stack.icon" size="28" />
+                </div>
+                <div class="min-w-0">
+                  <p class="text-xs font-black tracking-[0.18em] text-zinc-500 uppercase">module</p>
+                  <p class="truncate text-sm font-black text-zinc-100 uppercase">
+                    {{ stack.title }}
+                  </p>
+                </div>
+                <span class="ml-auto size-3 border border-black" :class="stack.bg" />
+              </div>
+            </template>
           </div>
-        </UMarquee>
+        </div>
       </section>
 
       <section data-aos="zoom-in" class="grid gap-6 lg:grid-cols-[260px_1fr]">
         <div class="border-4 border-lime-300 bg-lime-300 p-5 text-black shadow-[8px_8px_0_#000]">
           <p class="text-xs font-black tracking-[0.2em] uppercase">timeline.sys</p>
-          <p class="mt-3 text-4xl leading-none font-black uppercase">
+          <p class="mt-3 text-3xl leading-none font-black uppercase">
             {{ t('home.experience') }}
           </p>
           <div class="mt-6 grid grid-cols-5 gap-1">

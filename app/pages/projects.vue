@@ -11,6 +11,14 @@
       icon: 'lucide:server',
       nome: 'SanchezDNS',
       link: 'https://sanchezdns.curi.dev.br',
+      tone: 'lime',
+    },
+    {
+      title: t('projects.escola_iac_2026'),
+      description: t('projects.escola_iac_2026_desc'),
+      icon: 'lucide:server',
+      nome: 'Escola IAC 2026',
+      link: 'https://escola-iac.cbpf.br/',
       tone: 'cyan',
     },
     {
@@ -97,7 +105,7 @@
       contribuidores: ['Gabriel Rosa'],
       links: ['https://rosa.dev.br'],
       avatar: ['https://rosa.dev.br/gsr.webp'],
-      tone: 'pink',
+      tone: 'yellow',
     },
     {
       title: t('projects.proj10'),
@@ -109,6 +117,42 @@
       links: ['https://rosa.dev.br'],
       avatar: ['https://rosa.dev.br/gsr.webp'],
       tone: 'cyan',
+    },
+    {
+      title: t('projects.uniposrio'),
+      description: t('projects.uniposrio_desc'),
+      icon: 'lucide:book-marked',
+      nome: 'UNIPOSRIO Fisica',
+      link: 'https://uniposrio-fisica.cbpf.br/',
+      contribuidores: ['Gabriel Rosa', 'Victor Mendes'],
+      links: ['https://rosa.dev.br', 'https://kanj1.com.br/'],
+      avatar: [
+        'https://rosa.dev.br/gsr.webp',
+        'https://avatars.githubusercontent.com/u/122651100?v=4',
+      ],
+      tone: 'cyan',
+    },
+    {
+      title: t('projects.id'),
+      description: t('projects.id_desc'),
+      icon: 'lucide:book-marked',
+      nome: 'ID CBPF',
+      link: 'https://id.cbpf.br',
+      contribuidores: ['Gabriel Rosa'],
+      links: ['https://rosa.dev.br'],
+      avatar: ['https://rosa.dev.br/gsr.webp'],
+      tone: 'lime',
+    },
+    {
+      title: t('projects.labia'),
+      description: t('projects.labia_desc'),
+      icon: 'lucide:book-marked',
+      nome: 'LABIA',
+      link: 'https://labia.cbpf.br',
+      contribuidores: ['Gabriel Rosa'],
+      links: ['https://rosa.dev.br'],
+      avatar: ['https://rosa.dev.br/gsr.webp'],
+      tone: 'pink',
     },
   ])
 
@@ -174,12 +218,11 @@
               {{ t('projects.title') }}
             </p>
             <h1 class="max-w-4xl text-5xl leading-none font-black text-white uppercase sm:text-7xl">
-              Sistemas que sairam do cartucho.
+              {{ t('projects.subtitle') }}
             </h1>
             <p
               class="mt-5 max-w-2xl border-l-4 border-yellow-300 pl-4 text-sm leading-7 text-yellow-100 sm:text-base">
-              Um gabinete de projetos web, infra, ferramentas internas e experimentos de produto.
-              Cada card abre a demo, repo ou video do projeto.
+              {{ t('projects.description') }}
             </p>
           </div>
 
@@ -219,43 +262,42 @@
         </div>
 
         <div class="grid grid-cols-1 gap-6 md:grid-cols-2 xl:grid-cols-3">
-          <article
-            v-for="(project, index) in projects"
-            :key="project.nome"
-            data-aos="zoom-in"
-            class="group flex min-h-56 cursor-pointer flex-col justify-between border-4 bg-black p-4 shadow-[8px_8px_0_#000] transition hover:-translate-y-1 focus-visible:ring-4 focus-visible:ring-white focus-visible:outline-none"
-            :class="toneClasses(project.tone)"
-            role="button"
-            tabindex="0"
-            @click="openProject(project.link)"
-            @keydown.enter="openProject(project.link)"
-            @keydown.space.prevent="openProject(project.link)">
-            <header class="flex items-start justify-between gap-4">
-              <div class="flex min-w-0 items-start gap-3">
-                <div
-                  class="flex size-12 shrink-0 items-center justify-center border-4 text-black"
-                  :class="badgeClasses(project.tone)">
-                  <Icon :name="project.icon" class="text-2xl" />
+          <div v-for="(project, index) in projects" :key="project.nome" data-aos="zoom-in">
+            <article
+              class="group flex min-h-56 cursor-pointer flex-col justify-between border-4 bg-black p-4 shadow-[8px_8px_0_#000] transition duration-300 ease-out hover:-translate-y-1 focus-visible:ring-4 focus-visible:ring-white focus-visible:outline-none"
+              :class="toneClasses(project.tone)"
+              role="button"
+              tabindex="0"
+              @click="openProject(project.link)"
+              @keydown.enter="openProject(project.link)"
+              @keydown.space.prevent="openProject(project.link)">
+              <header class="flex items-start justify-between gap-4">
+                <div class="flex min-w-0 items-start gap-3">
+                  <div
+                    class="flex size-12 shrink-0 items-center justify-center border-4 text-black"
+                    :class="badgeClasses(project.tone)">
+                    <Icon :name="project.icon" class="text-2xl" />
+                  </div>
+                  <div class="min-w-0 space-y-2">
+                    <p class="text-xs font-black tracking-[0.18em] uppercase">
+                      slot {{ String(index + 1).padStart(2, '0') }} // {{ project.nome }}
+                    </p>
+                    <h3 class="text-lg leading-6 font-black text-white uppercase">
+                      {{ project.title }}
+                    </h3>
+                  </div>
                 </div>
-                <div class="min-w-0 space-y-2">
-                  <p class="text-xs font-black tracking-[0.18em] uppercase">
-                    slot {{ String(index + 1).padStart(2, '0') }} // {{ project.nome }}
-                  </p>
-                  <h3 class="text-lg leading-6 font-black text-white uppercase">
-                    {{ project.title }}
-                  </h3>
-                </div>
-              </div>
-              <span
-                class="shrink-0 border-2 border-zinc-100 bg-zinc-100 px-2 py-1 text-[10px] font-black text-black uppercase">
-                {{ t('projects.open') }}
-              </span>
-            </header>
+                <span
+                  class="shrink-0 border-2 border-zinc-100 bg-zinc-100 px-2 py-1 text-[10px] font-black text-black uppercase">
+                  {{ t('projects.open') }}
+                </span>
+              </header>
 
-            <p class="mt-6 border-l-4 border-current pl-3 text-sm leading-6 text-zinc-300">
-              {{ project.description }}
-            </p>
-          </article>
+              <p class="mt-6 border-l-4 border-current pl-3 text-sm leading-6 text-zinc-300">
+                {{ project.description }}
+              </p>
+            </article>
+          </div>
         </div>
       </section>
 
@@ -274,59 +316,58 @@
         </div>
 
         <div class="grid grid-cols-1 gap-6 md:grid-cols-2">
-          <article
-            v-for="(project, index) in projects2"
-            :key="project.nome"
-            data-aos="zoom-in"
-            class="group flex min-h-64 cursor-pointer flex-col justify-between border-4 bg-black p-4 shadow-[8px_8px_0_#000] transition hover:-translate-y-1 focus-visible:ring-4 focus-visible:ring-white focus-visible:outline-none"
-            :class="toneClasses(project.tone)"
-            role="button"
-            tabindex="0"
-            @click="openProject(project.link)"
-            @keydown.enter="openProject(project.link)"
-            @keydown.space.prevent="openProject(project.link)">
-            <header class="flex items-start justify-between gap-4">
-              <div class="flex min-w-0 items-start gap-3">
-                <div
-                  class="flex size-12 shrink-0 items-center justify-center border-4 text-black"
-                  :class="badgeClasses(project.tone)">
-                  <Icon :name="project.icon" class="text-2xl" />
+          <div v-for="(project, index) in projects2" :key="project.nome" data-aos="zoom-in">
+            <article
+              class="group flex min-h-64 cursor-pointer flex-col justify-between border-4 bg-black p-4 shadow-[8px_8px_0_#000] transition duration-300 ease-out hover:-translate-y-1 focus-visible:ring-4 focus-visible:ring-white focus-visible:outline-none"
+              :class="toneClasses(project.tone)"
+              role="button"
+              tabindex="0"
+              @click="openProject(project.link)"
+              @keydown.enter="openProject(project.link)"
+              @keydown.space.prevent="openProject(project.link)">
+              <header class="flex items-start justify-between gap-4">
+                <div class="flex min-w-0 items-start gap-3">
+                  <div
+                    class="flex size-12 shrink-0 items-center justify-center border-4 text-black"
+                    :class="badgeClasses(project.tone)">
+                    <Icon :name="project.icon" class="text-2xl" />
+                  </div>
+                  <div class="min-w-0 space-y-2">
+                    <p class="text-xs font-black tracking-[0.18em] uppercase">
+                      co-op {{ String(index + 1).padStart(2, '0') }} // {{ project.nome }}
+                    </p>
+                    <h3 class="text-lg leading-6 font-black text-white uppercase">
+                      {{ project.title }}
+                    </h3>
+                  </div>
                 </div>
-                <div class="min-w-0 space-y-2">
-                  <p class="text-xs font-black tracking-[0.18em] uppercase">
-                    co-op {{ String(index + 1).padStart(2, '0') }} // {{ project.nome }}
-                  </p>
-                  <h3 class="text-lg leading-6 font-black text-white uppercase">
-                    {{ project.title }}
-                  </h3>
-                </div>
+
+                <span
+                  class="shrink-0 border-2 border-zinc-100 bg-zinc-100 px-2 py-1 text-[10px] font-black text-black uppercase">
+                  {{ t('projects.open') }}
+                </span>
+              </header>
+
+              <p class="mt-6 border-l-4 border-current pl-3 text-sm leading-6 text-zinc-300">
+                {{ project.description }}
+              </p>
+
+              <div class="mt-6 flex flex-wrap items-center gap-3 border-t-4 border-zinc-800 pt-4">
+                <p class="text-xs font-black tracking-[0.18em] text-zinc-500 uppercase">player 2</p>
+                <button
+                  v-for="(contribuidor, contributorIndex) in project.contribuidores"
+                  :key="contribuidor"
+                  class="flex items-center gap-2 border-2 border-yellow-300 bg-yellow-300 px-2 py-1 text-xs font-black text-black uppercase shadow-[4px_4px_0_#000] transition hover:-translate-y-0.5"
+                  @click.stop="openProject(contributorLink(project, contributorIndex))">
+                  <img
+                    :src="contributorAvatar(project, contributorIndex)"
+                    class="size-7 border-2 border-black object-cover"
+                    :alt="contribuidor" />
+                  <span>{{ contribuidor }}</span>
+                </button>
               </div>
-
-              <span
-                class="shrink-0 border-2 border-zinc-100 bg-zinc-100 px-2 py-1 text-[10px] font-black text-black uppercase">
-                {{ t('projects.open') }}
-              </span>
-            </header>
-
-            <p class="mt-6 border-l-4 border-current pl-3 text-sm leading-6 text-zinc-300">
-              {{ project.description }}
-            </p>
-
-            <div class="mt-6 flex flex-wrap items-center gap-3 border-t-4 border-zinc-800 pt-4">
-              <p class="text-xs font-black tracking-[0.18em] text-zinc-500 uppercase">player 2</p>
-              <button
-                v-for="(contribuidor, contributorIndex) in project.contribuidores"
-                :key="contribuidor"
-                class="flex items-center gap-2 border-2 border-yellow-300 bg-yellow-300 px-2 py-1 text-xs font-black text-black uppercase shadow-[4px_4px_0_#000] transition hover:-translate-y-0.5"
-                @click.stop="openProject(contributorLink(project, contributorIndex))">
-                <img
-                  :src="contributorAvatar(project, contributorIndex)"
-                  class="size-7 border-2 border-black object-cover"
-                  :alt="contribuidor" />
-                <span>{{ contribuidor }}</span>
-              </button>
-            </div>
-          </article>
+            </article>
+          </div>
         </div>
       </section>
     </UContainer>

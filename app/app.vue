@@ -2,7 +2,7 @@
   import { en, pt_br } from '@nuxt/ui/locale'
 
   const { finalizePendingLocaleChange, locale } = useI18n()
-  const uiLocale = computed(() => (locale.value === 'pt_br' ? pt_br : en))
+  const uiLocale = computed(() => (locale.value === 'pt' ? pt_br : en))
 
   async function onBeforeEnter(): Promise<void> {
     await finalizePendingLocaleChange()

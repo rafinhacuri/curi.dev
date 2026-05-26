@@ -22,6 +22,11 @@ export default defineNuxtConfig({
     description: 'Full Stack Developer',
     identity: { type: 'Person' },
   },
+  colorMode: {
+    preference: 'dark',
+    fallback: 'dark',
+    classSuffix: '',
+  },
   devServer: {
     host: DEV_URL,
     https: DEV_KEY && DEV_CERT ? { key: DEV_KEY, cert: DEV_CERT } : undefined,
@@ -31,7 +36,7 @@ export default defineNuxtConfig({
     defaultLocale: 'en',
     locales: [
       { code: 'en', language: 'en-US', name: 'English (US)', file: 'en-US.json' },
-      { code: 'pt_br', language: 'pt-BR', name: 'Português (BR)', file: 'pt-BR.json' },
+      { code: 'pt', language: 'pt-BR', name: 'Português (BR)', file: 'pt-BR.json' },
     ],
   },
   linkChecker: { enabled: false },

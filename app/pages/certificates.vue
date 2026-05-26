@@ -208,7 +208,9 @@
 
         <aside class="border-4 border-pink-300 bg-pink-400 p-4 text-black shadow-[8px_8px_0_#000]">
           <div class="mb-4 flex items-center justify-between border-b-4 border-black pb-3">
-            <p class="text-xs font-black tracking-[0.2em] uppercase">floppy search</p>
+            <p class="text-xs font-black tracking-[0.2em] uppercase">
+              {{ t('cert.floppy_search') }}
+            </p>
             <UIcon name="i-lucide-search" class="size-5" />
           </div>
 
@@ -231,72 +233,73 @@
             <div class="border-2 border-black bg-black px-3 py-2 text-lime-300">
               {{ filteredCertificates.length }} / {{ certificates.length }}
             </div>
-            <div class="border-2 border-black bg-yellow-300 px-3 py-2 text-black">realtime</div>
+            <div class="border-2 border-black bg-yellow-300 px-3 py-2 text-black">
+              {{ t('cert.realtime') }}
+            </div>
           </div>
         </aside>
       </header>
 
       <section data-aos="fade-up" data-aos-delay="80">
         <div v-if="filteredCertificates.length" class="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
-          <article
-            v-for="(cert, index) in filteredCertificates"
-            :key="cert.foto"
-            data-aos="zoom-in"
-            class="group relative flex min-h-97.5 flex-col border-4 border-zinc-100 bg-black shadow-[8px_8px_0_#000] transition hover:-translate-y-1 hover:shadow-[10px_10px_0_#ec4899]">
-            <div
-              class="flex items-center justify-between border-b-4 border-zinc-100 bg-zinc-100 px-3 py-2 text-black">
-              <p class="text-xs font-black uppercase">
-                cert_{{ String(index + 1).padStart(2, '0') }}.png
-              </p>
-              <div class="flex gap-1">
-                <span class="size-3 border-2 border-black bg-yellow-300" />
-                <span class="size-3 border-2 border-black bg-cyan-300" />
-              </div>
-            </div>
-
-            <div class="relative border-b-4 border-zinc-100 bg-zinc-900 p-3">
-              <NuxtImg
-                :src="cert.foto"
-                :alt="cert.titulo"
-                class="h-44 w-full border-2 border-black object-cover contrast-110 saturate-125 transition duration-500 group-hover:scale-[1.02]" />
+          <div v-for="(cert, index) in filteredCertificates" :key="cert.foto" data-aos="zoom-in">
+            <article
+              class="group relative flex min-h-97.5 flex-col border-4 border-zinc-100 bg-black shadow-[8px_8px_0_#000] transition duration-300 ease-out hover:-translate-y-1 hover:shadow-[10px_10px_0_#ec4899]">
               <div
-                class="pointer-events-none absolute inset-3 bg-[linear-gradient(transparent_50%,rgba(0,0,0,0.22)_50%)] bg-size-[100%_4px]" />
-            </div>
-
-            <div class="flex flex-1 flex-col p-4">
-              <div class="flex items-start justify-between gap-3">
-                <div class="min-w-0">
-                  <p class="text-xs font-black tracking-[0.18em] text-yellow-300 uppercase">
-                    {{ cert.nome }}
-                  </p>
-                  <h3 class="mt-2 text-sm leading-6 font-black text-white uppercase">
-                    {{ cert.titulo }}
-                  </h3>
-                </div>
-
-                <div class="grid shrink-0 gap-1">
-                  <span
-                    v-for="icon in cert.icons"
-                    :key="icon"
-                    class="flex size-9 items-center justify-center border-2 border-cyan-300 bg-cyan-300 text-black">
-                    <Icon :name="icon" class="text-[22px]" />
-                  </span>
+                class="flex items-center justify-between border-b-4 border-zinc-100 bg-zinc-100 px-3 py-2 text-black">
+                <p class="text-xs font-black uppercase">
+                  cert_{{ String(index + 1).padStart(2, '0') }}.png
+                </p>
+                <div class="flex gap-1">
+                  <span class="size-3 border-2 border-black bg-yellow-300" />
+                  <span class="size-3 border-2 border-black bg-cyan-300" />
                 </div>
               </div>
 
-              <div class="mt-auto pt-5">
-                <NuxtLink
-                  v-if="cert.link"
-                  :to="cert.link"
-                  external
-                  target="_blank"
-                  class="flex min-h-11 items-center justify-between border-4 border-lime-300 bg-lime-300 px-3 py-2 text-xs font-black text-black uppercase shadow-[5px_5px_0_#000] transition hover:-translate-y-0.5">
-                  <span>{{ t('cert.ver_cert') }}</span>
-                  <Icon name="lucide:external-link" class="text-[16px]" />
-                </NuxtLink>
+              <div class="relative border-b-4 border-zinc-100 bg-zinc-900 p-3">
+                <NuxtImg
+                  :src="cert.foto"
+                  :alt="cert.titulo"
+                  class="h-44 w-full border-2 border-black object-cover contrast-110 saturate-125 transition duration-500 group-hover:scale-[1.02]" />
+                <div
+                  class="pointer-events-none absolute inset-3 bg-[linear-gradient(transparent_50%,rgba(0,0,0,0.22)_50%)] bg-size-[100%_4px]" />
               </div>
-            </div>
-          </article>
+
+              <div class="flex flex-1 flex-col p-4">
+                <div class="flex items-start justify-between gap-3">
+                  <div class="min-w-0">
+                    <p class="text-xs font-black tracking-[0.18em] text-yellow-300 uppercase">
+                      {{ cert.nome }}
+                    </p>
+                    <h3 class="mt-2 text-sm leading-6 font-black text-white uppercase">
+                      {{ cert.titulo }}
+                    </h3>
+                  </div>
+
+                  <div class="grid shrink-0 gap-1">
+                    <span
+                      v-for="icon in cert.icons"
+                      :key="icon"
+                      class="flex size-9 items-center justify-center border-2 border-cyan-300 bg-cyan-300 text-black">
+                      <Icon :name="icon" class="text-[22px]" />
+                    </span>
+                  </div>
+                </div>
+
+                <div class="mt-auto pt-5">
+                  <NuxtLink
+                    v-if="cert.link"
+                    :to="cert.link"
+                    external
+                    target="_blank"
+                    class="flex min-h-11 items-center justify-between border-4 border-lime-300 bg-lime-300 px-3 py-2 text-xs font-black text-black uppercase shadow-[5px_5px_0_#000] transition hover:-translate-y-0.5">
+                    <span>{{ t('cert.ver_cert') }}</span>
+                    <Icon name="lucide:external-link" class="text-[16px]" />
+                  </NuxtLink>
+                </div>
+              </div>
+            </article>
+          </div>
         </div>
 
         <div

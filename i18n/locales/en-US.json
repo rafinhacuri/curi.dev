@@ -46,6 +46,8 @@
     "no_results_prefix": "No certificates found for",
     "no_results_tip": "Try using more general terms like \"JavaScript\", \"Linux\" or \"Docker\".",
     "ver_cert": "View certificate",
+    "floppy_search": "floppy search",
+    "realtime": "Real-time",
     "js": "Learn JAVASCRIPT in 7 days + Real Projects",
     "node": "Node JS Full Course from Basic to Advanced",
     "html_css1": "WEB DEVELOPMENT 2020 (HTML5+CSS3): MODULE 1 OF 5",
@@ -70,6 +72,8 @@
   },
   "projects": {
     "title": "My Projects",
+    "subtitle": "Systems that came out of the box.",
+    "description": "A cabinet of web projects, infrastructure, internal tools and product experiments.",
     "open": "Open project",
     "title1": "Solo Projects",
     "title2": "Team Projects",
@@ -96,6 +100,24 @@
     "proj11": "SanchezDNS",
     "desc11": "DNS management system",
     "proj12": "Deku",
-    "desc12": "Income and expense control system"
+    "desc12": "Income and expense control system",
+    "escola_iac_2026": "Escola IAC 2026",
+    "escola_iac_2026_desc": "Escola IAC 2026 page",
+    "labia": "LABIA",
+    "labia_desc": "LABIA page",
+    "uniposrio": "Uniposrio",
+    "uniposrio_desc": "Registration control system for the master's and doctoral programs at UNIPOSRIO",
+    "id": "ID CBPF",
+    "id_desc": "CBPF identity management system"
+  },
+  "error": {
+    "label": "Error",
+    "title_404": "Page not found",
+    "title_default": "Something went wrong",
+    "message": "Could not load this page.",
+    "back_home": "Back to home",
+    "reload": "Reload",
+    "status": "Status",
+    "route": "Route"
   }
 }

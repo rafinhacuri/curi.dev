@@ -1,5 +1,6 @@
 <script setup lang="ts">
   const { locale, setLocale, t, setLocaleCookie } = useI18n()
+  const open = ref(false)
 
   const items = [
     { to: '/', label: t('header.home') },
@@ -19,8 +20,8 @@
 
   function changeLanguage(): void {
     if (locale.value === 'en') {
-      setLocale('pt_br')
-      setLocaleCookie('pt_br')
+      setLocale('pt')
+      setLocaleCookie('pt')
     } else {
       setLocale('en')
       setLocaleCookie('en')
@@ -29,11 +30,11 @@
 </script>
 
 <template>
-  <UHeader
-    class="border-b-4 border-cyan-200 bg-black/95 font-mono shadow-[0_6px_0_#ec4899] backdrop-blur">
-    <template #title>
-      <div class="flex items-center gap-3">
-        <div class="relative">
+  <header
+    class="sticky top-0 z-50 border-b-4 border-cyan-200 bg-black/95 font-mono shadow-[0_6px_0_#ec4899] backdrop-blur">
+    <div class="mx-auto flex h-15 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
+      <NuxtLinkLocale to="/" class="flex min-w-0 items-center gap-3" @click="open = false">
+        <div class="relative shrink-0">
           <NuxtImg
             src="/rosto.png"
             :alt="t('header.logo')"
@@ -41,32 +42,28 @@
           <span class="absolute -right-1 -bottom-1 h-3 w-3 border-2 border-black bg-lime-300" />
         </div>
 
-        <div class="flex items-center gap-2">
-          <div class="hidden flex-col leading-tight sm:flex">
-            <span class="text-sm font-black tracking-wide text-cyan-100 uppercase">
-              {{ t('home.nome') }}
-            </span>
-            <span class="text-xs font-bold text-pink-300 uppercase">
-              {{ t('home.subtitle') }}
-            </span>
-          </div>
+        <div class="hidden min-w-0 flex-col leading-tight sm:flex">
+          <span class="truncate text-sm font-black tracking-wide text-cyan-100 uppercase">
+            {{ t('home.nome') }}
+          </span>
+          <span class="truncate text-xs font-bold text-pink-300 uppercase">
+            {{ t('home.subtitle') }}
+          </span>
         </div>
-      </div>
-    </template>
-
-    <nav class="space-x-4">
-      <NuxtLinkLocale
-        v-for="item in items"
-        :key="item.to"
-        :to="item.to"
-        class="relative border-2 border-transparent px-2 py-1 text-sm font-black text-zinc-300 uppercase transition hover:border-yellow-300 hover:bg-yellow-300 hover:text-black"
-        active-class="border-cyan-200 bg-cyan-200 text-black shadow-[4px_4px_0_#ec4899]">
-        {{ item.label }}
       </NuxtLinkLocale>
-    </nav>
 
-    <template #right>
-      <div class="flex items-center gap-3 sm:mt-0 md:ml-16 lg:order-2">
+      <nav class="hidden items-center gap-4 md:flex">
+        <NuxtLinkLocale
+          v-for="item in items"
+          :key="item.to"
+          :to="item.to"
+          class="relative border-2 border-transparent px-2 py-1 text-sm font-black text-zinc-300 uppercase transition hover:border-yellow-300 hover:bg-yellow-300 hover:text-black"
+          active-class="border-cyan-200 bg-cyan-200 text-black shadow-[4px_4px_0_#ec4899]">
+          {{ item.label }}
+        </NuxtLinkLocale>
+      </nav>
+
+      <div class="hidden items-center gap-3 md:ml-16 md:flex">
         <div
           class="flex items-center gap-2 border-4 border-zinc-100 bg-black px-2 py-1 shadow-[5px_5px_0_#000]">
           <NuxtLink
@@ -74,6 +71,7 @@
             :key="name"
             :to="link"
             target="_blank"
+            external
             :aria-label="name"
             class="group relative flex items-center justify-center border-2 border-transparent p-1.5 text-zinc-300 transition hover:border-pink-300 hover:bg-pink-400 hover:text-black">
             <Icon :name="icon" class="text-zinc-300 transition group-hover:text-black" size="22" />
@@ -90,19 +88,85 @@
           </UButton>
         </div>
       </div>
-    </template>
 
-    <template #body>
-      <div class="flex flex-col gap-1.5 py-3">
-        <NuxtLinkLocale
-          v-for="item in items"
-          :key="item.to"
-          :to="item.to"
-          class="border-2 border-transparent px-2 py-2 font-black text-zinc-300 uppercase transition hover:border-yellow-300 hover:bg-yellow-300 hover:text-black"
-          active-class="border-cyan-200 bg-cyan-200 text-black">
-          {{ item.label }}
-        </NuxtLinkLocale>
+      <button
+        type="button"
+        :aria-label="open ? 'Fechar menu' : 'Abrir menu'"
+        class="group flex size-11 items-center justify-center border-4 border-zinc-100 bg-black text-zinc-100 shadow-[5px_5px_0_#000] transition hover:border-yellow-300 hover:bg-yellow-300 hover:text-black md:hidden"
+        @click="open = !open">
+        <Icon
+          :name="open ? 'line-md:close' : 'line-md:menu'"
+          class="transition group-hover:text-black"
+          size="24" />
+      </button>
+    </div>
+
+    <div
+      v-if="open"
+      class="border-t-4 border-cyan-200 bg-black px-4 py-5 font-mono shadow-[inset_0_6px_0_#ec4899] md:hidden">
+      <div class="mx-auto max-w-7xl space-y-5">
+        <div
+          class="flex items-center gap-3 border-4 border-zinc-100 bg-zinc-950 p-3 shadow-[6px_6px_0_#000]">
+          <NuxtImg
+            src="/rosto.png"
+            :alt="t('header.logo')"
+            class="size-14 border-4 border-yellow-300 bg-black shadow-[4px_4px_0_#ec4899]" />
+
+          <div class="min-w-0">
+            <p class="truncate text-sm font-black tracking-wide text-cyan-100 uppercase">
+              {{ t('home.nome') }}
+            </p>
+            <p class="truncate text-xs font-bold text-pink-300 uppercase">
+              {{ t('home.subtitle') }}
+            </p>
+          </div>
+        </div>
+
+        <div class="grid gap-2">
+          <NuxtLinkLocale
+            v-for="item in items"
+            :key="item.to"
+            :to="item.to"
+            class="group flex items-center justify-between border-4 border-zinc-100 bg-zinc-950 px-4 py-3 text-sm font-black text-zinc-100 uppercase shadow-[5px_5px_0_#000] transition hover:-translate-y-0.5 hover:border-yellow-300 hover:bg-yellow-300 hover:text-black hover:shadow-[7px_7px_0_#ec4899]"
+            active-class="border-cyan-200 bg-cyan-200 text-black shadow-[5px_5px_0_#ec4899]"
+            @click="open = false">
+            <span>{{ item.label }}</span>
+            <Icon
+              name="line-md:arrow-right"
+              class="text-pink-300 transition group-hover:text-black"
+              size="20" />
+          </NuxtLinkLocale>
+        </div>
+
+        <div
+          class="flex items-center justify-between gap-3 border-4 border-zinc-100 bg-zinc-950 p-3 shadow-[6px_6px_0_#000]">
+          <div class="flex items-center gap-2">
+            <NuxtLink
+              v-for="{ icon, link, name } of socials"
+              :key="name"
+              :to="link"
+              target="_blank"
+              external
+              :aria-label="name"
+              class="group flex size-10 items-center justify-center border-2 border-zinc-100 bg-black text-zinc-300 transition hover:border-pink-300 hover:bg-pink-400 hover:text-black">
+              <Icon
+                :name="icon"
+                class="text-zinc-300 transition group-hover:text-black"
+                size="22" />
+            </NuxtLink>
+          </div>
+
+          <UButton
+            :aria-label="t('header.language')"
+            class="group inline-flex items-center gap-1.5 rounded-none border-2 border-yellow-300 bg-yellow-300 px-3 py-2 text-[11px] font-black tracking-wide text-black uppercase transition hover:border-cyan-200 hover:bg-cyan-200 focus-visible:ring-2 focus-visible:ring-pink-400 focus-visible:outline-none"
+            @click="changeLanguage">
+            <span class="text-[10px]">
+              {{ locale === 'en' ? 'EN' : 'PT' }}
+            </span>
+            <Icon name="ion:language-outline" class="text-black" size="18" />
+          </UButton>
+        </div>
       </div>
-    </template>
-  </UHeader>
+    </div>
+  </header>
 </template>

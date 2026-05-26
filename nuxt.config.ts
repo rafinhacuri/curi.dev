@@ -13,6 +13,7 @@ export default defineNuxtConfig({
     'nuxt-aos',
     'nuxt-security',
     '@vercel/analytics',
+    '@vercel/speed-insights',
   ],
   devtools: { enabled: true },
   app: { head: { templateParams: { separator: '•' } } },

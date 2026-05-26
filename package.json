@@ -14,7 +14,7 @@
     "lint": "oxlint --type-aware",
     "lint:fix": "oxlint --type-aware --fix",
     "typecheck": "nuxi typecheck",
-    "release": "eslint . && nuxi typecheck && bumpp"
+    "release": "bun run fmt && bun run lint && bun run typecheck && bumpp"
   },
   "dependencies": {
     "@iconify-json/devicon": "^1.2.62",

@@ -11,7 +11,7 @@
   ],
   "scripts": {
     "build": "NODE_OPTIONS=--max-old-space-size=8192 nuxt build",
-    "vercel-build": "NODE_OPTIONS=--max-old-space-size=8192 nuxt build",
+    "vercel-build": "NODE_OPTIONS=--max-old-space-size=8192 bun run --bun nuxt build",
     "dev": "nuxt dev",
     "generate": "nuxt generate",
     "preview": "nuxt preview",

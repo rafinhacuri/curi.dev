@@ -31,8 +31,8 @@ const menuClosed = ref(true)
   <nav>
     <div class="mx-auto flex max-w-7xl flex-wrap items-center justify-between p-4">
       <NuxtLink to="/" class="group flex cursor-pointer items-center space-x-3 transition-all duration-300 ease-in-out hover:scale-125">
-        <NuxtImg src="/rosto.png" :alt="t('nav.logo')" class="size-10 rounded-lg " />
-        <NuxtImg src="/logo-branca.png" :alt="t('nav.logo')" class="mr-3 h-10 w-12" />
+        <img src="/rosto.png" :alt="t('nav.logo')" class="size-10 rounded-lg " />
+        <img src="/logo-branca.png" :alt="t('nav.logo')" class="mr-3 h-10 w-12" />
       </NuxtLink>
       <div class="flex flex-col items-center sm:mt-0 lg:order-2 lg:flex-row">
         <div class="flex items-center space-x-4 sm:mt-0 md:ml-16 lg:order-2">

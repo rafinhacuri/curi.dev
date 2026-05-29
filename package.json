@@ -22,7 +22,6 @@
     "@iconify-json/lucide": "1.2.76",
     "@nuxt/fonts": "0.12.1",
     "@nuxt/icon": "2.1.0",
-    "@nuxt/image": "2.0.0",
     "@nuxt/vite-builder": "4.2.1",
     "@nuxtjs/color-mode": "4.0.0",
     "@nuxtjs/i18n": "10.2.1",

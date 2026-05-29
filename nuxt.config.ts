@@ -12,7 +12,6 @@ export default defineNuxtConfig({
   modules: [
     "@nuxt/ui",
     "@vueuse/nuxt",
-    "nuxt-icon",
     "nuxt-swiper",
     "@nuxtjs/i18n",
     "nuxt-primevue",
@@ -26,13 +25,7 @@ export default defineNuxtConfig({
       { code: "pt", iso: "pt-BR", name: "Português (BR)", file: "pt.ts" },
     ],
   },
-  linkChecker: {
-    enabled: false,
-  },
   tailwindcss: { cssPath: false },
-  ui: {
-    icons: ["skill-icons", "logos", "fa6-brands"],
-  },
   app: {
     head: {
       titleTemplate: "%s | Rafael Curi",

@@ -29,7 +29,6 @@ export default defineNuxtConfig({
   app: {
     head: {
       titleTemplate: "%s | Rafael Curi",
-      meta: [{ property: "og:image", content: "/og.jpg" }],
     },
     pageTransition: { name: "fade-down", mode: "out-in" },
   },

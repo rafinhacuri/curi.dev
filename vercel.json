@@ -1,7 +1,6 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "installCommand": "bun install --frozen-lockfile",
-  "buildCommand": "bun run vercel-build",
-  "framework": "nuxtjs",
-  "bunVersion": "1.x"
+  "buildCommand": "NODE_OPTIONS=--max-old-space-size=8192 ./node_modules/.bin/nuxt build",
+  "framework": "nuxtjs"
 }

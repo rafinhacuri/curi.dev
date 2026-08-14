@@ -3,6 +3,10 @@
 
   useHead({ title: t('home.title2') })
   useSeoMeta({ description: t('home.subtitle') })
+  defineOgImage('Default.takumi', {
+    title: t('home.title'),
+    description: t('home.subtitle'),
+  })
 
   const stacks = [
     { title: 'Nuxt', icon: 'devicon:nuxt', color: 'text-lime-300', bg: 'bg-lime-300' },

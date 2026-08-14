@@ -3,6 +3,10 @@
 
   useHead({ title: t('cert.head') })
   useSeoMeta({ description: t('home.subtitle') })
+  defineOgImage('Default.takumi', {
+    title: t('cert.head'),
+    description: t('cert.title'),
+  })
 
   const certificates = computed(() => [
     {

@@ -3,6 +3,10 @@
 
   useHead({ title: t('header.projects') })
   useSeoMeta({ description: t('home.subtitle') })
+  defineOgImage('Default.takumi', {
+    title: t('projects.title'),
+    description: t('projects.subtitle'),
+  })
 
   const projects = computed(() => [
     {

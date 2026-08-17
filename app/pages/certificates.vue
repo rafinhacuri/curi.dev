@@ -3,7 +3,7 @@
 
   useHead({ title: t('head') })
   useSeoMeta({ description: t('tagline') })
-  defineOgImage('Default.takumi', {
+  defineOgImage('Model.takumi', {
     title: t('head'),
     description: t('title'),
   })

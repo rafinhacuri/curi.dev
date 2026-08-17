@@ -1,5 +1,5 @@
 <script setup lang="ts">
-  const { t } = useI18n()
+  const { t } = useI18n({ useScope: 'local' })
 
   const socials = [
     {
@@ -30,8 +30,19 @@
 
       <div
         class="border-2 border-cyan-200 bg-black px-3 py-2 text-center text-xs font-bold text-cyan-100 uppercase shadow-[4px_4px_0_#000]">
-        <p>{{ t('footer.copyright', { year: new Date().getFullYear() }) }}</p>
+        <p>{{ t('copyright', { year: new Date().getFullYear() }) }}</p>
       </div>
     </div>
   </UFooter>
 </template>
+
+<i18n lang="json">
+{
+  "en": {
+    "copyright": "© {year}-PRESENT Rafael Curi. All rights reserved."
+  },
+  "pt": {
+    "copyright": "© {year}-PRESENT Rafael Curi. Todos os direitos reservados."
+  }
+}
+</i18n>

@@ -1,7 +1,7 @@
 <script setup lang="ts">
   import type { NuxtError } from '#app'
 
-  const { t } = useI18n()
+  const { t } = useI18n({ useScope: 'local' })
   const localePath = useLocalePath()
 
   const props = defineProps({
@@ -17,12 +17,8 @@
   })
 
   const status = computed(() => props.error.status || props.error.statusCode || 500)
-  const title = computed(() =>
-    status.value === 404 ? t('error.title_404') : t('error.title_default'),
-  )
-  const message = computed(
-    () => props.error.statusMessage || props.error.message || t('error.message'),
-  )
+  const title = computed(() => (status.value === 404 ? t('title_404') : t('title_default')))
+  const message = computed(() => props.error.statusMessage || props.error.message || t('message'))
 
   useHead({ title: String(status.value) })
 
@@ -50,7 +46,7 @@
           <div>
             <p
               class="mb-3 inline-flex border-2 border-zinc-100 bg-zinc-100 px-3 py-1 text-xs font-black tracking-[0.3em] text-black uppercase shadow-[4px_4px_0_#3b82f6]">
-              {{ t('error.label') }} {{ status }}
+              {{ t('label') }} {{ status }}
             </p>
             <h1
               class="max-w-3xl text-5xl font-black tracking-tight text-white uppercase sm:text-7xl lg:text-8xl">
@@ -75,29 +71,25 @@
               <button
                 class="border-4 border-zinc-100 bg-zinc-100 px-6 py-3 text-sm font-black tracking-[0.18em] text-black uppercase shadow-[6px_6px_0_#ec4899] transition duration-300 ease-out hover:-translate-y-1 hover:shadow-[8px_8px_0_#ec4899]"
                 @click="handleError">
-                {{ t('error.back_home') }}
+                {{ t('back_home') }}
               </button>
 
               <button
                 class="border-4 border-zinc-100 bg-black px-6 py-3 text-sm font-black tracking-[0.18em] text-white uppercase shadow-[6px_6px_0_#3b82f6] transition duration-300 ease-out hover:-translate-y-1 hover:shadow-[8px_8px_0_#3b82f6]"
                 @click="reloadNuxtApp()">
-                {{ t('error.reload') }}
+                {{ t('reload') }}
               </button>
             </div>
           </div>
 
           <div class="grid gap-3 text-sm font-bold text-zinc-300 uppercase">
             <div class="border-4 border-zinc-100 bg-zinc-950 p-4 shadow-[6px_6px_0_#000]">
-              <span class="block text-xs tracking-[0.25em] text-pink-400">{{
-                t('error.status')
-              }}</span>
+              <span class="block text-xs tracking-[0.25em] text-pink-400">{{ t('status') }}</span>
               <span class="mt-2 block text-2xl font-black text-white">{{ status }}</span>
             </div>
 
             <div class="border-4 border-zinc-100 bg-zinc-950 p-4 shadow-[6px_6px_0_#000]">
-              <span class="block text-xs tracking-[0.25em] text-blue-400">{{
-                t('error.route')
-              }}</span>
+              <span class="block text-xs tracking-[0.25em] text-blue-400">{{ t('route') }}</span>
               <span class="mt-2 block break-all text-white">{{ $route.fullPath }}</span>
             </div>
           </div>
@@ -106,3 +98,28 @@
     </section>
   </main>
 </template>
+
+<i18n lang="json">
+{
+  "en": {
+    "label": "Error",
+    "title_404": "Page not found",
+    "title_default": "Something went wrong",
+    "message": "Could not load this page.",
+    "back_home": "Back to home",
+    "reload": "Reload",
+    "status": "Status",
+    "route": "Route"
+  },
+  "pt": {
+    "label": "Erro",
+    "title_404": "Página não encontrada",
+    "title_default": "Algo saiu do controle",
+    "message": "Não foi possível carregar essa página.",
+    "back_home": "Voltar para o início",
+    "reload": "Recarregar",
+    "status": "Status",
+    "route": "Rota"
+  }
+}
+</i18n>

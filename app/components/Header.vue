@@ -1,11 +1,11 @@
 <script setup lang="ts">
-  const { locale, setLocale, t, setLocaleCookie } = useI18n()
+  const { locale, setLocale, t, setLocaleCookie } = useI18n({ useScope: 'local' })
   const open = ref(false)
 
   const items = [
-    { to: '/', label: t('header.home') },
-    { to: '/certificates', label: t('header.certificates') },
-    { to: '/projects', label: t('header.projects') },
+    { to: '/', label: t('home') },
+    { to: '/certificates', label: t('certificates') },
+    { to: '/projects', label: t('projects') },
   ]
 
   const socials = [
@@ -37,17 +37,17 @@
         <div class="relative shrink-0">
           <NuxtImg
             src="/rosto.png"
-            :alt="t('header.logo')"
+            :alt="t('logo')"
             class="size-11 border-4 border-yellow-300 bg-black shadow-[4px_4px_0_#000]" />
           <span class="absolute -right-1 -bottom-1 h-3 w-3 border-2 border-black bg-lime-300" />
         </div>
 
         <div class="hidden min-w-0 flex-col leading-tight sm:flex">
           <span class="truncate text-sm font-black tracking-wide text-cyan-100 uppercase">
-            {{ t('home.nome') }}
+            {{ t('nome') }}
           </span>
           <span class="truncate text-xs font-bold text-pink-300 uppercase">
-            {{ t('home.subtitle') }}
+            {{ t('tagline') }}
           </span>
         </div>
       </NuxtLinkLocale>
@@ -78,7 +78,7 @@
           </NuxtLink>
 
           <UButton
-            :aria-label="t('header.language')"
+            :aria-label="t('language')"
             class="group relative ml-1 inline-flex items-center gap-1.5 rounded-none border-2 border-yellow-300 bg-yellow-300 px-3 py-1 text-[11px] font-black tracking-wide text-black uppercase transition hover:border-cyan-200 hover:bg-cyan-200 focus-visible:ring-2 focus-visible:ring-pink-400 focus-visible:outline-none"
             @click="changeLanguage">
             <span class="text-[10px]">
@@ -140,7 +140,7 @@
           </div>
 
           <UButton
-            :aria-label="t('header.language')"
+            :aria-label="t('language')"
             class="group inline-flex items-center gap-1.5 rounded-none border-2 border-yellow-300 bg-yellow-300 px-3 py-2 text-[11px] font-black tracking-wide text-black uppercase transition hover:border-cyan-200 hover:bg-cyan-200 focus-visible:ring-2 focus-visible:ring-pink-400 focus-visible:outline-none"
             @click="changeLanguage">
             <span class="text-[10px]">
@@ -153,3 +153,26 @@
     </div>
   </header>
 </template>
+
+<i18n lang="json">
+{
+  "en": {
+    "logo": "Letter RC logo",
+    "home": "Home",
+    "certificates": "Certificates",
+    "projects": "Projects",
+    "language": "Change language",
+    "nome": "Rafael Curi",
+    "tagline": "Full Stack Developer"
+  },
+  "pt": {
+    "logo": "Logo da RC",
+    "home": "Início",
+    "certificates": "Certificados",
+    "projects": "Projetos",
+    "language": "Mudar idioma",
+    "nome": "Rafael Curi",
+    "tagline": "Desenvolvedor Full Stack"
+  }
+}
+</i18n>

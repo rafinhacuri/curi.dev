@@ -1,11 +1,11 @@
 <script setup lang="ts">
-  const { t } = useI18n()
+  const { t } = useI18n({ useScope: 'local' })
 
-  useHead({ title: t('home.title2') })
-  useSeoMeta({ description: t('home.subtitle') })
+  useHead({ title: t('pageTitle') })
+  useSeoMeta({ description: t('tagline') })
   defineOgImage('Default.takumi', {
-    title: t('home.title'),
-    description: t('home.subtitle'),
+    title: t('title'),
+    description: t('tagline'),
   })
 
   const stacks = [
@@ -45,20 +45,20 @@
   const highlights = [
     {
       label: 'API',
-      title: t('home.backend_title'),
-      desc: t('home.backend_desc'),
+      title: t('backend_title'),
+      desc: t('backend_desc'),
       tone: 'border-cyan-300 bg-cyan-300 text-cyan-950',
     },
     {
       label: 'GUI',
-      title: t('home.frontend_title'),
-      desc: t('home.frontend_desc'),
+      title: t('frontend_title'),
+      desc: t('frontend_desc'),
       tone: 'border-pink-300 bg-pink-300 text-pink-950',
     },
     {
       label: 'OPS',
-      title: t('home.devops_title'),
-      desc: t('home.devops_desc'),
+      title: t('devops_title'),
+      desc: t('devops_desc'),
       tone: 'border-yellow-300 bg-yellow-300 text-yellow-950',
     },
   ]
@@ -96,17 +96,17 @@
               <div class="space-y-5">
                 <div
                   class="inline-flex border-2 border-yellow-300 bg-yellow-300 px-2 py-1 text-xs font-black tracking-[0.18em] text-black uppercase shadow-[4px_4px_0_#000]">
-                  {{ t('home.nome') }} // {{ t('home.subtitle') }}
+                  {{ t('nome') }} // {{ t('tagline') }}
                 </div>
 
                 <div class="space-y-4">
                   <p
                     class="max-w-3xl text-5xl leading-none font-black text-white uppercase sm:text-7xl lg:text-8xl">
-                    {{ t('home.title') }}
+                    {{ t('title') }}
                   </p>
                   <p
                     class="max-w-2xl border-l-4 border-pink-400 pl-4 text-base leading-7 text-cyan-100 sm:text-lg">
-                    {{ t('home.descricao1') }}
+                    {{ t('descricao1') }}
                   </p>
                 </div>
               </div>
@@ -115,13 +115,13 @@
                 <NuxtLinkLocale
                   to="/projects"
                   class="group flex min-h-14 items-center justify-between border-4 border-pink-300 bg-pink-400 px-4 py-3 text-sm font-black text-black uppercase shadow-[6px_6px_0_#000] transition hover:-translate-y-1 hover:shadow-[8px_8px_0_#000]">
-                  <span>{{ t('home.projetos') }}</span>
+                  <span>{{ t('projetos') }}</span>
                   <UIcon name="i-lucide-rocket" class="size-5 transition group-hover:rotate-12" />
                 </NuxtLinkLocale>
                 <NuxtLinkLocale
                   to="/certificates"
                   class="group flex min-h-14 items-center justify-between border-4 border-lime-200 bg-lime-300 px-4 py-3 text-sm font-black text-black uppercase shadow-[6px_6px_0_#000] transition hover:-translate-y-1 hover:shadow-[8px_8px_0_#000]">
-                  <span>{{ t('home.certificates') }}</span>
+                  <span>{{ t('certificates') }}</span>
                   <UIcon
                     name="i-lucide-badge-check"
                     class="size-5 transition group-hover:rotate-12" />
@@ -165,12 +165,12 @@
             <div class="space-y-3">
               <div
                 class="flex items-center justify-between border-2 border-black bg-black px-3 py-2 text-lime-300">
-                <span class="text-xs uppercase">{{ t('home.build') }}</span>
+                <span class="text-xs uppercase">{{ t('build') }}</span>
                 <span class="h-3 w-3 bg-lime-300 shadow-[0_0_14px_#bef264]" />
               </div>
               <div
                 class="flex items-center justify-between border-2 border-black bg-white px-3 py-2">
-                <span class="text-xs uppercase">{{ t('home.mini_stacks') }}</span>
+                <span class="text-xs uppercase">{{ t('mini_stacks') }}</span>
                 <UIcon name="i-lucide-cpu" class="size-4" />
               </div>
             </div>
@@ -199,11 +199,11 @@
       <section class="space-y-5" data-aos="zoom-in">
         <div class="flex flex-wrap items-end justify-between gap-3 border-b-4 border-cyan-200 pb-3">
           <p class="text-2xl font-black text-yellow-200 uppercase sm:text-3xl">
-            {{ t('home.stack') }}
+            {{ t('stack') }}
           </p>
           <p
             class="border-2 border-pink-300 bg-pink-400 px-2 py-1 text-xs font-black text-black uppercase shadow-[4px_4px_0_#000]">
-            {{ t('home.stack_desc') }}
+            {{ t('stack_desc') }}
           </p>
         </div>
 
@@ -227,7 +227,7 @@
                 </div>
                 <div class="min-w-0">
                   <p class="text-xs font-black tracking-[0.18em] text-zinc-500 uppercase">
-                    {{ t('home.module') }}
+                    {{ t('module') }}
                   </p>
                   <p class="truncate text-sm font-black text-zinc-100 uppercase">
                     {{ stack.title }}
@@ -244,7 +244,7 @@
         <div class="border-4 border-lime-300 bg-lime-300 p-5 text-black shadow-[8px_8px_0_#000]">
           <p class="text-xs font-black tracking-[0.2em] uppercase">timeline.sys</p>
           <p class="mt-3 text-3xl leading-none font-black uppercase">
-            {{ t('home.experience') }}
+            {{ t('experience') }}
           </p>
           <div class="mt-6 grid grid-cols-5 gap-1">
             <span
@@ -261,39 +261,39 @@
           <div
             class="flex flex-wrap items-center justify-between gap-3 border-b-4 border-cyan-200 bg-cyan-200 px-4 py-3 text-black">
             <p class="text-sm font-black uppercase">
-              {{ t('home.experience_company_1') }}
+              {{ t('experience_company_1') }}
             </p>
             <p class="border-2 border-black bg-yellow-300 px-2 py-1 text-xs font-black uppercase">
-              {{ t('home.experience_period_1') }}
+              {{ t('experience_period_1') }}
             </p>
           </div>
 
           <div class="p-4 sm:p-6">
             <p
               class="mb-5 inline-flex border-2 border-pink-300 bg-pink-400 px-3 py-2 text-sm font-black text-black uppercase shadow-[4px_4px_0_#000]">
-              {{ t('home.experience_role_1') }}
+              {{ t('experience_role_1') }}
             </p>
 
             <div class="grid gap-4">
               <p
                 class="border-l-4 border-yellow-300 bg-zinc-950 px-4 py-3 text-sm leading-7 text-zinc-200">
-                {{ t('home.experience_p1') }}
+                {{ t('experience_p1') }}
               </p>
               <p
                 class="border-l-4 border-cyan-300 bg-zinc-950 px-4 py-3 text-sm leading-7 text-zinc-200">
-                {{ t('home.experience_p2') }}
+                {{ t('experience_p2') }}
               </p>
               <p
                 class="border-l-4 border-pink-300 bg-zinc-950 px-4 py-3 text-sm leading-7 text-zinc-200">
-                {{ t('home.experience_p3') }}
+                {{ t('experience_p3') }}
               </p>
               <p
                 class="border-l-4 border-lime-300 bg-zinc-950 px-4 py-3 text-sm leading-7 text-zinc-200">
-                {{ t('home.experience_p4') }}
+                {{ t('experience_p4') }}
               </p>
               <p
                 class="border-l-4 border-orange-300 bg-zinc-950 px-4 py-3 text-sm leading-7 text-zinc-200">
-                {{ t('home.experience_p5') }}
+                {{ t('experience_p5') }}
               </p>
             </div>
           </div>
@@ -302,3 +302,66 @@
     </UContainer>
   </div>
 </template>
+
+<i18n lang="json">
+{
+  "en": {
+    "pageTitle": "Home",
+    "tagline": "Full Stack Developer",
+    "nome": "Rafael Curi",
+    "title": "Hello, I'm Rafael",
+    "descricao1": "I am a full-stack software developer from 🇧🇷 Rio de Janeiro, Brazil.",
+    "stack": "My tech stacks",
+    "stack_desc": "insert coin to inspect",
+    "module": "module",
+    "mini_stacks": "Nuxt · Vue · Go · Docker",
+    "build": "Building experiences for the web",
+    "projetos": "My projects",
+    "certificates": "My certifications",
+    "backend_title": "Backend & APIs",
+    "backend_desc": "Go · Node · REST",
+    "frontend_title": "Frontend",
+    "frontend_desc": "Nuxt · Vue · Tailwind",
+    "devops_title": "DevOps & Infrastructure",
+    "devops_desc": "Docker · PowerDNS · Nginx",
+    "experience": "Experience",
+    "experience_period_1": "2023 - Present",
+    "experience_company_1": "Brazilian Center for Research in Physics",
+    "experience_role_1": "Software Engineer & DevOps",
+    "experience_p1": "My operational foundation at CBPF is built on the efficient management of the web infrastructure. I have technical expertise in DNS operations (authoritative and recursive), enabling me to manage records and resolutions while ensuring service availability — not necessarily architecting the base structure, but operating it with technical rigor. I manage services orchestrated with Docker and served through Nginx (with HTTP/3 support), maintaining an optimized execution environment. Alongside this, I keep the data layer running on a hybrid MongoDB and Redis architecture, ensuring that both persistence and application caching deliver the stability and performance required.",
+    "experience_p2": "Within the security and networking layer, I contribute to the continuous development of the Single Sign-On (SSO) system, centralizing institutional authentication.",
+    "experience_p3": "In the development workflow, I strategically leverage the existing GitLab ecosystem. I use CI/CD pipelines and available Runners to ensure continuous integration of my deliverables. My focus is on maximizing these automation tools to run tests and validations, ensuring that code reaches production clean and reliable while preserving a fast release cycle.",
+    "experience_p4": "With infrastructure and processes in place, I lead the software engineering efforts focused on modernizing the institutional core. I guide the migration of legacy PHP systems to a robust Go and Nuxt stack. This work involves rewriting critical logic to eliminate technical debt, bringing strong typing, modern security, and high performance into the institution’s daily operations.",
+    "experience_p5": "To close the reliability loop, I implemented observability routines that monitor the health of this ecosystem. I use monitoring tools to track container and service behavior in real time, enabling proactive detection of anomalies and ensuring that technological modernization is accompanied by high availability."
+  },
+  "pt": {
+    "pageTitle": "Home",
+    "tagline": "Desenvolvedor Full Stack",
+    "nome": "Rafael Curi",
+    "title": "Olá, eu sou o Rafael",
+    "descricao1": "Sou desenvolvedor de software full-stack do 🇧🇷 Rio de Janeiro, Brasil.",
+    "stack": "Minhas tech-stacks",
+    "stack_desc": "insira moeda para inspecionar",
+    "module": "módulo",
+    "mini_stacks": "Nuxt · Vue · Go · Docker",
+    "build": "Construindo experiências para a web",
+    "projetos": "Meus projetos",
+    "certificates": "Minhas certificações",
+    "backend_title": "Backend & APIs",
+    "backend_desc": "Go · Node · REST",
+    "frontend_title": "Frontend",
+    "frontend_desc": "Nuxt · Vue · Tailwind",
+    "devops_title": "DevOps & Infra",
+    "devops_desc": "Docker · PowerDNS · Nginx",
+    "experience": "Experiência",
+    "experience_period_1": "2023 - Atual",
+    "experience_company_1": "Centro Brasileiro de Pesquisas Físicas",
+    "experience_role_1": "Engenheiro de Software & DevOps",
+    "experience_p1": "Minha base operacional no CBPF sustenta-se na gestão eficiente da infraestrutura web. Possuo conhecimento técnico sobre a infraestrutura de DNS (autoritativo e recursivo) para gerenciar entradas e resoluções, garantindo a disponibilidade dos serviços sem necessariamente ter arquitetado a estrutura base, mas operando-a com rigor técnico. Gerencio serviços orquestrados em Docker e servidos por Nginx (com suporte a HTTP/3), garantindo um ambiente de execução otimizado. Integrado a isso, mantenho a camada de dados operando sobre uma arquitetura híbrida de MongoDB e Redis, assegurando que tanto a persistência quanto o cache da aplicação respondam com a estabilidade e performance necessárias.",
+    "experience_p2": "Na camada de segurança e rede, atuo no desenvolvimento contínuo do sistema de Single Sign-On (SSO), centralizando a autenticação institucional.",
+    "experience_p3": "No fluxo de desenvolvimento, faço uso estratégico do ecossistema GitLab já estabelecido. Utilizo os pipelines de CI/CD e Runners disponíveis para garantir a integração contínua das minhas entregas. Meu foco é maximizar o uso dessas ferramentas de automação para rodar testes e validações, assegurando que o código chegue à produção limpo e confiável, mantendo a agilidade do ciclo de release.",
+    "experience_p4": "Com a sustentação e os processos garantidos, lidero a frente de engenharia de software focada na modernização do core institucional. Conduzo a migração dos sistemas legados em PHP para uma stack robusta em Go e Nuxt. Esse trabalho envolve reescrever lógicas críticas para eliminar dívida técnica, trazendo a segurança da tipagem forte e a performance de linguagens modernas para o dia a dia da instituição.",
+    "experience_p5": "Para fechar o ciclo de confiabilidade, implementei rotinas de observabilidade que monitoram a saúde desse ecossistema. Utilizo ferramentas de monitoramento para vigiar o comportamento dos containers e serviços em tempo real, o que me permite atuar de forma proativa na detecção de anomalias, garantindo que a modernização tecnológica venha acompanhada de alta disponibilidade."
+  }
+}
+</i18n>

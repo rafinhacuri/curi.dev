@@ -37,8 +37,8 @@ export default defineNuxtConfig({
   i18n: {
     defaultLocale: 'en',
     locales: [
-      { code: 'en', language: 'en-US', name: 'English (US)', file: 'en-US.json' },
-      { code: 'pt', language: 'pt-BR', name: 'Português (BR)', file: 'pt-BR.json' },
+      { code: 'en', language: 'en-US', name: 'English (US)' },
+      { code: 'pt', language: 'pt-BR', name: 'Português (BR)' },
     ],
   },
   linkChecker: { enabled: false },

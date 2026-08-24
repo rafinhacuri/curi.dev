@@ -20,7 +20,7 @@
     {
       title: t('escola_iac_2026'),
       description: t('escola_iac_2026_desc'),
-      icon: 'lucide:server',
+      icon: 'lucide:book-open',
       nome: 'Escola IAC 2026',
       link: 'https://escola-iac.cbpf.br/',
       tone: 'cyan',
@@ -100,6 +100,17 @@
   ])
 
   const projects2 = computed(() => [
+    {
+      title: t('labia'),
+      description: t('labia_desc'),
+      icon: 'lucide:calendar',
+      nome: 'labia',
+      link: 'https://labia.cbpf.br/',
+      contribuidores: ['Gabriel Rosa'],
+      links: ['https://rosa.dev.br'],
+      avatar: ['https://rosa.dev.br/gsr.webp'],
+      tone: 'lime',
+    },
     {
       title: t('proj9'),
       description: t('desc9'),
@@ -416,7 +427,7 @@
     "escola_iac_2026": "Escola IAC 2026",
     "escola_iac_2026_desc": "Escola IAC 2026 page",
     "labia": "LABIA",
-    "labia_desc": "LABIA page",
+    "labia_desc": "Page for the Instrumentation and Astrophysics Laboratory (LABIA)",
     "uniposrio": "Uniposrio",
     "uniposrio_desc": "Registration control system for the master's and doctoral programs at UNIPOSRIO",
     "id": "ID CBPF",

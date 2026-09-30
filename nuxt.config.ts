@@ -1,19 +1,23 @@
 import process from 'node:process'
 
+import tailwindcss from '@tailwindcss/vite'
+
 const { DEV_URL, DEV_KEY, DEV_CERT } = process.env
 
 export default defineNuxtConfig({
   modules: [
-    '@nuxt/ui',
     '@nuxt/image',
-    '@nuxtjs/color-mode',
     '@nuxtjs/seo',
     '@nuxtjs/i18n',
     '@vueuse/nuxt',
-    'nuxt-aos',
     'nuxt-security',
     '@vercel/analytics',
     '@vercel/speed-insights',
+    '@nuxt/a11y',
+    '@nuxt/hints',
+    '@nuxt/fonts',
+    '@nuxt/icon',
+    'reka-ui/nuxt',
   ],
   devtools: { enabled: true },
   app: { head: { templateParams: { separator: '•' } } },
@@ -24,16 +28,14 @@ export default defineNuxtConfig({
     description: 'Full Stack Developer',
     identity: { type: 'Person' },
   },
-  colorMode: {
-    preference: 'dark',
-    fallback: 'dark',
-    classSuffix: '',
+  vite: {
+    plugins: [tailwindcss()],
   },
   devServer: {
     host: DEV_URL,
     https: DEV_KEY && DEV_CERT ? { key: DEV_KEY, cert: DEV_CERT } : undefined,
   },
-  compatibilityDate: '2025-10-14',
+  compatibilityDate: '2026-09-30',
   i18n: {
     defaultLocale: 'en',
     locales: [

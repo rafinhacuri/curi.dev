@@ -16,7 +16,7 @@
 </script>
 
 <template>
-  <footer class="relative z-10 border-t border-line">
+  <footer class="relative z-45 border-t border-line bg-bg tone-transition">
     <div
       class="mx-auto flex max-w-7xl flex-col gap-6 px-5 py-10 text-[0.8125rem] text-muted sm:flex-row sm:items-center sm:justify-between sm:px-8">
       <div class="flex flex-col gap-1.5">
@@ -49,7 +49,7 @@
               <TooltipContent
                 side="top"
                 :side-offset="6"
-                class="rounded-lg bg-fg px-2.5 py-1 font-mono text-micro text-bg shadow-float">
+                class="z-60 rounded-lg bg-fg px-2.5 py-1 font-mono text-micro text-bg shadow-float">
                 {{ social.handle }}
               </TooltipContent>
             </TooltipPortal>

@@ -13,7 +13,7 @@
       scene({
         bot: mobile
           ? { x: 0.62, y: 0.6, scale: 0.3, turn: -0.4 }
-          : { x: 0.66, y: 0.28, scale: 0.62, turn: -0.35 },
+          : { x: 0.66, y: 0.44, scale: 0.62, turn: -0.35 },
         mood: 'wave',
       }),
   })

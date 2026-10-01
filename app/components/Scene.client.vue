@@ -158,7 +158,7 @@
 <template>
   <canvas
     ref="canvas"
-    class="scene-canvas pointer-events-none fixed inset-0 z-0 h-dvh w-full"
+    class="scene-canvas pointer-events-none fixed inset-0 z-40 h-dvh w-full"
     :data-ready="ready"
     aria-hidden="true" />
 </template>

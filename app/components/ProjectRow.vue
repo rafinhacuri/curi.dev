@@ -53,7 +53,7 @@
               <TooltipContent
                 side="top"
                 :side-offset="6"
-                class="rounded-lg bg-fg px-2.5 py-1 text-[0.75rem] text-bg shadow-float">
+                class="z-60 rounded-lg bg-fg px-2.5 py-1 text-[0.75rem] text-bg shadow-float">
                 {{ t('with', { name: person.name }) }}
               </TooltipContent>
             </TooltipPortal>

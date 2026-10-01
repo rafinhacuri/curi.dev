@@ -46,6 +46,7 @@
     "@types/three": "^0.186.0",
     "bumpp": "^12.3.0",
     "golar": "^0.1.10",
+    "nuxtseo-layer-devtools": "^5.3.16",
     "typescript": "^7.0.2"
   },
   "packageManager": "bun@1.4.2"

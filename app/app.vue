@@ -2,6 +2,8 @@
   const { finalizePendingLocaleChange } = useI18n()
 
   async function onBeforeEnter(): Promise<void> {
+    globalThis.scrollTo({ top: 0, left: 0, behavior: 'instant' })
+    sceneRouteScrolled()
     await finalizePendingLocaleChange()
   }
 </script>

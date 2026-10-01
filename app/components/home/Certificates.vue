@@ -4,7 +4,6 @@
   import { certificates } from '~/data/certificates'
 
   const { t } = useI18n({ useScope: 'local' })
-  const localePath = useLocalePath()
   const section = useTemplateRef<HTMLElement>('section')
   const deck = useTemplateRef<HTMLElement>('deck')
 
@@ -70,14 +69,14 @@
     </div>
 
     <Reveal class="mt-10 text-center sm:mt-16" :delay="0.1">
-      <NuxtLink
-        :to="localePath('/certificates')"
+      <NuxtLinkLocale
+        to="/certificates"
         class="group inline-flex h-12 items-center gap-2 rounded-full bg-fg px-6 text-[0.9375rem] font-medium text-bg transition-transform duration-150 active:scale-[0.97]">
         {{ t('cta') }}
         <Icon
           name="ph:arrow-right"
           class="size-4 transition-transform duration-300 group-hover:translate-x-0.5" />
-      </NuxtLink>
+      </NuxtLinkLocale>
     </Reveal>
   </section>
 </template>

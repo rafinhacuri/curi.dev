@@ -36,14 +36,14 @@
         <li v-for="social in socials" :key="social.name">
           <TooltipRoot :delay-duration="300">
             <TooltipTrigger as-child>
-              <a
-                :href="social.href"
+              <NuxtLink
+                :to="social.href"
+                external
                 :target="social.href.startsWith('http') ? '_blank' : undefined"
-                rel="noopener"
                 :aria-label="social.name"
                 class="flex size-11 items-center justify-center rounded-full transition-colors duration-200 hover:bg-surface-2 hover:text-fg">
                 <Icon :name="social.icon" class="size-5" />
-              </a>
+              </NuxtLink>
             </TooltipTrigger>
             <TooltipPortal>
               <TooltipContent

@@ -1,25 +1,22 @@
 <script setup lang="ts">
   const { t } = useI18n({ useScope: 'local' })
-  const localePath = useLocalePath()
   const route = useRoute()
   const { y } = useWindowScroll()
   const open = ref(false)
-  const sectionInView = useActiveSection(['contact'])
 
   const isHome = computed(() => String(route.name ?? '').startsWith('index'))
 
   const links = computed(() => [
-    { id: 'home', to: localePath('/'), label: t('home') },
-    { id: 'projects', to: localePath('/projects'), label: t('projects') },
-    { id: 'certificates', to: localePath('/certificates'), label: t('certificates') },
-    { id: 'contact', to: localePath({ path: '/', hash: '#contact' }), label: t('contact') },
+    { id: 'home', to: '/', label: t('home') },
+    { id: 'projects', to: '/projects', label: t('projects') },
+    { id: 'certificates', to: '/certificates', label: t('certificates') },
   ])
 
   const active = computed(() => {
     const page = String(route.name ?? '')
     if (page.startsWith('projects')) return 'projects'
     if (page.startsWith('certificates')) return 'certificates'
-    if (isHome.value) return sectionInView.value ?? 'home'
+    if (isHome.value) return 'home'
     return null
   })
 
@@ -32,6 +29,7 @@
   function select(id: string): void {
     close()
     if (id === 'home' && isHome.value && !route.hash) {
+      navigateScene(0)
       globalThis.scrollTo({ top: 0, behavior: 'smooth' })
     }
   }
@@ -59,7 +57,7 @@
         <div class="hidden items-center gap-5 md:flex">
           <ul class="flex items-center">
             <li v-for="link in links" :key="link.id">
-              <NuxtLink
+              <NuxtLinkLocale
                 :to="link.to"
                 class="relative flex h-8 items-center rounded-full px-3 text-[0.8125rem] transition-colors duration-200"
                 :class="active === link.id ? 'font-medium text-fg' : 'text-muted hover:text-fg'"
@@ -71,7 +69,7 @@
                   class="absolute inset-0 rounded-full bg-fg/[0.07]"
                   :transition="{ type: 'spring', bounce: 0.15, duration: 0.45 }" />
                 <span class="relative">{{ link.label }}</span>
-              </NuxtLink>
+              </NuxtLinkLocale>
             </li>
           </ul>
 
@@ -109,7 +107,7 @@
                     :initial="{ opacity: 0, y: -12, filter: 'blur(6px)' }"
                     :animate="{ opacity: 1, y: 0, filter: 'blur(0px)' }"
                     :transition="{ type: 'spring', bounce: 0, duration: 0.5, delay: 0.04 * index }">
-                    <NuxtLink
+                    <NuxtLinkLocale
                       :to="link.to"
                       class="flex items-center gap-3 py-2 text-[2rem] leading-tight font-semibold tracking-[-0.03em] transition-colors"
                       :class="active === link.id ? 'text-fg' : 'text-muted'"
@@ -119,7 +117,7 @@
                       <span
                         v-if="active === link.id"
                         class="size-2 rounded-full bg-accent shadow-[0_0_12px_var(--accent)]" />
-                    </NuxtLink>
+                    </NuxtLinkLocale>
                   </Motion>
                 </li>
               </ul>
@@ -146,7 +144,6 @@
     "home": "Home",
     "projects": "Projects",
     "certificates": "Certificates",
-    "contact": "Contact",
     "menu": "Open menu",
     "close": "Close menu"
   },
@@ -155,7 +152,6 @@
     "home": "Início",
     "projects": "Projetos",
     "certificates": "Certificados",
-    "contact": "Contato",
     "menu": "Abrir menu",
     "close": "Fechar menu"
   }

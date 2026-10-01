@@ -25,7 +25,9 @@ const routerOptions: RouterConfig = {
       if (to.hash) return positionFor(to, 'smooth')
       return from.hash ? { left: 0, top: 0, behavior: 'smooth' } : false
     }
+    if (!to.hash) return false
     await nextPageFinish()
+    requestAnimationFrame(sceneRouteScrolled)
     return positionFor(to, 'instant')
   },
 }

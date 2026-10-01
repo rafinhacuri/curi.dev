@@ -10,6 +10,9 @@
   const text = useLocalized()
   const kind = computed(() => projectKind(props.project))
   const external = computed(() => kind.value !== 'here')
+
+  const actionClass =
+    'flex h-8 shrink-0 items-center rounded-full bg-surface-2 px-4 text-[0.8125rem] font-semibold text-accent transition-[transform,background-color] duration-150 hover:bg-accent hover:text-accent-ink active:scale-95'
 </script>
 
 <template>
@@ -33,10 +36,10 @@
             :key="person.name"
             :delay-duration="200">
             <TooltipTrigger as-child>
-              <a
-                :href="person.href"
+              <NuxtLink
+                :to="person.href"
+                external
                 target="_blank"
-                rel="noopener"
                 :aria-label="t('with', { name: person.name })"
                 class="relative block size-5 overflow-hidden rounded-full ring-2 ring-bg transition-transform duration-200 hover:z-10 hover:scale-110">
                 <img
@@ -44,7 +47,7 @@
                   :alt="person.name"
                   class="size-full object-cover"
                   loading="lazy" />
-              </a>
+              </NuxtLink>
             </TooltipTrigger>
             <TooltipPortal>
               <TooltipContent
@@ -59,14 +62,22 @@
       </div>
     </div>
 
-    <a
-      :href="props.project.href"
-      :target="external ? '_blank' : undefined"
-      :rel="external ? 'noopener' : undefined"
-      class="flex h-8 shrink-0 items-center rounded-full bg-surface-2 px-4 text-[0.8125rem] font-semibold text-accent transition-[transform,background-color] duration-150 hover:bg-accent hover:text-accent-ink active:scale-95"
+    <NuxtLink
+      v-if="external"
+      :to="props.project.href"
+      external
+      target="_blank"
+      :class="actionClass"
       :aria-label="t('open', { name: props.project.name })">
       {{ t(`action.${kind}`) }}
-    </a>
+    </NuxtLink>
+    <NuxtLinkLocale
+      v-else
+      :to="props.project.href"
+      :class="actionClass"
+      :aria-label="t('open', { name: props.project.name })">
+      {{ t(`action.${kind}`) }}
+    </NuxtLinkLocale>
   </article>
 </template>
 

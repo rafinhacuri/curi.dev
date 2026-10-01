@@ -1,9 +1,15 @@
 import type { RegisteredStage, ScenePose, SceneState, Tone } from '~/composables/useScene'
 import { clamp, mix, smoothstep } from '~/utils/math'
 
+interface Box {
+  top: number
+  bottom: number
+  height: number
+}
+
 interface Measured {
   stage: RegisteredStage
-  rect: DOMRect
+  rect: Box
 }
 
 interface Direction {
@@ -37,7 +43,7 @@ function blendStates(from: SceneState, to: SceneState, t: number): SceneState {
   }
 }
 
-function distanceTo(rect: DOMRect, line: number): number {
+function distanceTo(rect: Box, line: number): number {
   if (line < rect.top) return rect.top - line
   if (line > rect.bottom) return line - rect.bottom
   return 0
@@ -57,9 +63,19 @@ function stateOf(entry: Measured, line: number, mobile: boolean): SceneState {
   return entry.stage.state({ progress, mobile })
 }
 
-function direct(stages: RegisteredStage[], viewport: number, mobile: boolean): Direction | null {
+function boxOf(element: HTMLElement, offset: number): Box {
+  const { top, bottom, height } = element.getBoundingClientRect()
+  return { top: top - offset, bottom: bottom - offset, height }
+}
+
+function direct(
+  stages: RegisteredStage[],
+  viewport: number,
+  mobile: boolean,
+  offset = 0,
+): Direction | null {
   const measured = stages
-    .map((stage) => ({ stage, rect: stage.el.getBoundingClientRect() }))
+    .map((stage) => ({ stage, rect: boxOf(stage.el, offset) }))
     .toSorted((a, b) => a.rect.top - b.rect.top)
 
   const line = viewport / 2

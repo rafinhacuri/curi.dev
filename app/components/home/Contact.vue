@@ -31,12 +31,13 @@
 
     <Reveal class="mt-10 flex flex-col items-center gap-5" :delay="0.1">
       <div class="flex flex-wrap items-center justify-center gap-2">
-        <a
-          :href="`mailto:${email}`"
+        <NuxtLink
+          :to="`mailto:${email}`"
+          external
           class="inline-flex h-12 items-center gap-2 rounded-full bg-accent px-6 text-[0.9375rem] font-medium text-accent-ink transition-transform duration-150 active:scale-[0.97]">
           <Icon name="ph:envelope-simple" class="size-4" />
           {{ email }}
-        </a>
+        </NuxtLink>
         <button
           type="button"
           class="relative inline-flex size-12 items-center justify-center rounded-full border border-line transition-[transform,background-color] duration-150 hover:bg-surface-2 active:scale-95"
@@ -60,15 +61,15 @@
 
       <ul class="flex items-center gap-2">
         <li v-for="profile in profiles" :key="profile.name">
-          <a
-            :href="profile.href"
+          <NuxtLink
+            :to="profile.href"
+            external
             target="_blank"
-            rel="noopener"
             class="inline-flex h-11 items-center gap-2 rounded-full px-4 text-[0.9375rem] text-muted transition-colors hover:text-fg">
             <Icon :name="profile.icon" class="size-4.5" />
             {{ profile.name }}
             <Icon name="ph:arrow-up-right" class="size-3.5" />
-          </a>
+          </NuxtLink>
         </li>
       </ul>
     </Reveal>

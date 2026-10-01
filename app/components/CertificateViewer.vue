@@ -58,14 +58,14 @@
           </div>
 
           <footer v-if="certificate.file" class="flex justify-end gap-2 p-4 sm:p-5">
-            <a
-              :href="certificate.file"
+            <NuxtLink
+              :to="certificate.file"
+              external
               target="_blank"
-              rel="noopener"
               class="inline-flex h-10 items-center gap-2 rounded-full bg-fg px-5 text-[0.875rem] font-medium text-bg transition-transform active:scale-[0.97]">
               {{ t('original') }}
               <Icon name="ph:arrow-up-right" class="size-3.5" />
-            </a>
+            </NuxtLink>
           </footer>
         </template>
       </DialogContent>

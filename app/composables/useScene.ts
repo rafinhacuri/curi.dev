@@ -59,10 +59,60 @@ function scene(partial: {
 const stages = shallowRef<RegisteredStage[]>([])
 let nextId = 0
 
-const sceneSignals = reactive({
+type SceneDestination = string | number
+
+interface SceneSignals {
+  orbitFocus: number
+  poke: number
+  routing: boolean
+  destination: SceneDestination | null
+}
+
+const sceneSignals = reactive<SceneSignals>({
   orbitFocus: -1,
   poke: 0,
+  routing: false,
+  destination: null,
 })
+
+const ARRIVAL_SETTLE_MS = 160
+let arrivalTimer: ReturnType<typeof setTimeout> | undefined
+let awaitingRouteScroll = false
+
+function sceneArrived(): void {
+  clearTimeout(arrivalTimer)
+  if (!sceneSignals.routing && !awaitingRouteScroll) sceneSignals.destination = null
+}
+
+function settleScene(): void {
+  clearTimeout(arrivalTimer)
+  arrivalTimer = setTimeout(sceneArrived, ARRIVAL_SETTLE_MS)
+}
+
+let stagesBeforeRoute = new Set<number>()
+
+function navigateScene(destination: SceneDestination, routing = false): void {
+  if (routing) stagesBeforeRoute = new Set(stages.value.map((stage) => stage.id))
+  awaitingRouteScroll = routing
+  sceneSignals.routing = routing
+  sceneSignals.destination = destination
+  settleScene()
+}
+
+function sceneRouteReady(): void {
+  sceneSignals.routing = false
+  settleScene()
+}
+
+function sceneRouteScrolled(): void {
+  awaitingRouteScroll = false
+  settleScene()
+}
+
+function sceneStagesChanged(list: RegisteredStage[]): void {
+  if (!sceneSignals.routing) return
+  if (list.some((stage) => !stagesBeforeRoute.has(stage.id))) sceneRouteReady()
+}
 
 function useStage(
   target: MaybeRefOrGetter<HTMLElement | null | undefined>,
@@ -82,5 +132,25 @@ function useStage(
   })
 }
 
-export type { Mood, RegisteredStage, ScenePose, SceneState, StageContext, StageDefinition, Tone }
-export { scene, sceneSignals, stages as sceneStages, useStage }
+export type {
+  Mood,
+  RegisteredStage,
+  SceneDestination,
+  ScenePose,
+  SceneState,
+  StageContext,
+  StageDefinition,
+  Tone,
+}
+export {
+  navigateScene,
+  scene,
+  sceneArrived,
+  sceneRouteReady,
+  sceneRouteScrolled,
+  sceneSignals,
+  sceneStagesChanged,
+  settleScene,
+  stages as sceneStages,
+  useStage,
+}

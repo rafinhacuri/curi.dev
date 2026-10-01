@@ -1,5 +1,5 @@
 <script setup lang="ts">
-  import type { SceneState, Tone } from '~/composables/useScene'
+  import type { SceneDestination, SceneState, Tone } from '~/composables/useScene'
   import { orbits, ringOf } from '~/data/content'
   import { direct } from '~/lib/three/director'
   import type { SceneEngine } from '~/lib/three/engine'
@@ -31,8 +31,33 @@
     if (document.documentElement.dataset.tone !== next) document.documentElement.dataset.tone = next
   }
 
+  function destinationTop(destination: SceneDestination): number {
+    if (typeof destination === 'number') return destination
+    const element = document.querySelector(destination)
+    if (!element) return globalThis.scrollY
+    return element.getBoundingClientRect().top + globalThis.scrollY
+  }
+
+  function destinationOffset(): number {
+    const { destination } = sceneSignals
+    if (destination === null) return 0
+    const maxScroll = document.documentElement.scrollHeight - globalThis.innerHeight
+    const offset = clamp(destinationTop(destination), 0, maxScroll) - globalThis.scrollY
+    if (Math.abs(offset) < 2) {
+      sceneArrived()
+      return 0
+    }
+    return offset
+  }
+
   function update(): void {
-    const direction = direct(sceneStages.value, globalThis.innerHeight, isMobile.value)
+    if (sceneSignals.routing) return
+    const direction = direct(
+      sceneStages.value,
+      globalThis.innerHeight,
+      isMobile.value,
+      destinationOffset(),
+    )
     if (!direction) return
     target = direction.state
     applyTone(direction.tone)
@@ -88,12 +113,37 @@
     if (engine.pick(x, y)) sceneSignals.poke += 1
   })
 
+  function updateWithoutEngine(): void {
+    if (!engine) update()
+  }
+
+  useEventListener('scroll', updateWithoutEngine, { passive: true })
+  watch(
+    [sceneStages, (): boolean => sceneSignals.routing, (): unknown => sceneSignals.destination],
+    () => nextTick(updateWithoutEngine),
+  )
+
+  function supportsWebGL(): boolean {
+    return document.createElement('canvas').getContext('webgl2') !== null
+  }
+
+  async function createEngine(element: HTMLCanvasElement): Promise<SceneEngine | null> {
+    try {
+      const { SceneEngine } = await import('~/lib/three/engine')
+      const electronsPerRing = orbits.map((_, index) => orbits[ringOf(index)]?.tools.length ?? 0)
+      return new SceneEngine(element, target, electronsPerRing)
+    } catch (error) {
+      console.error('3D scene unavailable, continuing without it.', error)
+      return null
+    }
+  }
+
   onMounted(async () => {
-    const { SceneEngine } = await import('~/lib/three/engine')
-    if (!canvas.value) return
     update()
-    const electronsPerRing = orbits.map((_, index) => orbits[ringOf(index)]?.tools.length ?? 0)
-    engine = new SceneEngine(canvas.value, target, electronsPerRing)
+    if (!supportsWebGL()) return
+    const element = await until(canvas).toBeTruthy()
+    engine = await createEngine(element)
+    if (!engine) return
     engine.resize(width.value, height.value, pixelRatio.value)
     if (visibility.value === 'visible') resume()
   })

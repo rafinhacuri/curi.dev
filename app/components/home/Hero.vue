@@ -2,7 +2,6 @@
   import { useScroll } from 'motion-v'
 
   const { t } = useI18n({ useScope: 'local' })
-  const localePath = useLocalePath()
   const section = useTemplateRef<HTMLElement>('section')
 
   useStage(section, {
@@ -79,19 +78,19 @@
         :initial="{ opacity: 0, y: 12 }"
         :animate="{ opacity: 1, y: 0 }"
         :transition="{ type: 'spring', bounce: 0, duration: 0.9, delay: 0.85 }">
-        <NuxtLink
-          :to="localePath('/projects')"
+        <NuxtLinkLocale
+          to="/projects"
           class="group inline-flex h-12 items-center gap-2 rounded-full bg-fg px-6 text-[0.9375rem] font-medium text-bg transition-transform duration-150 active:scale-[0.97]">
           {{ t('projects') }}
           <Icon
             name="ph:arrow-right"
             class="size-4 transition-transform duration-300 ease-out group-hover:translate-x-0.5" />
-        </NuxtLink>
-        <NuxtLink
-          :to="localePath({ path: '/', hash: '#contact' })"
+        </NuxtLinkLocale>
+        <NuxtLinkLocale
+          :to="{ path: '/', hash: '#contact' }"
           class="inline-flex h-12 items-center rounded-full px-5 text-[0.9375rem] font-medium text-accent transition-colors hover:bg-accent/10 active:scale-[0.97]">
           {{ t('contact') }}
-        </NuxtLink>
+        </NuxtLinkLocale>
       </Motion>
     </Motion>
 

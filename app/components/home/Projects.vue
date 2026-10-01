@@ -5,7 +5,6 @@
 
   const { t } = useI18n({ useScope: 'local' })
   const text = useLocalized()
-  const localePath = useLocalePath()
   const section = useTemplateRef<HTMLElement>('section')
   const rail = useTemplateRef<HTMLElement>('rail')
 
@@ -41,14 +40,14 @@
         <p class="font-mono text-micro text-muted uppercase">{{ t('eyebrow') }}</p>
         <h2 class="mt-3 text-display font-semibold font-stretch-112%">{{ t('title') }}</h2>
       </Reveal>
-      <NuxtLink
-        :to="localePath('/projects')"
+      <NuxtLinkLocale
+        to="/projects"
         class="group hidden shrink-0 items-center gap-1.5 pb-2 text-[0.9375rem] font-medium text-accent sm:flex">
         {{ t('all', { n: projects.length }) }}
         <Icon
           name="ph:arrow-right"
           class="size-4 transition-transform duration-300 group-hover:translate-x-0.5" />
-      </NuxtLink>
+      </NuxtLinkLocale>
     </div>
 
     <div class="mx-auto mt-12 max-w-7xl">
@@ -62,46 +61,44 @@
           class="w-[82vw] shrink-0 snap-start sm:w-88"
           :delay="index * 0.06"
           :amount="0.2">
-          <Motion
-            as="a"
-            :href="project.href"
-            target="_blank"
-            rel="noopener"
-            class="relative flex aspect-4/5 flex-col justify-between overflow-hidden rounded-4xl p-7 text-white"
-            :style="{ background: cardBackground(project.tint) }"
-            :while-hover="{ scale: 1.015 }"
-            :while-press="{ scale: 0.98 }"
-            :transition="{ type: 'spring', bounce: 0, duration: 0.4 }">
-            <div class="flex items-start justify-between">
-              <AppIcon :icon="project.icon" :tint="project.tint" :size="64" />
-              <span
-                class="flex size-9 items-center justify-center rounded-full bg-white/15 backdrop-blur-md">
-                <Icon name="ph:arrow-up-right" class="size-4" />
-              </span>
-            </div>
-            <div>
-              <p class="font-mono text-micro text-white/60 uppercase">
-                {{ t(`kind.${projectKind(project)}`) }} · {{ projectHost(project) }}
-              </p>
-              <h3 class="mt-3 text-[2rem] leading-none font-semibold tracking-[-0.03em]">
-                {{ project.name }}
-              </h3>
-              <p class="mt-3 text-[0.9375rem] leading-snug text-white/75">
-                {{ text(project.summary) }}
-              </p>
-            </div>
-          </Motion>
+          <NuxtLink :to="project.href" external target="_blank" class="block rounded-4xl">
+            <Motion
+              class="relative flex aspect-4/5 flex-col justify-between overflow-hidden rounded-4xl p-7 text-white"
+              :style="{ background: cardBackground(project.tint) }"
+              :while-hover="{ scale: 1.015 }"
+              :while-press="{ scale: 0.98 }"
+              :transition="{ type: 'spring', bounce: 0, duration: 0.4 }">
+              <div class="flex items-start justify-between">
+                <AppIcon :icon="project.icon" :tint="project.tint" :size="64" />
+                <span
+                  class="flex size-9 items-center justify-center rounded-full bg-white/15 backdrop-blur-md">
+                  <Icon name="ph:arrow-up-right" class="size-4" />
+                </span>
+              </div>
+              <div>
+                <p class="font-mono text-micro text-white/60 uppercase">
+                  {{ t(`kind.${projectKind(project)}`) }} · {{ projectHost(project) }}
+                </p>
+                <h3 class="mt-3 text-[2rem] leading-none font-semibold tracking-[-0.03em]">
+                  {{ project.name }}
+                </h3>
+                <p class="mt-3 text-[0.9375rem] leading-snug text-white/75">
+                  {{ text(project.summary) }}
+                </p>
+              </div>
+            </Motion>
+          </NuxtLink>
         </Reveal>
       </ul>
     </div>
 
     <div class="mx-auto flex max-w-7xl items-center justify-between px-5 sm:px-8">
-      <NuxtLink
-        :to="localePath('/projects')"
+      <NuxtLinkLocale
+        to="/projects"
         class="flex items-center gap-1.5 text-[0.9375rem] font-medium text-accent sm:invisible">
         {{ t('all', { n: projects.length }) }}
         <Icon name="ph:arrow-right" class="size-4" />
-      </NuxtLink>
+      </NuxtLinkLocale>
       <div class="flex gap-2">
         <button
           type="button"

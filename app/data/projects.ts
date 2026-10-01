@@ -234,7 +234,15 @@ const projects: Project[] = [
   },
 ]
 
-const highlightSlugs = ['sso-cbpf', 'id-cbpf', 'posgrad', 'uniposrio', 'eventos', 'labia', 'sanchezdns']
+const highlightSlugs = [
+  'sso-cbpf',
+  'id-cbpf',
+  'posgrad',
+  'uniposrio',
+  'eventos',
+  'labia',
+  'sanchezdns',
+]
 
 const highlights = highlightSlugs.flatMap((slug) =>
   projects.filter((project) => project.slug === slug),

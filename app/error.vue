@@ -1,125 +1,102 @@
 <script setup lang="ts">
   import type { NuxtError } from '#app'
 
-  const { t } = useI18n({ useScope: 'local' })
-  const localePath = useLocalePath()
-
   const props = defineProps({
-    error: {
-      type: Object as PropType<NuxtError>,
-      default() {
-        return {
-          status: 500,
-          message: 'Server error',
-        }
-      },
-    },
+    error: { type: Object as PropType<NuxtError>, required: true },
   })
 
+  const { t } = useI18n({ useScope: 'local' })
+  const localePath = useLocalePath()
+  const route = useRoute()
+  const section = useTemplateRef<HTMLElement>('section')
+
   const status = computed(() => props.error.status || props.error.statusCode || 500)
-  const title = computed(() => (status.value === 404 ? t('title_404') : t('title_default')))
-  const message = computed(() => props.error.statusMessage || props.error.message || t('message'))
+  const missing = computed(() => status.value === 404)
+  const title = computed(() => (missing.value ? t('missing.title') : t('broken.title')))
+  const message = computed(() => (missing.value ? t('missing.message') : t('broken.message')))
 
-  useHead({ title: String(status.value) })
+  useHead({ title: String(status.value), htmlAttrs: { 'data-tone': 'dark' } })
 
-  function handleError(): void {
+  useStage(section, {
+    tone: 'dark',
+    state: ({ mobile }) =>
+      scene({
+        bot: mobile
+          ? { x: 0, y: 0.42, scale: 0.55, turn: 0 }
+          : { x: 0.5, y: 0.02, scale: 0.95, turn: -0.3 },
+        orbits: missing.value ? 0 : 0.35,
+        mood: 'lost',
+      }),
+  })
+
+  function goHome(): void {
     clearError({ redirect: localePath('/') })
   }
 </script>
 
 <template>
-  <main
-    class="relative min-h-dvh overflow-hidden bg-black px-4 py-10 text-zinc-100 sm:px-6 lg:px-8">
-    <div
-      class="pointer-events-none absolute top-0 left-1/2 h-96 w-96 -translate-x-1/2 rounded-full bg-pink-500/20 blur-3xl" />
-    <div
-      class="pointer-events-none absolute right-0 bottom-0 h-96 w-96 rounded-full bg-blue-500/20 blur-3xl" />
-    <div
-      class="pointer-events-none absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.04)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.04)_1px,transparent_1px)] bg-size-[48px_48px]" />
-
+  <NuxtLayout>
     <section
-      class="relative mx-auto flex min-h-[calc(100dvh-5rem)] max-w-5xl items-center justify-center">
-      <div
-        class="w-full border-4 border-zinc-100 bg-black p-5 shadow-[12px_12px_0_#ec4899] sm:p-8 lg:p-10">
-        <div
-          class="mb-8 flex flex-col gap-4 border-b-4 border-zinc-100 pb-6 sm:flex-row sm:items-center sm:justify-between">
-          <div>
-            <p
-              class="mb-3 inline-flex border-2 border-zinc-100 bg-zinc-100 px-3 py-1 text-xs font-black tracking-[0.3em] text-black uppercase shadow-[4px_4px_0_#3b82f6]">
-              {{ t('label') }} {{ status }}
-            </p>
-            <h1
-              class="max-w-3xl text-5xl font-black tracking-tight text-white uppercase sm:text-7xl lg:text-8xl">
-              {{ title }}
-            </h1>
-          </div>
+      ref="section"
+      class="mx-auto flex min-h-dvh max-w-7xl flex-col justify-end px-5 pt-[52vh] pb-16 sm:px-8 md:justify-center md:pt-24">
+      <Reveal class="max-w-xl">
+        <p class="font-mono text-micro text-muted uppercase">{{ t('label', { status }) }}</p>
+        <h1 class="mt-4 text-display font-semibold text-balance font-stretch-112%">{{ title }}</h1>
+        <p class="mt-6 max-w-md text-lede text-pretty text-muted">{{ message }}</p>
+        <p
+          class="mt-6 inline-flex max-w-full items-center gap-2 rounded-full border border-line px-3 py-1.5 font-mono text-micro text-muted">
+          <Icon name="ph:link" class="size-3.5 shrink-0" />
+          <span class="truncate">{{ route.fullPath }}</span>
+        </p>
+      </Reveal>
 
-          <div
-            class="flex h-24 w-24 shrink-0 items-center justify-center border-4 border-zinc-100 bg-pink-500 text-4xl font-black text-black shadow-[6px_6px_0_#fff] sm:h-32 sm:w-32 sm:text-6xl">
-            {{ status }}
-          </div>
-        </div>
-
-        <div class="grid gap-6 lg:grid-cols-[1fr_280px]">
-          <div class="space-y-6">
-            <p
-              class="max-w-2xl border-l-4 border-pink-500 pl-4 text-lg leading-8 text-zinc-300 sm:text-xl">
-              {{ message }}
-            </p>
-
-            <div class="flex flex-col gap-3 sm:flex-row">
-              <button
-                class="border-4 border-zinc-100 bg-zinc-100 px-6 py-3 text-sm font-black tracking-[0.18em] text-black uppercase shadow-[6px_6px_0_#ec4899] transition duration-300 ease-out hover:-translate-y-1 hover:shadow-[8px_8px_0_#ec4899]"
-                @click="handleError">
-                {{ t('back_home') }}
-              </button>
-
-              <button
-                class="border-4 border-zinc-100 bg-black px-6 py-3 text-sm font-black tracking-[0.18em] text-white uppercase shadow-[6px_6px_0_#3b82f6] transition duration-300 ease-out hover:-translate-y-1 hover:shadow-[8px_8px_0_#3b82f6]"
-                @click="reloadNuxtApp()">
-                {{ t('reload') }}
-              </button>
-            </div>
-          </div>
-
-          <div class="grid gap-3 text-sm font-bold text-zinc-300 uppercase">
-            <div class="border-4 border-zinc-100 bg-zinc-950 p-4 shadow-[6px_6px_0_#000]">
-              <span class="block text-xs tracking-[0.25em] text-pink-400">{{ t('status') }}</span>
-              <span class="mt-2 block text-2xl font-black text-white">{{ status }}</span>
-            </div>
-
-            <div class="border-4 border-zinc-100 bg-zinc-950 p-4 shadow-[6px_6px_0_#000]">
-              <span class="block text-xs tracking-[0.25em] text-blue-400">{{ t('route') }}</span>
-              <span class="mt-2 block break-all text-white">{{ $route.fullPath }}</span>
-            </div>
-          </div>
-        </div>
-      </div>
+      <Reveal class="mt-10 flex flex-wrap gap-3" :delay="0.1">
+        <button
+          type="button"
+          class="group inline-flex h-12 items-center gap-2 rounded-full bg-fg px-6 text-[0.9375rem] font-medium text-bg transition-transform duration-150 active:scale-[0.97]"
+          @click="goHome">
+          <Icon name="ph:house" class="size-4" />
+          {{ t('home') }}
+        </button>
+        <button
+          type="button"
+          class="inline-flex h-12 items-center gap-2 rounded-full border border-line px-6 text-[0.9375rem] font-medium transition-[transform,background-color] duration-150 hover:bg-surface-2 active:scale-[0.97]"
+          @click="reloadNuxtApp()">
+          <Icon name="ph:arrow-counter-clockwise" class="size-4" />
+          {{ t('reload') }}
+        </button>
+      </Reveal>
     </section>
-  </main>
+  </NuxtLayout>
 </template>
 
 <i18n lang="json">
 {
   "en": {
-    "label": "Error",
-    "title_404": "Page not found",
-    "title_default": "Something went wrong",
-    "message": "Could not load this page.",
-    "back_home": "Back to home",
-    "reload": "Reload",
-    "status": "Status",
-    "route": "Route"
+    "label": "Error {status}",
+    "home": "Back to home",
+    "reload": "Reload page",
+    "missing": {
+      "title": "This page isn't here.",
+      "message": "The link may be outdated or mistyped. The robot looked everywhere and came back empty-handed."
+    },
+    "broken": {
+      "title": "Something broke while loading this page.",
+      "message": "It's on my side, not yours. Reloading usually fixes it; if it doesn't, the home page still works."
+    }
   },
   "pt": {
-    "label": "Erro",
-    "title_404": "Página não encontrada",
-    "title_default": "Algo saiu do controle",
-    "message": "Não foi possível carregar essa página.",
-    "back_home": "Voltar para o início",
-    "reload": "Recarregar",
-    "status": "Status",
-    "route": "Rota"
+    "label": "Erro {status}",
+    "home": "Voltar para o início",
+    "reload": "Recarregar página",
+    "missing": {
+      "title": "Esta página não existe.",
+      "message": "O link pode estar desatualizado ou digitado errado. O robô procurou em todo canto e voltou de mãos vazias."
+    },
+    "broken": {
+      "title": "Algo quebrou ao carregar esta página.",
+      "message": "O problema é do meu lado, não do seu. Recarregar costuma resolver; se não resolver, o início continua funcionando."
+    }
   }
 }
 </i18n>

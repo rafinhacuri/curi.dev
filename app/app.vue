@@ -8,7 +8,7 @@
 
 <template>
   <NuxtRouteAnnouncer />
-  <NuxtLoadingIndicator />
+  <NuxtLoadingIndicator color="var(--accent)" :height="2" />
   <NuxtLayout>
     <NuxtPage :transition="{ name: 'page', mode: 'out-in', onBeforeEnter }" />
   </NuxtLayout>

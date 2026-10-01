@@ -1,43 +1,274 @@
 @import 'tailwindcss';
-@import '@nuxt/ui';
+
+:root {
+  --bg: #f5f5f7;
+  --surface: #ffffff;
+  --surface-2: #e8e8ed;
+  --fg: #1d1d1f;
+  --fg-muted: #6e6e73;
+  --line: rgb(0 0 0 / 0.09);
+  --accent: #2553f5;
+  --accent-ink: #ffffff;
+  --glass: rgb(245 245 247 / 0.72);
+  --shadow-color: 220 3% 15%;
+  --tone-duration: 700ms;
+
+  color-scheme: light;
+}
+
+:root[data-tone='dark'] {
+  --bg: #000000;
+  --surface: #161617;
+  --surface-2: #232326;
+  --fg: #f5f5f7;
+  --fg-muted: #8e8e93;
+  --line: rgb(255 255 255 / 0.12);
+  --accent: #6d8dff;
+  --accent-ink: #000000;
+  --glass: rgb(22 22 23 / 0.72);
+  --shadow-color: 0 0% 0%;
+
+  color-scheme: dark;
+}
+
+@theme inline {
+  --color-bg: var(--bg);
+  --color-surface: var(--surface);
+  --color-surface-2: var(--surface-2);
+  --color-fg: var(--fg);
+  --color-muted: var(--fg-muted);
+  --color-line: var(--line);
+  --color-accent: var(--accent);
+  --color-accent-ink: var(--accent-ink);
+  --color-glass: var(--glass);
+
+  --font-sans: 'Mona Sans', ui-sans-serif, system-ui, -apple-system, sans-serif;
+  --font-mono: 'Martian Mono', ui-monospace, monospace;
+
+  --text-giant: clamp(4.25rem, 15vw, 14rem);
+  --text-giant--line-height: 0.84;
+  --text-giant--letter-spacing: -0.045em;
+  --text-hero: clamp(4rem, 12vw, 11rem);
+  --text-hero--line-height: 0.86;
+  --text-hero--letter-spacing: -0.042em;
+  --text-display: clamp(2.75rem, 7vw, 6.5rem);
+  --text-display--line-height: 0.95;
+  --text-display--letter-spacing: -0.035em;
+  --text-headline: clamp(2rem, 4.2vw, 3.75rem);
+  --text-headline--line-height: 1.02;
+  --text-headline--letter-spacing: -0.028em;
+  --text-title: clamp(1.375rem, 2.2vw, 1.875rem);
+  --text-title--line-height: 1.15;
+  --text-title--letter-spacing: -0.015em;
+  --text-lede: clamp(1.125rem, 1.6vw, 1.375rem);
+  --text-lede--line-height: 1.45;
+  --text-lede--letter-spacing: -0.005em;
+  --text-micro: 0.6875rem;
+  --text-micro--line-height: 1.4;
+  --text-micro--letter-spacing: 0.02em;
+
+  --ease-spring: cubic-bezier(0.32, 0.72, 0, 1);
+  --ease-out-quint: cubic-bezier(0.22, 1, 0.36, 1);
+
+  --shadow-float:
+    0 1px 1px hsl(var(--shadow-color) / 0.04), 0 4px 8px -2px hsl(var(--shadow-color) / 0.06),
+    0 24px 48px -12px hsl(var(--shadow-color) / 0.14);
+}
 
 @layer base {
+  html {
+    background-color: var(--bg);
+    color: var(--fg);
+    font-family: var(--font-sans);
+    font-optical-sizing: auto;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+    scroll-behavior: smooth;
+    scroll-padding-top: 4rem;
+    transition:
+      background-color var(--tone-duration) var(--ease-out-quint),
+      color var(--tone-duration) var(--ease-out-quint);
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  body {
+    min-height: 100dvh;
+    overflow-x: clip;
+  }
+
+  ::selection {
+    background: var(--accent);
+    color: var(--accent-ink);
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 3px;
+    border-radius: 6px;
+  }
+
   button:not(:disabled),
-  [role='button']:not(:disabled) {
+  [role='button']:not(:disabled),
+  a[href] {
     cursor: pointer;
+    touch-action: manipulation;
   }
 
-  @keyframes fadeIn {
-    from {
-      opacity: 0;
-      transform: translateY(-10px);
-      filter: blur(2px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-      filter: blur(0);
-    }
+  img {
+    user-select: none;
+    -webkit-user-drag: none;
+  }
+}
+
+@utility glass {
+  background-color: var(--glass);
+  backdrop-filter: saturate(180%) blur(20px);
+  -webkit-backdrop-filter: saturate(180%) blur(20px);
+}
+
+@utility tone-transition {
+  transition-property: color, background-color, border-color, fill, stroke;
+  transition-duration: var(--tone-duration);
+  transition-timing-function: var(--ease-out-quint);
+}
+
+@utility rail-mask {
+  mask-image: linear-gradient(90deg, transparent, #000 4%, #000 96%, transparent);
+}
+
+@utility no-scrollbar {
+  scrollbar-width: none;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+.scene-canvas {
+  opacity: 0;
+  transition: opacity 1.2s var(--ease-out-quint);
+}
+
+.scene-canvas[data-ready='true'] {
+  opacity: 1;
+}
+
+.page-enter-active,
+.page-leave-active {
+  transition:
+    opacity 380ms var(--ease-out-quint),
+    transform 380ms var(--ease-out-quint),
+    filter 380ms var(--ease-out-quint);
+}
+
+.page-leave-active {
+  transition-duration: 220ms;
+}
+
+.page-enter-from {
+  opacity: 0;
+  transform: translateY(16px);
+  filter: blur(6px);
+}
+
+.page-leave-to {
+  opacity: 0;
+  transform: translateY(-8px);
+  filter: blur(4px);
+}
+
+@keyframes sheet-in {
+  from {
+    opacity: 0;
+    transform: translateY(24px) scale(0.96);
+    filter: blur(8px);
+  }
+}
+
+@keyframes sheet-out {
+  to {
+    opacity: 0;
+    transform: translateY(12px) scale(0.98);
+    filter: blur(4px);
+  }
+}
+
+@keyframes scrim-in {
+  from {
+    opacity: 0;
+  }
+}
+
+@keyframes scrim-out {
+  to {
+    opacity: 0;
+  }
+}
+
+.sheet[data-state='open'] {
+  animation: sheet-in 460ms var(--ease-spring);
+}
+
+.sheet[data-state='closed'] {
+  animation: sheet-out 200ms var(--ease-out-quint) forwards;
+}
+
+.scrim[data-state='open'] {
+  animation: scrim-in 360ms var(--ease-out-quint);
+}
+
+.scrim[data-state='closed'] {
+  animation: scrim-out 200ms var(--ease-out-quint) forwards;
+}
+
+@keyframes pulse-ring {
+  0% {
+    transform: scale(1);
+    opacity: 0.6;
+  }
+  100% {
+    transform: scale(2.6);
+    opacity: 0;
+  }
+}
+
+.live-dot::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: inherit;
+  animation: pulse-ring 2.4s var(--ease-out-quint) infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
   }
 
-  @keyframes fadeOut {
-    from {
-      opacity: 1;
-      transform: translateY(0);
-      filter: blur(0);
-    }
-    to {
-      opacity: 0;
-      transform: translateY(10px);
-      filter: blur(2px);
-    }
+  .page-enter-active,
+  .page-leave-active,
+  .sheet,
+  .scrim {
+    transition-duration: 1ms !important;
+    animation-duration: 1ms !important;
   }
 
-  .page-enter-active {
-    animation: fadeIn 0.4s ease-out;
+  .page-enter-from,
+  .page-leave-to {
+    transform: none;
+    filter: none;
   }
 
-  .page-leave-active {
-    animation: fadeOut 0.4s ease-in;
+  .live-dot::after {
+    animation: none;
+  }
+}
+
+@media (prefers-reduced-transparency: reduce) {
+  .glass {
+    background-color: var(--bg);
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
   }
 }

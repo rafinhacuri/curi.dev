@@ -15,7 +15,8 @@
       }),
   })
 
-  const { scrollYProgress } = useScroll({ target: section, offset: ['start start', 'end start'] })
+  const { scrollY } = useScroll()
+  const scrollYProgress = useTransform(scrollY, (y) => y / (section.value?.offsetHeight || 1))
   const lift = useTransform(scrollYProgress, [0, 1], [0, -140])
   const fade = useTransform(scrollYProgress, [0, 0.65], [1, 0])
 

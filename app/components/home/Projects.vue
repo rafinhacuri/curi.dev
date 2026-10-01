@@ -131,7 +131,7 @@
     "next": "Next project",
     "kind": {
       "live": "Live",
-      "video": "Video demo",
+      "private": "Private",
       "source": "Source code",
       "here": "You are here"
     }
@@ -144,7 +144,7 @@
     "next": "Próximo projeto",
     "kind": {
       "live": "No ar",
-      "video": "Demo em vídeo",
+      "private": "Privado",
       "source": "Código-fonte",
       "here": "Você está aqui"
     }

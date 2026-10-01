@@ -6,14 +6,14 @@ interface Contributor {
   avatar: string
 }
 
-type ProjectKind = 'live' | 'video' | 'source' | 'here'
+type ProjectKind = 'live' | 'private' | 'source' | 'here'
 
 interface Project {
   slug: string
   name: string
   summary: Localized
   icon: string
-  href: string
+  href?: string
   team: boolean
   tint: [string, string]
   contributors?: Contributor[]
@@ -31,7 +31,79 @@ const victor: Contributor = {
   avatar: 'https://avatars.githubusercontent.com/u/122651100?v=4',
 }
 
+const natan: Contributor = {
+  name: 'Natan Braslavsky',
+  href: 'https://github.com/NatanBraslavsky',
+  avatar: 'https://avatars.githubusercontent.com/u/169498434?v=4',
+}
+
 const projects: Project[] = [
+  {
+    slug: 'sso-cbpf',
+    name: 'SSO CBPF',
+    summary: { en: 'CBPF single sign-on', pt: 'Sistema de SSO do CBPF' },
+    icon: 'ph:fingerprint',
+    href: 'https://sso.cbpf.br',
+    team: true,
+    tint: ['#00a3ff', '#002b4d'],
+    contributors: [gabriel],
+  },
+  {
+    slug: 'id-cbpf',
+    name: 'ID CBPF',
+    summary: { en: 'CBPF identity management', pt: 'Gestão de identidade do CBPF' },
+    icon: 'ph:identification-card',
+    href: 'https://id.cbpf.br',
+    team: true,
+    tint: ['#1c1c1e', '#3a3a3c'],
+    contributors: [gabriel],
+  },
+  {
+    slug: 'posgrad',
+    name: 'Posgrad COEDU',
+    summary: { en: 'CBPF graduate program system', pt: 'Sistema de pós-graduação do CBPF' },
+    icon: 'ph:graduation-cap',
+    href: 'https://posgrad.coedu.cbpf.br/login',
+    team: true,
+    tint: ['#0fb5a6', '#02423c'],
+    contributors: [gabriel, natan],
+  },
+  {
+    slug: 'uniposrio',
+    name: 'UNIPOSRIO Física',
+    summary: {
+      en: "Enrollment for UNIPOSRIO's master's and PhD programs",
+      pt: 'Inscrições do mestrado e doutorado da UNIPOSRIO',
+    },
+    icon: 'ph:student',
+    href: 'https://uniposrio-fisica.cbpf.br/',
+    team: true,
+    tint: ['#2f80ff', '#08275c'],
+    contributors: [gabriel, victor],
+  },
+  {
+    slug: 'eventos',
+    name: 'Eventos',
+    summary: { en: 'Event page builder', pt: 'Criação de páginas de eventos' },
+    icon: 'ph:calendar-star',
+    href: 'https://eventos.cbpf.br/wteo/',
+    team: true,
+    tint: ['#ff5c8a', '#6b0f2e'],
+    contributors: [gabriel, natan],
+  },
+  {
+    slug: 'labia',
+    name: 'LABIA',
+    summary: {
+      en: 'Instrumentation and Astrophysics Laboratory website',
+      pt: 'Página do Laboratório de Instrumentação e Astrofísica',
+    },
+    icon: 'ph:binoculars',
+    href: 'https://labia.cbpf.br/',
+    team: true,
+    tint: ['#4b3bff', '#0d0838'],
+    contributors: [gabriel],
+  },
   {
     slug: 'sanchezdns',
     name: 'SanchezDNS',
@@ -40,6 +112,25 @@ const projects: Project[] = [
     href: 'https://sanchezdns.curi.dev.br',
     team: false,
     tint: ['#3b6cff', '#0b1f66'],
+  },
+  {
+    slug: 'dns-cbpf',
+    name: 'DNS CBPF',
+    summary: { en: 'CBPF DNS zone management', pt: 'Gerenciamento das zonas de DNS do CBPF' },
+    icon: 'ph:tree-structure',
+    team: false,
+    tint: ['#14b8a6', '#053d38'],
+  },
+  {
+    slug: 'relatorios',
+    name: 'Relatórios',
+    summary: {
+      en: 'Annual report submission for CBPF staff',
+      pt: 'Preenchimento do relatório anual dos servidores do CBPF',
+    },
+    icon: 'ph:file-text',
+    team: false,
+    tint: ['#a855f7', '#3b0764'],
   },
   {
     slug: 'escola-iac-2026',
@@ -58,7 +149,7 @@ const projects: Project[] = [
       pt: 'Controle de receitas e despesas',
     },
     icon: 'ph:coins',
-    href: 'https://deku.curi.dev.br',
+    href: 'https://github.com/rafinhacuri/Deku',
     team: false,
     tint: ['#2fc27a', '#0a4a2c'],
   },
@@ -67,7 +158,6 @@ const projects: Project[] = [
     name: 'Agenda-CBPF',
     summary: { en: 'News management system', pt: 'Sistema de gerenciamento de notícias' },
     icon: 'ph:newspaper',
-    href: 'https://youtu.be/Z866qplsBdA',
     team: false,
     tint: ['#ff8a3d', '#7a2a00'],
   },
@@ -76,18 +166,8 @@ const projects: Project[] = [
     name: 'Os',
     summary: { en: 'Service order system', pt: 'Sistema de ordens de serviço' },
     icon: 'ph:wrench',
-    href: 'https://youtu.be/MRcAPzhyDLA',
     team: false,
     tint: ['#8e8e93', '#2c2c2e'],
-  },
-  {
-    slug: 'eventos',
-    name: 'Eventos',
-    summary: { en: 'Event page builder', pt: 'Criação de páginas de eventos' },
-    icon: 'ph:calendar-star',
-    href: 'https://eventos.cbpf.br/wteo/',
-    team: false,
-    tint: ['#ff5c8a', '#6b0f2e'],
   },
   {
     slug: 'mesonpi',
@@ -100,13 +180,12 @@ const projects: Project[] = [
   },
   {
     slug: 'sgcad',
-    name: 'SGCAD · Painel SELIC',
+    name: 'SGCAD',
     summary: {
       en: 'Contract and staff management',
       pt: 'Controle de contratos e funcionários',
     },
     icon: 'ph:buildings',
-    href: 'https://youtu.be/Rh3RZ4rqL_I',
     team: false,
     tint: ['#5e6bff', '#151a5c'],
   },
@@ -144,19 +223,6 @@ const projects: Project[] = [
     tint: ['#1d1d1f', '#000000'],
   },
   {
-    slug: 'labia',
-    name: 'LABIA',
-    summary: {
-      en: 'Instrumentation and Astrophysics Laboratory website',
-      pt: 'Página do Laboratório de Instrumentação e Astrofísica',
-    },
-    icon: 'ph:binoculars',
-    href: 'https://labia.cbpf.br/',
-    team: true,
-    tint: ['#4b3bff', '#0d0838'],
-    contributors: [gabriel],
-  },
-  {
     slug: 'auditorios',
     name: 'Agenda de Auditórios',
     summary: { en: 'Auditorium booking', pt: 'Reservas de auditórios' },
@@ -166,55 +232,23 @@ const projects: Project[] = [
     tint: ['#ff6b4a', '#661a08'],
     contributors: [gabriel],
   },
-  {
-    slug: 'posgrad',
-    name: 'Posgrad COEDU',
-    summary: { en: 'CBPF graduate program system', pt: 'Sistema de pós-graduação do CBPF' },
-    icon: 'ph:graduation-cap',
-    href: 'https://posgrad.coedu.cbpf.br/login',
-    team: true,
-    tint: ['#0fb5a6', '#02423c'],
-    contributors: [gabriel],
-  },
-  {
-    slug: 'uniposrio',
-    name: 'UNIPOSRIO Física',
-    summary: {
-      en: "Enrollment for UNIPOSRIO's master's and PhD programs",
-      pt: 'Inscrições do mestrado e doutorado da UNIPOSRIO',
-    },
-    icon: 'ph:student',
-    href: 'https://uniposrio-fisica.cbpf.br/',
-    team: true,
-    tint: ['#2f80ff', '#08275c'],
-    contributors: [gabriel, victor],
-  },
-  {
-    slug: 'id-cbpf',
-    name: 'ID CBPF',
-    summary: { en: 'CBPF identity management', pt: 'Gestão de identidade do CBPF' },
-    icon: 'ph:identification-card',
-    href: 'https://id.cbpf.br',
-    team: true,
-    tint: ['#1c1c1e', '#3a3a3c'],
-    contributors: [gabriel],
-  },
 ]
 
-const highlightSlugs = ['sanchezdns', 'uniposrio', 'id-cbpf', 'posgrad', 'auditorios', 'eventos']
+const highlightSlugs = ['sso-cbpf', 'id-cbpf', 'posgrad', 'uniposrio', 'eventos', 'labia', 'sanchezdns']
 
 const highlights = highlightSlugs.flatMap((slug) =>
   projects.filter((project) => project.slug === slug),
 )
 
 function projectKind(project: Project): ProjectKind {
+  if (!project.href) return 'private'
   if (project.href === '/') return 'here'
-  if (project.href.includes('youtu')) return 'video'
   if (project.href.includes('github.com')) return 'source'
   return 'live'
 }
 
-function projectHost(project: Project): string {
+function projectHost(project: Project): string | undefined {
+  if (!project.href) return undefined
   if (project.href === '/') return 'curi.dev.br'
   return new URL(project.href).host.replace(/^www\./u, '')
 }

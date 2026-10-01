@@ -10,6 +10,7 @@
   const text = useLocalized()
   const kind = computed(() => projectKind(props.project))
   const external = computed(() => kind.value !== 'here')
+  const host = computed(() => projectHost(props.project) ?? t('private'))
 
   const actionClass =
     'flex h-8 shrink-0 items-center rounded-full bg-surface-2 px-4 text-[0.8125rem] font-semibold text-accent transition-[transform,background-color] duration-150 hover:bg-accent hover:text-accent-ink active:scale-95'
@@ -28,7 +29,7 @@
       </p>
       <div class="mt-2 flex items-center gap-2">
         <span class="truncate font-mono text-micro text-muted/80">
-          {{ projectHost(props.project) }}
+          {{ host }}
         </span>
         <span v-if="props.project.contributors" class="flex shrink-0 -space-x-1.5">
           <TooltipRoot
@@ -62,8 +63,14 @@
       </div>
     </div>
 
+    <span
+      v-if="kind === 'private'"
+      class="flex h-8 shrink-0 items-center gap-1.5 rounded-full bg-surface-2 px-4 text-[0.8125rem] font-semibold text-muted">
+      <Icon name="ph:lock-simple" class="size-3.5" />
+      {{ t('action.private') }}
+    </span>
     <NuxtLink
-      v-if="external"
+      v-else-if="external"
       :to="props.project.href"
       external
       target="_blank"
@@ -86,12 +93,14 @@
   "en": {
     "with": "Built with {name}",
     "open": "Open {name}",
-    "action": { "live": "Open", "video": "Watch", "source": "Code", "here": "Here" }
+    "private": "private project",
+    "action": { "live": "Open", "private": "Private", "source": "Code", "here": "Here" }
   },
   "pt": {
     "with": "Feito com {name}",
     "open": "Abrir {name}",
-    "action": { "live": "Abrir", "video": "Assistir", "source": "Código", "here": "Aqui" }
+    "private": "projeto privado",
+    "action": { "live": "Abrir", "private": "Privado", "source": "Código", "here": "Aqui" }
   }
 }
 </i18n>

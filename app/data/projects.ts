@@ -22,7 +22,7 @@ interface Project {
 const gabriel: Contributor = {
   name: 'Gabriel Rosa',
   href: 'https://rosa.dev.br',
-  avatar: '/contribuidores/grosa.png',
+  avatar: 'https://rosa.sh/gsr.webp',
 }
 
 const victor: Contributor = {

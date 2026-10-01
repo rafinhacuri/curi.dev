@@ -65,6 +65,7 @@
             <Motion
               class="relative flex aspect-4/5 flex-col justify-between overflow-hidden rounded-4xl p-7 text-white"
               :style="{ background: cardBackground(project.tint) }"
+              tabindex="-1"
               :while-hover="{ scale: 1.015 }"
               :while-press="{ scale: 0.98 }"
               :transition="{ type: 'spring', bounce: 0, duration: 0.4 }">

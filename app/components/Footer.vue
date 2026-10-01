@@ -1,48 +1,72 @@
 <script setup lang="ts">
-  const { t } = useI18n({ useScope: 'local' })
+  import { socials } from '~/data/content'
 
-  const socials = [
-    {
-      icon: 'line-md:linkedin',
-      link: 'https://www.linkedin.com/in/rafael-curi-a4a837292/',
-      name: 'linkedin',
-    },
-    { icon: 'line-md:github-loop', link: 'https://github.com/rafinhacuri', name: 'github' },
-    { icon: 'line-md:email', link: 'mailto:rafael@curi.dev.br', name: 'email' },
-  ]
+  const { t, locale } = useI18n({ useScope: 'local' })
+  const now = useNow({ interval: 30_000 })
+
+  const time = computed(() =>
+    new Intl.DateTimeFormat(locale.value === 'pt' ? 'pt-BR' : 'en-US', {
+      hour: '2-digit',
+      minute: '2-digit',
+      timeZone: 'America/Sao_Paulo',
+    }).format(now.value),
+  )
+
+  const year = new Date().getFullYear()
 </script>
 
 <template>
-  <UFooter class="my-9 font-mono">
-    <div class="relative z-10 flex flex-col items-center space-y-6">
-      <div
-        class="flex items-center gap-3 border-4 border-zinc-100 bg-black px-4 py-2 shadow-[6px_6px_0_#ec4899]">
-        <NuxtLink
-          v-for="{ icon, link, name } of socials"
-          :key="name"
-          :to="link"
-          target="_blank"
-          :aria-label="name"
-          class="group relative flex items-center justify-center border-2 border-transparent p-2 text-zinc-300 transition hover:border-yellow-300 hover:bg-yellow-300 hover:text-black">
-          <Icon :name="icon" class="text-zinc-300 transition group-hover:text-black" size="26" />
-        </NuxtLink>
+  <footer class="relative z-45 border-t border-line bg-bg tone-transition">
+    <div
+      class="mx-auto flex max-w-7xl flex-col gap-6 px-5 py-10 text-[0.8125rem] text-muted sm:flex-row sm:items-center sm:justify-between sm:px-8">
+      <div class="flex flex-col gap-1.5">
+        <p class="flex items-center gap-2">
+          <span class="live-dot relative size-1.5 rounded-full bg-[#30d158]" />
+          <span>
+            Rio de Janeiro
+            <ClientOnly>
+              <span class="font-mono text-micro">· {{ time }}</span>
+            </ClientOnly>
+          </span>
+        </p>
+        <p>{{ t('copyright', { year }) }}</p>
       </div>
 
-      <div
-        class="border-2 border-cyan-200 bg-black px-3 py-2 text-center text-xs font-bold text-cyan-100 uppercase shadow-[4px_4px_0_#000]">
-        <p>{{ t('copyright', { year: new Date().getFullYear() }) }}</p>
-      </div>
+      <ul class="flex items-center gap-1">
+        <li v-for="social in socials" :key="social.name">
+          <TooltipRoot :delay-duration="300">
+            <TooltipTrigger as-child>
+              <NuxtLink
+                :to="social.href"
+                external
+                :target="social.href.startsWith('http') ? '_blank' : undefined"
+                :aria-label="social.name"
+                class="flex size-11 items-center justify-center rounded-full transition-colors duration-200 hover:bg-surface-2 hover:text-fg">
+                <Icon :name="social.icon" class="size-5" />
+              </NuxtLink>
+            </TooltipTrigger>
+            <TooltipPortal>
+              <TooltipContent
+                side="top"
+                :side-offset="6"
+                class="z-60 rounded-lg bg-fg px-2.5 py-1 font-mono text-micro text-bg shadow-float">
+                {{ social.handle }}
+              </TooltipContent>
+            </TooltipPortal>
+          </TooltipRoot>
+        </li>
+      </ul>
     </div>
-  </UFooter>
+  </footer>
 </template>
 
 <i18n lang="json">
 {
   "en": {
-    "copyright": "© {year}-PRESENT Rafael Curi. All rights reserved."
+    "copyright": "© {year} Rafael Curi. Built with Nuxt, three.js and a lot of coffee."
   },
   "pt": {
-    "copyright": "© {year}-PRESENT Rafael Curi. Todos os direitos reservados."
+    "copyright": "© {year} Rafael Curi. Feito com Nuxt, three.js e muito café."
   }
 }
 </i18n>

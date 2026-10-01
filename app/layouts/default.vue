@@ -1,15 +1,28 @@
+<script setup lang="ts">
+  const { t } = useI18n({ useScope: 'local' })
+</script>
+
 <template>
-  <Header />
-  <UMain class="min-h-screen bg-zinc-950">
-    <div class="pointer-events-none fixed inset-0 -z-10 bg-zinc-950">
-      <div
-        class="absolute inset-0 bg-[linear-gradient(rgba(34,211,238,0.1)_1px,transparent_1px),linear-gradient(90deg,rgba(236,72,153,0.08)_1px,transparent_1px)] bg-size-[48px_48px]" />
-      <div
-        class="absolute inset-x-0 top-0 h-1 bg-[linear-gradient(90deg,#22d3ee,#facc15,#ec4899,#a3e635)]" />
-      <div
-        class="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_0%,rgba(9,9,11,0.82)_74%)]" />
-    </div>
-    <slot />
-  </UMain>
-  <Footer />
+  <MotionConfig reduced-motion="user">
+    <TooltipProvider>
+      <a
+        href="#main"
+        class="sr-only z-70 rounded-full bg-fg px-4 py-2 text-sm text-bg focus:not-sr-only focus:fixed focus:top-3 focus:left-3">
+        {{ t('skip') }}
+      </a>
+      <Header />
+      <Scene />
+      <main id="main" class="relative z-10">
+        <slot />
+      </main>
+      <Footer />
+    </TooltipProvider>
+  </MotionConfig>
 </template>
+
+<i18n lang="json">
+{
+  "en": { "skip": "Skip to content" },
+  "pt": { "skip": "Pular para o conteúdo" }
+}
+</i18n>

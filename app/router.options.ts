@@ -1,36 +1,35 @@
-/* oxlint-disable no-restricted-globals, typescript/no-explicit-any avoid-new explicit-function-return-type */
 import type { RouterConfig } from '@nuxt/schema'
+import type { RouteLocationNormalized, RouterScrollBehavior } from 'vue-router'
+import { START_LOCATION } from 'vue-router'
 
-export default {
-  scrollBehavior(to, from, savedPosition) {
-    const nuxtApp = useNuxtApp()
+type ScrollPosition = Awaited<ReturnType<RouterScrollBehavior>>
 
-    if (savedPosition) {
-      return new Promise((resolve) => {
-        nuxtApp.hooks.hookOnce('page:finish', () => {
-          setTimeout(() => {
-            resolve(savedPosition)
-          }, 50)
-        })
-      })
+function positionFor(to: RouteLocationNormalized, behavior: ScrollBehavior): ScrollPosition {
+  if (to.hash) return { el: to.hash, behavior }
+  return { left: 0, top: 0, behavior: 'instant' }
+}
+
+async function nextPageFinish(): Promise<void> {
+  const finished = ref(false)
+  useNuxtApp().hooks.hookOnce('page:finish', () => {
+    finished.value = true
+  })
+  await until(finished).toBe(true)
+  await nextTick()
+}
+
+const routerOptions: RouterConfig = {
+  async scrollBehavior(to, from) {
+    if (from === START_LOCATION) return positionFor(to, 'instant')
+    if (to.path === from.path) {
+      if (to.hash) return positionFor(to, 'smooth')
+      return from.hash ? { left: 0, top: 0, behavior: 'smooth' } : false
     }
-
-    if (to.hash) {
-      setTimeout(() => {
-        let heading = document.querySelector(`[id="${to.hash.replace('#', '')}"]`)
-        heading ??= document.querySelector(`[href$="${to.hash}"]`)
-        if (!heading || !('offsetTop' in heading) || typeof heading.offsetTop !== 'number') return
-        window.scrollTo({ top: heading.offsetTop, behavior: 'smooth' })
-      })
-
-      return false
-    }
-
-    if (from.path !== to.path) {
-      window.scrollTo({ top: 0, behavior: 'smooth' })
-      return false
-    }
-
-    return { top: 0 }
+    if (!to.hash) return false
+    await nextPageFinish()
+    requestAnimationFrame(sceneRouteScrolled)
+    return positionFor(to, 'instant')
   },
-} satisfies RouterConfig
+}
+
+export default routerOptions

@@ -1,32 +1,24 @@
 <script setup lang="ts">
-  defineProps({
+  const props = defineProps({
     title: { type: String, default: 'Rafael Curi' },
     description: { type: String, default: 'Full Stack Developer' },
   })
 </script>
 
 <template>
-  <div class="flex h-full w-full bg-zinc-950 p-12">
-    <div
-      class="flex h-full w-full flex-col justify-center border-4 border-solid border-cyan-200 bg-black p-14">
-      <div
-        class="flex self-start bg-yellow-300 px-4 py-2 text-[22px] font-bold tracking-[0.15em] text-black uppercase">
-        Rafael Curi
+  <div class="flex h-full w-full flex-col justify-between bg-[#f5f5f7] p-16 text-[#1d1d1f]">
+    <div class="flex items-center">
+      <div class="flex h-4 w-4 rounded-full bg-[#2553f5]" />
+      <div class="ml-4 flex text-[28px] font-semibold">Rafael Curi</div>
+    </div>
+    <div class="flex flex-col">
+      <div class="flex text-[96px] leading-none font-semibold tracking-tight">
+        {{ props.title }}
       </div>
-      <div class="mt-8 flex text-[64px] leading-tight font-bold text-white uppercase">
-        {{ title }}
-      </div>
-      <div
-        class="mt-8 flex border-l-4 border-solid border-pink-400 pl-5 text-[28px] leading-snug text-cyan-100">
-        {{ description }}
-      </div>
-      <div class="mt-10 flex items-center gap-4">
-        <div class="flex bg-cyan-300" style="width: 20px; height: 20px" />
-        <div class="flex bg-yellow-300" style="width: 20px; height: 20px" />
-        <div class="flex bg-pink-400" style="width: 20px; height: 20px" />
-        <div class="flex bg-lime-300" style="width: 20px; height: 20px" />
-        <div class="ml-2 flex text-[22px] font-bold text-zinc-400 uppercase">curi.dev.br</div>
+      <div class="mt-6 flex max-w-225 text-[32px] leading-snug text-[#6e6e73]">
+        {{ props.description }}
       </div>
     </div>
+    <div class="flex text-[22px] tracking-widest text-[#6e6e73] uppercase">curi.dev.br</div>
   </div>
 </template>

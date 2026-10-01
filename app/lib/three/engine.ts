@@ -1,26 +1,20 @@
 import type { BufferGeometry, Material, Object3D } from 'three'
 import {
   Color,
-  DirectionalLight,
   MathUtils,
   Mesh,
-  NeutralToneMapping,
-  PMREMGenerator,
   PerspectiveCamera,
   Points,
   Raycaster,
-  SRGBColorSpace,
-  Scene,
   Texture,
   Vector2,
-  WebGLRenderer,
 } from 'three'
-import { RoomEnvironment } from 'three/addons/environments/RoomEnvironment.js'
 
 import type { Mood, SceneState, Tone } from '~/composables/useScene'
 
 import type { Bot } from './bot'
 import { createBot } from './bot'
+import { RenderLayer } from './layer'
 import { GLOW, WARN } from './materials'
 import { Spring } from './spring'
 import type { Orbits, Stack } from './world'
@@ -43,6 +37,11 @@ const CHANNELS = [
 
 type Channel = (typeof CHANNELS)[number]
 type Channels<T> = Record<Channel, T>
+
+interface SceneCanvases {
+  front: HTMLCanvasElement
+  back: HTMLCanvasElement
+}
 
 interface FrameInput {
   target: SceneState
@@ -136,13 +135,9 @@ function disposeObject(object: Object3D): void {
 }
 
 class SceneEngine {
-  private readonly renderer: WebGLRenderer
-  private readonly scene = new Scene()
+  private readonly front: RenderLayer
+  private readonly back: RenderLayer
   private readonly camera = new PerspectiveCamera(FOV, 1, 0.1, 100)
-  private readonly pmrem: PMREMGenerator
-  private readonly environment: Texture
-  private readonly key = new DirectionalLight('#ffffff', 1.4)
-  private readonly rim = new DirectionalLight(GLOW, 0)
   private readonly bot: Bot = createBot()
   private readonly orbits: Orbits
   private readonly stack: Stack = createStack()
@@ -164,36 +159,23 @@ class SceneEngine {
   private blinkT = -1
   private spinT = -1
 
-  constructor(canvas: HTMLCanvasElement, initial: SceneState, orbitCounts: number[]) {
-    this.renderer = new WebGLRenderer({
-      canvas,
-      antialias: true,
-      alpha: true,
-      powerPreference: 'high-performance',
-    })
-    this.renderer.setClearColor('#000000', 0)
-    this.renderer.outputColorSpace = SRGBColorSpace
-    this.renderer.toneMapping = NeutralToneMapping
-    this.renderer.toneMappingExposure = 1.05
-
-    this.pmrem = new PMREMGenerator(this.renderer)
-    this.environment = this.pmrem.fromScene(new RoomEnvironment(), 0.04).texture
-    this.scene.environment = this.environment
-
+  constructor(canvases: SceneCanvases, initial: SceneState, orbitCounts: number[]) {
+    this.front = new RenderLayer(canvases.front)
+    this.back = new RenderLayer(canvases.back)
     this.camera.position.set(0, 0, CAMERA_Z)
-    this.key.position.set(-4, 6, 7)
-    this.rim.position.set(4, 3, -6)
 
     this.orbits = createOrbits(orbitCounts)
     this.bot.root.add(this.orbits.group)
-    this.scene.add(this.key, this.rim, this.dust, this.stack.group, this.bot.root)
+    this.front.add(this.bot.root)
+    this.back.add(this.dust, this.stack.group)
 
     this.springs = springsOf(channelsOf(initial))
   }
 
   resize(width: number, height: number, dpr: number): void {
-    this.renderer.setPixelRatio(Math.min(dpr, width < 768 ? 1.5 : 1.75))
-    this.renderer.setSize(width, height, false)
+    const pixelRatio = Math.min(dpr, width < 768 ? 1.5 : 1.75)
+    this.front.resize(width, height, pixelRatio)
+    this.back.resize(width, height, pixelRatio)
     this.camera.aspect = width / height
     this.camera.updateProjectionMatrix()
     const visibleHeight = 2 * Math.tan(MathUtils.degToRad(FOV / 2)) * CAMERA_Z
@@ -232,14 +214,13 @@ class SceneEngine {
     this.placeStack()
     this.light(dt, expression.dark, input)
 
-    this.renderer.render(this.scene, this.camera)
+    this.front.render(this.camera)
+    this.back.render(this.camera, this.stack.group.visible || this.dust.visible)
   }
 
   dispose(): void {
-    this.scene.traverse(disposeObject)
-    this.environment.dispose()
-    this.pmrem.dispose()
-    this.renderer.dispose()
+    this.front.dispose(disposeObject)
+    this.back.dispose(disposeObject)
   }
 
   private get scale(): number {
@@ -255,14 +236,14 @@ class SceneEngine {
   }
 
   private light(dt: number, dark: number, input: FrameInput): void {
-    const { dust, key, rim, scene, camera } = this
+    const { dust, camera } = this
     dust.material.opacity = dark * 0.6
+    dust.visible = dust.material.opacity > 0.01
     dust.rotation.y += dt * 0.012
     dust.position.y = Math.sin(this.time * 0.12) * 0.25
 
-    key.intensity = 1.5 - dark * 0.45
-    rim.intensity = dark * 3.4
-    scene.environmentIntensity = 1 - dark * 0.45
+    this.front.light(dark)
+    this.back.light(dark)
 
     const pointer = input.pointer && !input.reducedMotion ? input.pointer : { x: 0, y: 0 }
     camera.position.x = this.camX.step(pointer.x * 0.3, dt, 3)
@@ -413,5 +394,5 @@ class SceneEngine {
   }
 }
 
-export type { FrameInput }
+export type { FrameInput, SceneCanvases }
 export { SceneEngine }

@@ -2,11 +2,12 @@
   import type { SceneDestination, SceneState, Tone } from '~/composables/useScene'
   import { orbits, ringOf } from '~/data/content'
   import { direct } from '~/lib/three/director'
-  import type { SceneEngine } from '~/lib/three/engine'
+  import type { SceneCanvases, SceneEngine } from '~/lib/three/engine'
 
   const INTERACTIVE = 'a, button, input, label, [role="button"], [role="dialog"]'
 
-  const canvas = useTemplateRef<HTMLCanvasElement>('canvas')
+  const frontCanvas = useTemplateRef<HTMLCanvasElement>('front')
+  const backCanvas = useTemplateRef<HTMLCanvasElement>('back')
   const ready = ref(false)
   const reducedMotion = usePreferredReducedMotion()
   const isMobile = useMediaQuery('(max-width: 767px)')
@@ -127,11 +128,11 @@
     return document.createElement('canvas').getContext('webgl2') !== null
   }
 
-  async function createEngine(element: HTMLCanvasElement): Promise<SceneEngine | null> {
+  async function createEngine(canvases: SceneCanvases): Promise<SceneEngine | null> {
     try {
       const { SceneEngine } = await import('~/lib/three/engine')
       const electronsPerRing = orbits.map((_, index) => orbits[ringOf(index)]?.tools.length ?? 0)
-      return new SceneEngine(element, target, electronsPerRing)
+      return new SceneEngine(canvases, target, electronsPerRing)
     } catch (error) {
       console.error('3D scene unavailable, continuing without it.', error)
       return null
@@ -141,8 +142,9 @@
   onMounted(async () => {
     update()
     if (!supportsWebGL()) return
-    const element = await until(canvas).toBeTruthy()
-    engine = await createEngine(element)
+    const front = await until(frontCanvas).toBeTruthy()
+    const back = await until(backCanvas).toBeTruthy()
+    engine = await createEngine({ front, back })
     if (!engine) return
     engine.resize(width.value, height.value, pixelRatio.value)
     if (visibility.value === 'visible') resume()
@@ -156,9 +158,14 @@
 </script>
 
 <template>
-  <canvas
-    ref="canvas"
-    class="scene-canvas pointer-events-none fixed inset-0 z-40 h-dvh w-full"
-    :data-ready="ready"
-    aria-hidden="true" />
+  <div aria-hidden="true">
+    <canvas
+      ref="back"
+      class="scene-canvas pointer-events-none fixed inset-0 z-0 h-dvh w-full"
+      :data-ready="ready" />
+    <canvas
+      ref="front"
+      class="scene-canvas pointer-events-none fixed inset-0 z-40 h-dvh w-full"
+      :data-ready="ready" />
+  </div>
 </template>

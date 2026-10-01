@@ -22,21 +22,23 @@
     type="single"
     :model-value="model"
     :aria-label="props.label"
-    class="inline-flex rounded-full bg-surface-2 p-1"
+    class="flex w-full rounded-full bg-surface-2 p-1 sm:inline-flex sm:w-auto"
     @update:model-value="select">
     <ToggleGroupItem
       v-for="option in props.options"
       :key="option.value"
       :value="option.value"
-      class="relative h-9 rounded-full px-4 text-[0.8125rem] font-medium text-muted transition-colors duration-200 data-[state=on]:text-fg">
+      class="relative h-9 flex-auto rounded-full px-1.5 text-[0.75rem] font-medium whitespace-nowrap text-muted transition-colors duration-200 data-[state=on]:text-fg sm:flex-none sm:px-4 sm:text-[0.8125rem]">
       <Motion
         v-if="model === option.value"
         :layout-id="`segment-${group}`"
         class="absolute inset-0 rounded-full bg-surface shadow-[0_1px_3px_rgb(0_0_0/0.12)]"
         :transition="{ type: 'spring', bounce: 0.15, duration: 0.45 }" />
-      <span class="relative flex items-center gap-1.5">
+      <span class="relative flex items-center justify-center gap-1.5">
         {{ option.label }}
-        <span v-if="option.count !== undefined" class="font-mono text-micro opacity-60">
+        <span
+          v-if="option.count !== undefined"
+          class="hidden font-mono text-micro opacity-60 sm:inline">
           {{ option.count }}
         </span>
       </span>

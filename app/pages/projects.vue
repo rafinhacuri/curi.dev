@@ -47,7 +47,7 @@
       </div>
 
       <LayoutGroup>
-        <ul class="mt-4 grid gap-x-10 md:grid-cols-2 lg:grid-cols-3">
+        <ul class="mt-4 grid grid-cols-1 gap-x-10 md:grid-cols-2 lg:grid-cols-3">
           <AnimatePresence mode="popLayout" :initial="false">
             <Motion
               v-for="(project, index) in visible"

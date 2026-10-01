@@ -61,9 +61,7 @@
     <section ref="list" class="mx-auto min-h-dvh max-w-7xl px-5 pb-32 sm:px-8">
       <div
         class="sticky top-12 z-20 -mx-5 flex flex-col gap-3 glass px-5 py-3 sm:-mx-8 sm:flex-row sm:items-center sm:justify-between sm:px-8">
-        <div class="-mx-5 no-scrollbar overflow-x-auto px-5 sm:mx-0 sm:px-0">
-          <Segmented v-model="track" :options="options" :label="t('filter')" />
-        </div>
+        <Segmented v-model="track" :options="options" :label="t('filter')" />
         <label class="relative block sm:w-72">
           <span class="sr-only">{{ t('search') }}</span>
           <Icon
@@ -82,7 +80,7 @@
       </p>
 
       <LayoutGroup>
-        <ul class="mt-5 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+        <ul class="mt-5 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
           <AnimatePresence mode="popLayout" :initial="false">
             <Motion
               v-for="(certificate, index) in visible"

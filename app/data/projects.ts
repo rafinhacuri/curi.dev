@@ -49,6 +49,18 @@ const projects: Project[] = [
     contributors: [gabriel],
   },
   {
+    slug: 'klasse',
+    name: 'Klasse Cervejaria',
+    summary: {
+      en: 'Website for Klasse craft brewery',
+      pt: 'Site da cervejaria artesanal Klasse',
+    },
+    icon: 'ph:beer-stein',
+    href: 'https://klasse-cervejaria-kappa.vercel.app/',
+    team: false,
+    tint: ['#f4b52a', '#1a0d04'],
+  },
+  {
     slug: 'id-cbpf',
     name: 'ID CBPF',
     summary: { en: 'CBPF identity management', pt: 'Gestão de identidade do CBPF' },
